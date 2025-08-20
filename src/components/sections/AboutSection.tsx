@@ -1,17 +1,37 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Download, ExternalLink } from 'lucide-react';
 import { SITE_CONFIG } from '@/utils/constants';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { fadeInUp, fadeInLeft, fadeInRight } from '@/utils/animations';
+import { fadeInUp, fadeInLeft, fadeInRight, floating3D, parallax, glowPulse } from '@/utils/animations';
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  
+  // Parallax effect
+  const { scrollYProgress } = useScroll();
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <section id="about" className="py-20 gradient-bg-card dark:gradient-bg-card-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 gradient-bg-card dark:gradient-bg-card-dark relative overflow-hidden">
+      {/* Background elements com parallax */}
+      <motion.div
+        style={{ y: y1 }}
+        className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-full blur-2xl"
+      />
+      <motion.div
+        style={{ y: y2 }}
+        className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl"
+      />
+      <motion.div
+        style={{ y: y3 }}
+        className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-br from-pink-400/20 to-rose-500/20 rounded-full blur-xl"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           variants={fadeInUp}
@@ -26,7 +46,7 @@ const AboutSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Photo/Avatar */}
+          {/* Photo/Avatar com efeitos 3D avançados */}
           <motion.div
             variants={fadeInLeft}
             initial="initial"
@@ -34,11 +54,29 @@ const AboutSection = () => {
             className="relative"
           >
             <div className="relative w-80 h-80 mx-auto">
-              {/* Background decoration */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-cyan-500 rounded-full transform rotate-6 scale-110 opacity-20 animate-pulse"></div>
+              {/* Background decoration com morphing */}
+              <motion.div
+                variants={glowPulse}
+                initial="initial"
+                animate={isVisible ? "animate" : "initial"}
+                className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-cyan-500 rounded-full transform rotate-6 scale-110 opacity-20"
+              />
               
-              {/* Main photo */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl hover:shadow-accent transition-all duration-300">
+              {/* Main photo com efeito 3D */}
+              <motion.div
+                whileHover={{ 
+                  rotateY: 5, 
+                  rotateX: -5, 
+                  scale: 1.05,
+                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+                }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl hover:shadow-accent transition-all duration-300"
+                style={{
+                  transformStyle: "preserve-3d",
+                  perspective: "1000px"
+                }}
+              >
                 <img
                   src={SITE_CONFIG.images.profile}
                   alt="Leonardo - Backend Engineer"
@@ -54,68 +92,45 @@ const AboutSection = () => {
                 <div className="hidden w-full h-full bg-gradient-to-br from-gray-200 via-blue-200 to-purple-200 dark:from-gray-700 dark:via-blue-700 dark:to-purple-700 flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl font-bold">
                   L
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Floating elements */}
+              {/* Floating elements com animações 3D */}
               <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                  rotate: [0, 5, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-primary"
+                variants={floating3D}
+                initial="initial"
+                animate={isVisible ? "animate" : "initial"}
+                className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-primary cursor-pointer"
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                transition={{ duration: 0.3 }}
               >
                 🚀
               </motion.div>
               
               <motion.div
-                animate={{
-                  y: [0, 10, 0],
-                  rotate: [0, -5, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-accent"
+                variants={floating3D}
+                initial="initial"
+                animate={isVisible ? "animate" : "initial"}
+                transition={{ delay: 0.5 }}
+                className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-accent cursor-pointer"
+                whileHover={{ scale: 1.2, rotate: -360 }}
+                transition={{ duration: 0.3 }}
               >
                 ⚡
               </motion.div>
 
-              {/* Additional floating elements */}
+              {/* Additional floating elements com parallax */}
               <motion.div
-                animate={{
-                  y: [0, -15, 0],
-                  rotate: [0, 10, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute top-1/2 -left-8 w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-success"
+                style={{ y: y1 }}
+                className="absolute top-1/4 -left-8 w-8 h-8 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg"
               >
-                💡
+                💻
               </motion.div>
-
+              
               <motion.div
-                animate={{
-                  y: [0, 15, 0],
-                  rotate: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute top-1/2 -right-8 w-8 h-8 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-rose"
+                style={{ y: y2 }}
+                className="absolute bottom-1/4 -right-6 w-10 h-10 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg"
               >
-                🎯
+                🔥
               </motion.div>
             </div>
           </motion.div>

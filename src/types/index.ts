@@ -16,7 +16,8 @@ export interface Skill {
   name: string;
   icon: string;
   level: 'Avançado' | 'Intermediário' | 'Básico';
-  category: 'Frontend' | 'Backend' | 'DevOps' | 'Database' | 'Tools';
+  category: 'Frontend' | 'Backend' | 'DevOps' | 'Database' | 'Tools' | 'Integrations' | 'Testing' | 'Management';
+  description: string;
 }
 
 export interface Experience {

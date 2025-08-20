@@ -1,13 +1,20 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { skills } from '@/data/skills';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { fadeInUp, staggerContainer } from '@/utils/animations';
+import { fadeInUp, staggerContainer, glowPulse, floating3D } from '@/utils/animations';
 import { getTechIcon } from '@/utils/techIcons';
+import { useEffect, useState } from 'react';
 
 const SkillsSection = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  
+  // Parallax effect
+  const { scrollYProgress } = useScroll();
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const getLevelColor = (level: string) => {
     switch (level) {
@@ -32,6 +39,12 @@ const SkillsSection = () => {
         return '🗄️';
       case 'DevOps':
         return '🚀';
+      case 'Integrations':
+        return '🔗';
+      case 'Testing':
+        return '🧪';
+      case 'Management':
+        return '📊';
       case 'Tools':
         return '🛠️';
       default:
@@ -49,6 +62,12 @@ const SkillsSection = () => {
         return 'from-green-500 to-emerald-500';
       case 'DevOps':
         return 'from-purple-500 to-violet-500';
+      case 'Integrations':
+        return 'from-indigo-500 to-blue-500';
+      case 'Testing':
+        return 'from-orange-500 to-red-500';
+      case 'Management':
+        return 'from-teal-500 to-green-500';
       case 'Tools':
         return 'from-yellow-500 to-orange-500';
       default:
@@ -59,8 +78,18 @@ const SkillsSection = () => {
   const categories = Array.from(new Set(skills.map(skill => skill.category)));
 
   return (
-    <section id="skills" className="py-20 gradient-bg-card dark:gradient-bg-card-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 gradient-bg-card dark:gradient-bg-card-dark relative overflow-hidden">
+      {/* Background elements com parallax */}
+      <motion.div
+        style={{ y: y1 }}
+        className="absolute top-10 left-20 w-40 h-40 bg-gradient-to-br from-blue-400/10 to-purple-500/10 rounded-full blur-3xl"
+      />
+      <motion.div
+        style={{ y: y2 }}
+        className="absolute bottom-10 right-20 w-32 h-32 bg-gradient-to-br from-cyan-400/10 to-green-500/10 rounded-full blur-3xl"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           variants={fadeInUp}
@@ -78,7 +107,7 @@ const SkillsSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 mx-auto rounded-full mt-6 shadow-lg"></div>
         </motion.div>
 
-        {/* Skills by Category */}
+        {/* Skills by Category com efeitos de partículas */}
         <motion.div
           variants={staggerContainer}
           initial="initial"
@@ -92,107 +121,167 @@ const SkillsSection = () => {
               initial="initial"
               animate={isVisible ? "animate" : "animate"}
               transition={{ delay: categoryIndex * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600"
+              className="relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600 group"
+              whileHover={{ 
+                scale: 1.02, 
+                y: -5,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
+              }}
             >
-              <div className="flex items-center mb-8">
-                <div className={`w-12 h-12 bg-gradient-to-r ${getCategoryColor(category)} rounded-xl flex items-center justify-center mr-4 shadow-lg`}>
-                  <span className="text-2xl">{getCategoryIcon(category)}</span>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  {category}
-                </h3>
+              {/* Partículas orbitais */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+                <motion.div
+                  animate={{
+                    rotate: [0, 360],
+                  }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute top-1/2 left-1/2 w-32 h-32 border border-blue-400/20 rounded-full"
+                  style={{
+                    transform: "translate(-50%, -50%)"
+                  }}
+                >
+                  <motion.div
+                    animate={{
+                      rotate: [360, 0],
+                    }}
+                    transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                    className="absolute top-0 left-1/2 w-2 h-2 bg-blue-400 rounded-full"
+                    style={{
+                      transform: "translate(-50%, -50%)"
+                    }}
+                  />
+                </motion.div>
+                
+                <motion.div
+                  animate={{
+                    rotate: [360, 0],
+                  }}
+                  transition={{
+                    duration: 15,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute top-1/2 left-1/2 w-24 h-24 border border-purple-400/20 rounded-full"
+                  style={{
+                    transform: "translate(-50%, -50%)"
+                  }}
+                >
+                  <motion.div
+                    animate={{
+                      rotate: [0, 360],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                    className="absolute bottom-0 right-1/2 w-1.5 h-1.5 bg-purple-400 rounded-full"
+                    style={{
+                      transform: "translate(50%, 50%)"
+                    }}
+                  />
+                </motion.div>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="flex items-center mb-8 relative z-10">
+                <motion.div 
+                  className={`w-12 h-12 bg-gradient-to-r ${getCategoryColor(category)} rounded-xl flex items-center justify-center mr-4 shadow-lg`}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="text-2xl">{getCategoryIcon(category)}</span>
+                </motion.div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{category}</h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
                 {skills
                   .filter(skill => skill.category === category)
                   .map((skill, skillIndex) => (
                     <motion.div
-                      key={skill.id || skill.name}
-                      variants={fadeInUp}
-                      initial="initial"
-                      animate={isVisible ? "animate" : "initial"}
-                      transition={{ delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-                      whileHover={{ 
-                        scale: 1.05,
-                        y: -5,
-                      }}
-                      className="group relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600 hover:border-purple-300 dark:hover:border-purple-600"
+                      key={skill.name}
+                      className="relative group/skill"
+                      whileHover={{ scale: 1.05 }}
+                      onHoverStart={() => setHoveredSkill(skill.name)}
+                      onHoverEnd={() => setHoveredSkill(null)}
                     >
-                      {/* Skill Icon/Logo */}
-                      <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <img
-                          src={getTechIcon(skill.icon)}
-                          alt={skill.name}
-                          className="w-8 h-8 object-contain"
-                          onError={(e) => {
-                            // Fallback para ícone genérico se a imagem não carregar
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            target.nextElementSibling?.classList.remove('hidden');
-                          }}
+                      {/* Efeito de energia ao hover */}
+                      {hoveredSkill === skill.name && (
+                        <motion.div
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0, opacity: 0 }}
+                          className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-sm"
                         />
-                        {/* Fallback icon */}
-                        <span className="hidden text-3xl text-gray-500">💻</span>
-                      </div>
-
-                      {/* Skill Name */}
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">
-                        {skill.name}
-                      </h4>
-
-                      {/* Skill Level */}
-                      <div className="mb-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(skill.level)}`}>
-                          {skill.level}
-                        </span>
-                      </div>
-
-                      {/* Skill Description */}
-                      {skill.description && (
-                        <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
-                          {skill.description}
-                        </p>
                       )}
 
-                      {/* Hover Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                      <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300" style={{ minHeight: '140px' }}>
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-8 h-8 bg-gray-200 dark:bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                              <img
+                                src={getTechIcon(skill.icon)}
+                                alt={skill.name}
+                                className="w-5 h-5 object-contain"
+                                onError={(e) => {
+                                  // Fallback para ícone genérico se a imagem não carregar
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                  target.nextElementSibling?.classList.remove('hidden');
+                                }}
+                              />
+                              {/* Fallback icon */}
+                              <span className="hidden text-lg text-gray-500">💻</span>
+                            </div>
+                            <span className="font-semibold text-gray-900 dark:text-white text-sm truncate">
+                              {skill.name}
+                            </span>
+                          </div>
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(skill.level)} flex-shrink-0`}>
+                            {skill.level}
+                          </span>
+                        </div>
+                        
+                        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-3 line-clamp-2">
+                          {skill.description}
+                        </p>
+
+                        {/* Barra de progresso animada */}
+                        <div className="mt-auto">
+                          <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ 
+                                width: skill.level === 'Avançado' ? '90%' : 
+                                       skill.level === 'Intermediário' ? '65%' : '40%' 
+                              }}
+                              transition={{ 
+                                duration: 1, 
+                                delay: skillIndex * 0.1,
+                                ease: "easeOut"
+                              }}
+                              className={`h-2 rounded-full ${
+                                skill.level === 'Avançado' ? 'bg-gradient-to-r from-green-500 to-emerald-600' :
+                                skill.level === 'Intermediário' ? 'bg-gradient-to-r from-yellow-500 to-orange-500' :
+                                'bg-gradient-to-r from-blue-500 to-cyan-600'
+                              }`}
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
                   ))}
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Additional Info */}
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          animate={isVisible ? "animate" : "initial"}
-          transition={{ delay: 0.5 }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-700">
-            <h3 className="text-2xl font-bold gradient-text-accent mb-4">
-              Aprendizado Contínuo
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Comprometido com evolução constante, participo ativamente de conferências, meetups e cursos 
-              para manter-me atualizado com as melhores práticas da indústria e expandir meu conhecimento 
-              em segurança, microsserviços e arquiteturas modernas.
-            </p>
-            <div className="mt-6 flex justify-center space-x-4">
-              <span className="px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium">
-                🎓 Formação acadêmica sólida
-              </span>
-              <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
-                🔒 Especialização em segurança
-              </span>
-              <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">
-                🚀 Atualização constante
-              </span>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

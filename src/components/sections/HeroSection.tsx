@@ -1,12 +1,60 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ChevronDown, Download, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '@/utils/constants';
 import Button from '@/components/ui/Button';
 import { fadeInUp, fadeInLeft, fadeInRight, slideInFromTop } from '@/utils/animations';
+import { useEffect, useState } from 'react';
 
 const HeroSection = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; vx: number; vy: number; life: number }>>([]);
+
+  // Mouse tracking para partículas interativas
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      
+      mouseX.set(clientX - centerX);
+      mouseY.set(clientY - centerY);
+      setMousePosition({ x: clientX, y: clientY });
+
+      // Criar partículas ao mover o mouse
+      if (Math.random() > 0.7) {
+        createParticle(clientX, clientY);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  const createParticle = (x: number, y: number) => {
+    const newParticle = {
+      id: Date.now() + Math.random(),
+      x: x,
+      y: y,
+      vx: (Math.random() - 0.5) * 2,
+      vy: (Math.random() - 0.5) * 2,
+      life: 1
+    };
+    
+    setParticles(prev => [...prev, newParticle]);
+    
+    // Remover partícula após 2 segundos
+    setTimeout(() => {
+      setParticles(prev => prev.filter(p => p.id !== newParticle.id));
+    }, 2000);
+  };
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -16,7 +64,33 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-bg-hero dark:gradient-bg-hero-dark">
-      {/* Background Animation com cores mais vibrantes */}
+      {/* Sistema de Partículas Interativas */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {particles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className="absolute w-1 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-80"
+            initial={{ 
+              x: particle.x, 
+              y: particle.y, 
+              scale: 0,
+              opacity: 0.8 
+            }}
+            animate={{
+              x: particle.x + particle.vx * 100,
+              y: particle.y + particle.vy * 100,
+              scale: [0, 1, 0],
+              opacity: [0.8, 0.4, 0]
+            }}
+            transition={{
+              duration: 2,
+              ease: "easeOut"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Background Animation com cores mais vibrantes e interatividade */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{
@@ -27,6 +101,10 @@ const HeroSection = () => {
             duration: 20,
             repeat: Infinity,
             ease: "linear"
+          }}
+          style={{
+            x: useTransform(springX, [-300, 300], [-20, 20]),
+            y: useTransform(springY, [-300, 300], [-20, 20])
           }}
           className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-600 dark:from-blue-500 dark:via-cyan-500 dark:to-blue-700 rounded-full mix-blend-multiply filter blur-xl opacity-70"
         />
@@ -40,6 +118,10 @@ const HeroSection = () => {
             repeat: Infinity,
             ease: "linear"
           }}
+          style={{
+            x: useTransform(springX, [-300, 300], [20, -20]),
+            y: useTransform(springY, [-300, 300], [20, -20])
+          }}
           className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400 via-pink-400 to-purple-600 dark:from-purple-500 dark:via-pink-500 dark:to-purple-700 rounded-full mix-blend-multiply filter blur-xl opacity-70"
         />
         <motion.div
@@ -52,10 +134,14 @@ const HeroSection = () => {
             repeat: Infinity,
             ease: "linear"
           }}
+          style={{
+            x: useTransform(springX, [-300, 300], [-15, 15]),
+            y: useTransform(springY, [-300, 300], [-15, 15])
+          }}
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-rose-400 via-pink-400 to-rose-600 dark:from-rose-500 dark:via-pink-500 dark:to-rose-700 rounded-full mix-blend-multiply filter blur-xl opacity-70"
         />
         
-        {/* Novos elementos de fundo */}
+        {/* Novos elementos de fundo com interatividade */}
         <motion.div
           animate={{
             scale: [1, 1.1, 1],
@@ -65,6 +151,10 @@ const HeroSection = () => {
             duration: 15,
             repeat: Infinity,
             ease: "easeInOut"
+          }}
+          style={{
+            x: useTransform(springX, [-300, 300], [10, -10]),
+            y: useTransform(springY, [-300, 300], [-10, 10])
           }}
           className="absolute top-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-300 to-blue-400 dark:from-cyan-400 dark:to-blue-500 rounded-full mix-blend-multiply filter blur-lg opacity-50"
         />
@@ -77,6 +167,10 @@ const HeroSection = () => {
             duration: 18,
             repeat: Infinity,
             ease: "easeInOut"
+          }}
+          style={{
+            x: useTransform(springX, [-300, 300], [-10, 10]),
+            y: useTransform(springY, [-300, 300], [10, -10])
           }}
           className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-gradient-to-br from-rose-300 to-pink-400 dark:from-rose-400 dark:to-pink-500 rounded-full mix-blend-multiply filter blur-lg opacity-50"
         />

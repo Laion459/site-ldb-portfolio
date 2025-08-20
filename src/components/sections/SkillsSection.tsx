@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { skills } from '@/data/skills';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fadeInUp, staggerContainer } from '@/utils/animations';
+import { getTechIcon } from '@/utils/techIcons';
 
 const SkillsSection = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
@@ -120,15 +121,19 @@ const SkillsSection = () => {
                     >
                       {/* Skill Icon/Logo */}
                       <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        {skill.icon ? (
-                          <img
-                            src={skill.icon}
-                            alt={skill.name}
-                            className="w-8 h-8"
-                          />
-                        ) : (
-                          <span className="text-2xl">💻</span>
-                        )}
+                        <img
+                          src={getTechIcon(skill.icon)}
+                          alt={skill.name}
+                          className="w-8 h-8 object-contain"
+                          onError={(e) => {
+                            // Fallback para ícone genérico se a imagem não carregar
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            target.nextElementSibling?.classList.remove('hidden');
+                          }}
+                        />
+                        {/* Fallback icon */}
+                        <span className="hidden text-3xl text-gray-500">💻</span>
                       </div>
 
                       {/* Skill Name */}

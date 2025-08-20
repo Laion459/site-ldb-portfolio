@@ -1,36 +1,233 @@
 @import "tailwindcss";
 
 :root {
+  /* Cores base expandidas */
   --background: #ffffff;
-  --foreground: #171717;
-  --primary: #2563eb;
+  --foreground: #0f172a;
+  
+  /* Paleta principal mais rica */
+  --primary: #3b82f6;
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
   --primary-foreground: #ffffff;
+  
+  /* Cores secundárias expandidas */
   --secondary: #64748b;
+  --secondary-50: #f8fafc;
+  --secondary-100: #f1f5f9;
+  --secondary-200: #e2e8f0;
+  --secondary-300: #cbd5e1;
+  --secondary-400: #94a3b8;
+  --secondary-500: #64748b;
+  --secondary-600: #475569;
+  --secondary-700: #334155;
+  --secondary-800: #1e293b;
+  --secondary-900: #0f172a;
   --secondary-foreground: #ffffff;
+  
+  /* Cores de destaque mais vibrantes */
   --accent: #8b5cf6;
+  --accent-50: #faf5ff;
+  --accent-100: #f3e8ff;
+  --accent-200: #e9d5ff;
+  --accent-300: #d8b4fe;
+  --accent-400: #c084fc;
+  --accent-500: #a855f7;
+  --accent-600: #9333ea;
+  --accent-700: #7c3aed;
+  --accent-800: #6b21a8;
+  --accent-900: #581c87;
   --accent-foreground: #ffffff;
-  --muted: #f1f5f9;
+  
+  /* Novas cores de destaque */
+  --success: #10b981;
+  --success-50: #ecfdf5;
+  --success-100: #d1fae5;
+  --success-200: #a7f3d0;
+  --success-300: #6ee7b7;
+  --success-400: #34d399;
+  --success-500: #10b981;
+  --success-600: #059669;
+  --success-700: #047857;
+  --success-800: #065f46;
+  --success-900: #064e3b;
+  
+  --warning: #f59e0b;
+  --warning-50: #fffbeb;
+  --warning-100: #fef3c7;
+  --warning-200: #fde68a;
+  --warning-300: #fcd34d;
+  --warning-400: #fbbf24;
+  --warning-500: #f59e0b;
+  --warning-600: #d97706;
+  --warning-700: #b45309;
+  --warning-800: #92400e;
+  --warning-900: #78350f;
+  
+  --error: #ef4444;
+  --error-50: #fef2f2;
+  --error-100: #fee2e2;
+  --error-200: #fecaca;
+  --error-300: #fca5a5;
+  --error-400: #f87171;
+  --error-500: #ef4444;
+  --error-600: #dc2626;
+  --error-700: #b91c1c;
+  --error-800: #991b1b;
+  --error-900: #7f1d1d;
+  
+  /* Cores neutras expandidas */
+  --muted: #f8fafc;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #2563eb;
+  --ring: #3b82f6;
+  
+  /* Novas cores especiais */
+  --brand: #06b6d4;
+  --brand-50: #ecfeff;
+  --brand-100: #cffafe;
+  --brand-200: #a5f3fc;
+  --brand-300: #67e8f9;
+  --brand-400: #22d3ee;
+  --brand-500: #06b6d4;
+  --brand-600: #0891b2;
+  --brand-700: #0e7490;
+  --brand-800: #155e75;
+  --brand-900: #164e63;
+  
+  --rose: #f43f5e;
+  --rose-50: #fff1f2;
+  --rose-100: #ffe4e6;
+  --rose-200: #fecdd3;
+  --rose-300: #fda4af;
+  --rose-400: #fb7185;
+  --rose-500: #f43f5e;
+  --rose-600: #e11d48;
+  --rose-700: #be123c;
+  --rose-800: #9f1239;
+  --rose-900: #881337;
+  
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f8fafc;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --secondary: #475569;
-  --secondary-foreground: #ffffff;
-  --accent: #a855f7;
-  --accent-foreground: #ffffff;
-  --muted: #1e293b;
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  
+  /* Paleta escura mais rica */
+  --primary: #60a5fa;
+  --primary-50: #0c4a6e;
+  --primary-100: #075985;
+  --primary-200: #0369a1;
+  --primary-300: #0284c7;
+  --primary-400: #0ea5e9;
+  --primary-500: #38bdf8;
+  --primary-600: #60a5fa;
+  --primary-700: #7dd3fc;
+  --primary-800: #a5f3fc;
+  --primary-900: #cffafe;
+  --primary-foreground: #0c4a6e;
+  
+  --secondary: #94a3b8;
+  --secondary-50: #020617;
+  --secondary-100: #0f172a;
+  --secondary-200: #1e293b;
+  --secondary-300: #334155;
+  --secondary-400: #475569;
+  --secondary-500: #64748b;
+  --secondary-600: #94a3b8;
+  --secondary-700: #cbd5e1;
+  --secondary-800: #e2e8f0;
+  --secondary-900: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  
+  --accent: #c084fc;
+  --accent-50: #1a0b2e;
+  --accent-100: #2d1b69;
+  --accent-200: #3c1f7e;
+  --accent-300: #4c1d95;
+  --accent-400: #5b21b6;
+  --accent-500: #7c3aed;
+  --accent-600: #9333ea;
+  --accent-700: #a855f7;
+  --accent-800: #c084fc;
+  --accent-900: #d8b4fe;
+  --accent-foreground: #1a0b2e;
+  
+  --success: #34d399;
+  --success-50: #064e3b;
+  --success-100: #065f46;
+  --success-200: #047857;
+  --success-300: #059669;
+  --success-400: #10b981;
+  --success-500: #34d399;
+  --success-600: #6ee7b7;
+  --success-700: #a7f3d0;
+  --success-800: #d1fae5;
+  --success-900: #ecfdf5;
+  
+  --warning: #fbbf24;
+  --warning-50: #78350f;
+  --warning-100: #92400e;
+  --warning-200: #b45309;
+  --warning-300: #d97706;
+  --warning-400: #f59e0b;
+  --warning-500: #fbbf24;
+  --warning-600: #fcd34d;
+  --warning-700: #fde68a;
+  --warning-800: #fef3c7;
+  --warning-900: #fffbeb;
+  
+  --error: #f87171;
+  --error-50: #7f1d1d;
+  --error-100: #991b1b;
+  --error-200: #b91c1c;
+  --error-300: #dc2626;
+  --error-400: #ef4444;
+  --error-500: #f87171;
+  --error-600: #fca5a5;
+  --error-700: #fecaca;
+  --error-800: #fee2e2;
+  --error-900: #fef2f2;
+  
+  --muted: #0a0a0a;
   --muted-foreground: #94a3b8;
-  --border: #334155;
-  --input: #334155;
-  --ring: #3b82f6;
+  --border: #1a1a1a;
+  --input: #1a1a1a;
+  --ring: #60a5fa;
+  
+  --brand: #22d3ee;
+  --brand-50: #164e63;
+  --brand-100: #155e75;
+  --brand-200: #0e7490;
+  --brand-300: #0891b2;
+  --brand-400: #06b6d4;
+  --brand-500: #22d3ee;
+  --brand-600: #67e8f9;
+  --brand-700: #a5f3fc;
+  --brand-800: #cffafe;
+  --brand-900: #ecfeff;
+  
+  --rose: #fb7185;
+  --rose-50: #881337;
+  --rose-100: #9f1239;
+  --rose-200: #be123c;
+  --rose-300: #e11d48;
+  --rose-400: #f43f5e;
+  --rose-500: #fb7185;
+  --rose-600: #fda4af;
+  --rose-700: #fecdd3;
+  --rose-800: #ffe4e6;
+  --rose-900: #fff1f2;
 }
 
 @theme inline {
@@ -47,6 +244,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-brand: var(--brand);
+  --color-rose: var(--rose);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -153,12 +355,119 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Gradient text */
+/* Gradientes personalizados expandidos */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(135deg, var(--primary), var(--accent), var(--brand));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.gradient-text-primary {
+  background: linear-gradient(135deg, var(--primary-400), var(--primary-600), var(--primary-800));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, var(--accent-400), var(--accent-600), var(--rose-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-brand {
+  background: linear-gradient(135deg, var(--brand-400), var(--brand-600), var(--primary-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradientes de fundo */
+.gradient-bg-primary {
+  background: linear-gradient(135deg, var(--primary-50), var(--primary-100), var(--primary-200));
+}
+
+.gradient-bg-accent {
+  background: linear-gradient(135deg, var(--accent-50), var(--accent-100), var(--accent-200));
+}
+
+.gradient-bg-brand {
+  background: linear-gradient(135deg, var(--brand-50), var(--brand-100), var(--brand-200));
+}
+
+.gradient-bg-hero {
+  background: linear-gradient(135deg, var(--primary-50), var(--accent-50), var(--brand-50));
+}
+
+.gradient-bg-hero-dark {
+  background: linear-gradient(135deg, var(--primary-900), var(--accent-900), var(--brand-900));
+}
+
+.gradient-bg-card {
+  background: linear-gradient(135deg, var(--muted), var(--secondary-50), var(--primary-50));
+}
+
+.gradient-bg-card-dark {
+  background: linear-gradient(135deg, var(--muted), var(--secondary-900), var(--primary-900));
+}
+
+/* Gradientes de borda */
+.gradient-border {
+  position: relative;
+  background: var(--background);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--primary), var(--accent), var(--brand));
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Efeitos de sombra coloridos */
+.shadow-primary {
+  box-shadow: 0 10px 25px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(59, 130, 246, 0.1);
+}
+
+.shadow-accent {
+  box-shadow: 0 10px 25px -3px rgba(139, 92, 246, 0.3), 0 4px 6px -2px rgba(139, 92, 246, 0.1);
+}
+
+.shadow-brand {
+  box-shadow: 0 10px 25px -3px rgba(6, 182, 212, 0.3), 0 4px 6px -2px rgba(6, 182, 212, 0.1);
+}
+
+.shadow-rose {
+  box-shadow: 0 10px 25px -3px rgba(244, 63, 94, 0.3), 0 4px 6px -2px rgba(244, 63, 94, 0.1);
+}
+
+/* Efeitos de hover expandidos */
+.hover-glow:hover {
+  box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 60px var(--primary);
+}
+
+.hover-glow-accent:hover {
+  box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 60px var(--accent);
+}
+
+.hover-glow-brand:hover {
+  box-shadow: 0 0 20px var(--brand), 0 0 40px var(--brand), 0 0 60px var(--brand);
+}
+
+/* Animações de cores */
+@keyframes colorShift {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg); }
+}
+
+.animate-color-shift {
+  animation: colorShift 8s ease-in-out infinite;
 }
 
 /* Responsive typography */

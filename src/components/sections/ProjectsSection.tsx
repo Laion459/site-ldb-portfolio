@@ -34,9 +34,9 @@ const ProjectsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text-accent mb-6">
             Projetos em Destaque
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Casos de estudo que demonstram minha capacidade de resolver problemas complexos 
-            e entregar soluções escaláveis e seguras.
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            Produtos completos e soluções reais que demonstram minha capacidade de transformar ideias em 
+            sistemas funcionais, desde a concepção até a implementação, sempre com visão de produto e foco no usuário.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mx-auto rounded-full mt-6 shadow-lg"></div>
         </motion.div>

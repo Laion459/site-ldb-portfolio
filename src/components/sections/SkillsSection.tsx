@@ -70,8 +70,9 @@ const SkillsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text-brand mb-6">
             Habilidades Técnicas
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Tecnologias e ferramentas que domino para criar soluções robustas e escaláveis.
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            Stack tecnológico completo para desenvolvimento Full Stack, desde backend robusto com Laravel até 
+            frontend moderno com React, sempre aliado a ferramentas de gestão de projetos e qualidade de código.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 mx-auto rounded-full mt-6 shadow-lg"></div>
         </motion.div>
@@ -168,21 +169,22 @@ const SkillsSection = () => {
         >
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-700">
             <h3 className="text-2xl font-bold gradient-text-accent mb-4">
-              Sempre Aprendendo
+              Aprendizado Contínuo
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Estou constantemente explorando novas tecnologias e metodologias para manter-me atualizado 
-              com as melhores práticas da indústria e entregar soluções de ponta.
+            <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Comprometido com evolução constante, participo ativamente de conferências, meetups e cursos 
+              para manter-me atualizado com as melhores práticas da indústria e expandir meu conhecimento 
+              em segurança, microsserviços e arquiteturas modernas.
             </p>
             <div className="mt-6 flex justify-center space-x-4">
               <span className="px-4 py-2 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium">
-                🚀 Em constante evolução
+                🎓 Formação acadêmica sólida
               </span>
               <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
-                📚 Aprendizado contínuo
+                🔒 Especialização em segurança
               </span>
               <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">
-                💡 Inovação constante
+                🚀 Atualização constante
               </span>
             </div>
           </div>

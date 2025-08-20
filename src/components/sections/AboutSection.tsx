@@ -129,68 +129,67 @@ const AboutSection = () => {
           >
             <div className="space-y-4">
               <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
-                Olá! Sou <span className="gradient-text-accent">Leonardo</span> 👋
+                Olá! Sou <span className="gradient-text-accent">Leonardo D. Borges</span> 👋
               </h3>
               
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                Sou um <strong className="text-purple-600 dark:text-purple-400">Backend Engineer</strong> apaixonado por criar 
-                soluções robustas e escaláveis. Com experiência em desenvolvimento de APIs de alta performance, 
-                arquitetura de sistemas distribuídos e implementação de práticas de DevOps.
+                Sou um <strong className="text-purple-600 dark:text-purple-400">Desenvolvedor Full Stack</strong> e <strong className="text-blue-600 dark:text-blue-400">Product Manager</strong> apaixonado por criar 
+                soluções completas que resolvem problemas reais. Com base sólida em <strong className="text-green-600 dark:text-green-400">C, C++ e Java</strong>, 
+                evolui para <strong className="text-purple-600 dark:text-purple-400">Laravel</strong> e desenvolvimento Full Stack.
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                Minha jornada na tecnologia começou há mais de 5 anos, e desde então tenho trabalhado em projetos 
-                desafiadores que me permitiram desenvolver expertise em <strong className="text-blue-600 dark:text-blue-400">Node.js</strong>, 
-                <strong className="text-green-600 dark:text-green-400"> Python</strong>, <strong className="text-cyan-600 dark:text-cyan-400">Go</strong> e 
-                <strong className="text-purple-600 dark:text-purple-400"> arquiteturas cloud-native</strong>.
+                Minha jornada na tecnologia começou com <strong className="text-cyan-600 dark:text-cyan-400">Bacharelado em Ciência da Computação</strong> na UNIVALI, 
+                onde desenvolvi interesse por <strong className="text-rose-600 dark:text-rose-400">segurança da informação, computação forense e pentest</strong>. 
+                Atualmente, atuo paralelamente como desenvolvedor e Product Manager, aplicando visão de dono em cada projeto.
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                Acredito que a tecnologia deve resolver problemas reais e melhorar a vida das pessoas. 
-                Por isso, foco em criar soluções que não apenas funcionem, mas que sejam 
-                <strong className="text-rose-600 dark:text-rose-400"> elegantes, eficientes e escaláveis</strong>.
+                Acredito que a excelência técnica deve estar sempre alinhada com <strong className="text-purple-600 dark:text-purple-400">visão de negócio</strong>. 
+                Por isso, foco em entregar produtos completos, desde o conceito até a implementação, 
+                sempre com <strong className="text-green-600 dark:text-green-400">qualidade acima da média e capacidade de entrega rápida</strong>.
               </p>
             </div>
 
             {/* Key Points */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-              <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl border border-blue-200 dark:border-blue-700">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white">
+              <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl border border-purple-200 dark:border-purple-700">
+                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white">
                   🎯
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Foco em Resultados</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Soluções que realmente funcionam</p>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Visão de Produto</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Product Manager com visão de dono</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl border border-purple-200 dark:border-purple-700">
-                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white">
-                  🚀
+              <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl border border-blue-200 dark:border-blue-700">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white">
+                  ⚡
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Performance</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Sistemas otimizados e rápidos</p>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Entrega Rápida</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Capacidade de entrega acima da média</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-700">
                 <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center text-white">
-                  🔒
+                  🚀
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Segurança</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Proteção de dados e privacidade</p>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Full Stack</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Laravel, React, PHP e muito mais</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-xl border border-rose-200 dark:border-rose-700">
                 <div className="w-10 h-10 bg-gradient-to-r from-rose-500 to-pink-500 rounded-lg flex items-center justify-center text-white">
-                  📈
+                  🎓
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Escalabilidade</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Crescimento sustentável</p>
+                  <h4 className="font-semibold text-gray-900 dark:text-white">Formação Sólida</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Ciência da Computação + Especializações</p>
                 </div>
               </div>
             </div>

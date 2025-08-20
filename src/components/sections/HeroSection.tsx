@@ -104,9 +104,10 @@ const HeroSection = () => {
           <h2 className="text-2xl md:text-4xl font-semibold text-gray-700 dark:text-gray-300 mb-6">
             {SITE_CONFIG.title}
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Especialista em criar APIs escaláveis, seguras e de alta performance. 
-            Transformo ideias em soluções robustas que suportam milhões de usuários.
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
+            Especialista em <strong className="text-purple-600 dark:text-purple-400">Laravel</strong>, <strong className="text-blue-600 dark:text-blue-400">React</strong> e <strong className="text-green-600 dark:text-green-400">PHP</strong>. 
+            Product Manager com visão de dono e capacidade de entrega rápida. 
+            Transformo ideias em produtos completos e escaláveis que geram valor real.
           </p>
         </motion.div>
 

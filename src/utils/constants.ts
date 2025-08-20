@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
-  name: 'Leonardo',
-  title: 'Backend Engineer | APIs escaláveis e seguras',
-  description: 'Desenvolvedor backend especializado em criar APIs escaláveis, seguras e de alta performance. Experiência em Node.js, Laravel, PostgreSQL e arquiteturas distribuídas.',
-  url: 'https://leonardo-portfolio.com',
+  name: 'Leonardo D. Borges',
+  title: 'Desenvolvedor Full Stack & Product Manager',
+  description: 'Desenvolvedor Full Stack especializado em Laravel, React e PHP. Product Manager com visão de dono e capacidade de entrega rápida. Criador de soluções completas e escaláveis.',
+  url: 'https://laion459.github.io/LDB/',
   github: 'https://github.com/Laion459',
   linkedin: 'https://www.linkedin.com/in/borgesleonardod/',
   email: 'laion459@gmail.com',

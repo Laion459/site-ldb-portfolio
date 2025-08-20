@@ -22,8 +22,9 @@ const ExperienceSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Experiência Profissional
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Jornada focada em entregar valor real e impacto mensurável em cada projeto.
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            Jornada focada em entregar produtos completos e impacto mensurável, combinando excelência técnica 
+            com visão de negócio e capacidade de entrega rápida em cada projeto.
           </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mt-6"></div>
         </motion.div>
@@ -154,9 +155,10 @@ const ExperienceSection = () => {
             <h3 className="text-2xl font-bold mb-4">
               🚀 Pronto para o Próximo Desafio
             </h3>
-            <p className="text-lg text-blue-100 max-w-3xl mx-auto mb-6">
-              Com experiência comprovada em projetos de alta complexidade, estou sempre 
-              buscando novos desafios que me permitam aplicar e expandir minhas habilidades.
+            <p className="text-lg text-blue-100 max-w-4xl mx-auto mb-6">
+              Com experiência comprovada em desenvolvimento Full Stack e visão de Product Manager, estou sempre 
+              buscando novos desafios que me permitam aplicar minhas habilidades técnicas e de gestão de produtos 
+              em projetos estratégicos de alto impacto.
             </p>
             <a
               href="#contact"

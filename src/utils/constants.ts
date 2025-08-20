@@ -1,12 +1,23 @@
 export const SITE_CONFIG = {
   name: 'Leonardo',
   title: 'Backend Engineer | APIs escaláveis e seguras',
-  description: 'Desenvolvedor backend sênior especializado em criar APIs escaláveis, seguras e de alta performance. Experiência em Node.js, Laravel, PostgreSQL e arquiteturas distribuídas.',
+  description: 'Desenvolvedor backend especializado em criar APIs escaláveis, seguras e de alta performance. Experiência em Node.js, Laravel, PostgreSQL e arquiteturas distribuídas.',
   url: 'https://leonardo-portfolio.com',
-  github: 'https://github.com/username',
-  linkedin: 'https://linkedin.com/in/username',
-  email: 'leonardo@email.com',
+  github: 'https://github.com/Laion459',
+  linkedin: 'https://www.linkedin.com/in/borgesleonardod/',
+  email: 'laion459@gmail.com',
   cvUrl: '/cv-leonardo.pdf',
+  // Imagens do site
+  images: {
+    profile: '/images/profile/leonardo.JPG',
+    avatar: '/images/profile/avatar.jpg',
+    logo: {
+      light: '/images/logo/logo.png',
+      dark: '/images/logo/logo-dark.png',
+    },
+    ogImage: '/og-image.jpg',
+    favicon: '/favicon.ico',
+  },
 } as const;
 
 export const NAVIGATION = [

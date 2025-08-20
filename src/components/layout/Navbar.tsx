@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/components/ui/ThemeProvider';
-import { NAVIGATION } from '@/utils/constants';
+import { NAVIGATION, SITE_CONFIG } from '@/utils/constants';
 import Button from '@/components/ui/Button';
 
 const Navbar = () => {
@@ -44,10 +44,24 @@ const Navbar = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold text-blue-600 dark:text-blue-400 cursor-pointer"
+            className="flex items-center cursor-pointer"
             onClick={() => scrollToSection('#home')}
           >
-            Leonardo
+            <img
+              src={theme === 'light' ? SITE_CONFIG.images.logo.light : SITE_CONFIG.images.logo.dark}
+              alt="Leonardo Portfolio"
+              className="h-8 w-auto"
+              onError={(e) => {
+                // Fallback para texto se o logo não carregar
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                target.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+            {/* Fallback para texto */}
+            <span className="hidden text-2xl font-bold text-blue-600 dark:text-blue-400">
+              Leonardo
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}

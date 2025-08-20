@@ -7,7 +7,7 @@ export const testimonials: Testimonial[] = [
     role: 'CTO',
     company: 'TechCorp Solutions',
     content: 'Leonardo é um desenvolvedor excepcional. Sua capacidade de resolver problemas complexos e implementar soluções escaláveis transformou nossa infraestrutura. Recomendo fortemente!',
-    avatar: '/api/placeholder/100/100',
+    avatar: '/images/profile/joao-silva.jpg',
   },
   {
     id: '2',
@@ -15,7 +15,7 @@ export const testimonials: Testimonial[] = [
     role: 'Product Manager',
     company: 'StartupXYZ',
     content: 'Trabalhar com Leonardo foi uma experiência incrível. Ele entregou nosso MVP de pagamentos em tempo recorde, sempre focando na qualidade e segurança.',
-    avatar: '/api/placeholder/100/100',
+    avatar: '/images/profile/maria-santos.jpg',
   },
   {
     id: '3',
@@ -23,7 +23,7 @@ export const testimonials: Testimonial[] = [
     role: 'Tech Lead',
     company: 'Digital Agency ABC',
     content: 'Leonardo tem uma visão técnica muito sólida. Suas implementações são sempre robustas e bem documentadas. Um profissional de primeira linha.',
-    avatar: '/api/placeholder/100/100',
+    avatar: '/images/profile/carlos-oliveira.jpg',
   },
   {
     id: '4',
@@ -31,6 +31,6 @@ export const testimonials: Testimonial[] = [
     role: 'CEO',
     company: 'E-commerce Plus',
     content: 'Contratamos o Leonardo para reestruturar nosso sistema legado. O resultado foi impressionante: 70% de melhoria na performance e 100% de satisfação dos usuários.',
-    avatar: '/api/placeholder/100/100',
+    avatar: '/images/profile/ana-costa.jpg',
   },
 ]; 

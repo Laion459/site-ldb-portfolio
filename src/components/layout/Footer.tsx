@@ -116,7 +116,7 @@ const Footer = () => {
               </p>
               <p className="text-gray-300">
                 <span className="text-blue-400">Localização:</span><br />
-                São Paulo, Brasil
+                Florianópolis - SC, Brasil
               </p>
               <p className="text-gray-300">
                 <span className="text-blue-400">Disponibilidade:</span><br />

@@ -37,9 +37,21 @@ const AboutSection = () => {
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full transform rotate-6 scale-110 opacity-20"></div>
               
-              {/* Main photo placeholder */}
-              <div className="relative w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl">
-                <div className="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl font-bold">
+              {/* Main photo */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl">
+                <img
+                  src={SITE_CONFIG.images.profile}
+                  alt="Leonardo - Backend Engineer"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback para placeholder se a imagem não carregar
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                {/* Fallback placeholder */}
+                <div className="hidden w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl font-bold">
                   L
                 </div>
               </div>

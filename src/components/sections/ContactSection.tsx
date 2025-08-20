@@ -142,7 +142,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Localização</h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Remoto / São Paulo, Brasil
+                    Remoto / Florianópolis - SC, Brasil
                   </p>
                 </div>
               </div>

@@ -1,17 +1,32 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Calendar, MapPin, Award } from 'lucide-react';
 import { experience } from '@/data/experience';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { fadeInUp, staggerContainer, fadeInLeft, fadeInRight } from '@/utils/animations';
+import { fadeInUp, staggerContainer, fadeInLeft, fadeInRight, floating3D, glowPulse } from '@/utils/animations';
 
 const ExperienceSection = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  
+  // Parallax effect
+  const { scrollYProgress } = useScroll();
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 120]);
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+      {/* Background elements com parallax */}
+      <motion.div
+        style={{ y: y1 }}
+        className="absolute top-20 left-10 w-48 h-48 bg-gradient-to-br from-blue-400/10 to-purple-500/10 rounded-full blur-3xl"
+      />
+      <motion.div
+        style={{ y: y2 }}
+        className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-br from-cyan-400/10 to-green-500/10 rounded-full blur-3xl"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           variants={fadeInUp}
@@ -29,15 +44,37 @@ const ExperienceSection = () => {
           <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mt-6"></div>
         </motion.div>
 
-        {/* Timeline */}
+        {/* Timeline 3D com elementos flutuantes */}
         <motion.div
           variants={staggerContainer}
           initial="initial"
           animate={isVisible ? "animate" : "initial"}
           className="relative"
         >
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-blue-200 dark:bg-blue-800 h-full hidden lg:block"></div>
+          {/* Timeline Line 3D */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-200 via-purple-200 to-cyan-200 dark:from-blue-800 dark:via-purple-800 dark:to-cyan-800 h-full hidden lg:block">
+            {/* Elementos flutuantes na timeline */}
+            <motion.div
+              variants={floating3D}
+              initial="initial"
+              animate={isVisible ? "animate" : "initial"}
+              className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full shadow-lg"
+            />
+            <motion.div
+              variants={floating3D}
+              initial="initial"
+              animate={isVisible ? "animate" : "initial"}
+              transition={{ delay: 0.5 }}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-purple-400 rounded-full shadow-lg"
+            />
+            <motion.div
+              variants={floating3D}
+              initial="initial"
+              animate={isVisible ? "animate" : "initial"}
+              transition={{ delay: 1 }}
+              className="absolute top-3/4 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyan-400 rounded-full shadow-lg"
+            />
+          </div>
 
           {experience.map((exp, index) => (
             <motion.div
@@ -50,21 +87,56 @@ const ExperienceSection = () => {
                 index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'
               }`}
             >
-              {/* Timeline Dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white dark:border-gray-800 shadow-lg hidden lg:block z-10"></div>
+              {/* Timeline Dot 3D */}
+              <motion.div 
+                className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white dark:border-gray-800 shadow-lg hidden lg:block z-10"
+                whileHover={{ 
+                  scale: 1.5, 
+                  boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)",
+                  rotate: 360
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Efeito de brilho interno */}
+                <div className="absolute inset-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-80"></div>
+              </motion.div>
 
-              {/* Content */}
+              {/* Content com efeito 3D */}
               <div className={`lg:w-5/12 ${
                 index % 2 === 0 ? 'lg:mr-auto lg:pr-8' : 'lg:ml-auto lg:pl-8'
               }`}>
                 <motion.div
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -5,
+                    rotateY: index % 2 === 0 ? 2 : -2,
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="relative bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    perspective: "1000px"
+                  }}
                 >
-                  {/* Header */}
-                  <div className="mb-6">
+                  {/* Efeito de brilho no hover */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    whileHover={{ opacity: 1 }}
+                  />
+
+                  {/* Header com logo 3D */}
+                  <div className="mb-6 relative z-10">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg overflow-hidden">
+                      <motion.div 
+                        className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg overflow-hidden shadow-lg"
+                        whileHover={{ 
+                          scale: 1.1, 
+                          rotate: 5,
+                          boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
                         {exp.company === 'Eleven Soft' ? (
                           <>
                             <img
@@ -83,7 +155,7 @@ const ExperienceSection = () => {
                         ) : (
                           <span>{exp.company.charAt(0)}</span>
                         )}
-                      </div>
+                      </motion.div>
                       <div>
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                           {exp.company}
@@ -95,64 +167,83 @@ const ExperienceSection = () => {
                     </div>
                   </div>
 
-                  {/* Period & Location */}
-                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
-                    <div className="flex items-center gap-2">
-                      <Calendar size={16} />
-                      {exp.period}
-                    </div>
+                  {/* Period & Location com ícones animados */}
+                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400 relative z-10">
+                    <motion.div 
+                      className="flex items-center gap-2"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Calendar className="w-4 h-4 text-blue-500" />
+                      <span>{exp.period}</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex items-center gap-2"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <MapPin className="w-4 h-4 text-purple-500" />
+                      <span>Remoto / Brasil</span>
+                    </motion.div>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                  {/* Description com efeito de reveal */}
+                  <motion.p 
+                    className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed relative z-10"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 + 0.3 }}
+                  >
                     {exp.description}
-                  </p>
+                  </motion.p>
 
-                  {/* Technologies */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3 uppercase tracking-wide">
-                      Tecnologias
+                  {/* Technologies com efeitos de entrada */}
+                  <div className="mb-6 relative z-10">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-yellow-500" />
+                      Tecnologias Utilizadas
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
-                        <span
+                      {exp.technologies.map((tech, techIndex) => (
+                        <motion.span
                           key={tech}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full font-medium"
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ 
+                            delay: index * 0.2 + techIndex * 0.1,
+                            type: "spring",
+                            stiffness: 200
+                          }}
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          className="px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700 shadow-sm"
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Achievements */}
-                  <div>
-                    <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3 uppercase tracking-wide flex items-center gap-2">
-                      <Award size={16} />
+                  {/* Achievements com efeitos de lista */}
+                  <div className="relative z-10">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                      <Award className="w-4 h-4 text-green-500" />
                       Principais Conquistas
                     </h4>
                     <ul className="space-y-2">
                       {exp.achievements.map((achievement, achievementIndex) => (
-                        <li
+                        <motion.li
                           key={achievementIndex}
-                          className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ 
+                            delay: index * 0.2 + achievementIndex * 0.1 + 0.5,
+                            type: "spring"
+                          }}
+                          className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400"
                         >
-                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-sm leading-relaxed">{achievement}</span>
-                        </li>
+                          <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                          <span>{achievement}</span>
+                        </motion.li>
                       ))}
                     </ul>
-                  </div>
-
-                  {/* Impact Highlight */}
-                  <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                    <div className="flex items-center gap-2 text-green-700 dark:text-green-400">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="text-sm font-semibold">Impacto Mensurável</span>
-                    </div>
-                    <p className="text-sm text-green-600 dark:text-green-300 mt-2">
-                      Cada conquista foi medida e documentada, demonstrando valor real para o negócio.
-                    </p>
                   </div>
                 </motion.div>
               </div>

@@ -198,11 +198,57 @@ const HeroSection = () => {
           <h2 className="text-2xl md:text-4xl font-semibold text-gray-700 dark:text-gray-300 mb-6">
             {SITE_CONFIG.title}
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-            Especialista em <strong className="text-purple-600 dark:text-purple-400">Laravel</strong>, <strong className="text-blue-600 dark:text-blue-400">React</strong> e <strong className="text-green-600 dark:text-green-400">PHP</strong>. 
-            Product Manager com visão de dono e capacidade de entrega rápida. 
-            Transformo ideias em produtos completos e escaláveis que geram valor real.
-          </p>
+          <motion.p 
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            Especialista em{' '}
+            <motion.span 
+              className="text-purple-600 dark:text-purple-400 font-bold"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1 }}
+            >
+              Laravel
+            </motion.span>
+            ,{' '}
+            <motion.span 
+              className="text-blue-600 dark:text-blue-400 font-bold"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+            >
+              React
+            </motion.span>
+            {' '}e{' '}
+            <motion.span 
+              className="text-green-600 dark:text-green-400 font-bold"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
+            >
+              PHP
+            </motion.span>
+            .{' '}
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
+              className="inline-block"
+            >
+              Product Manager com visão de dono e capacidade de entrega rápida.{' '}
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.8 }}
+              className="inline-block"
+            >
+              Transformo ideias em produtos completos e escaláveis que geram valor real.
+            </motion.span>
+          </motion.p>
         </motion.div>
 
         <motion.div

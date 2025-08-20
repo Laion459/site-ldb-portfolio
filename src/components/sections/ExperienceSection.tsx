@@ -64,8 +64,25 @@ const ExperienceSection = () => {
                   {/* Header */}
                   <div className="mb-6">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                        {exp.company.charAt(0)}
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg overflow-hidden">
+                        {exp.company === 'Eleven Soft' ? (
+                          <>
+                            <img
+                              src="/images/icons/eleven-soft.png"
+                              alt="Eleven Soft Logo"
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                // Fallback para letra inicial se a imagem não carregar
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                target.nextElementSibling?.classList.remove('hidden');
+                              }}
+                            />
+                            <span className="hidden font-bold text-lg">E</span>
+                          </>
+                        ) : (
+                          <span>{exp.company.charAt(0)}</span>
+                        )}
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white">

@@ -24,11 +24,18 @@ export const skills: Skill[] = [
     description: 'Framework CSS utilitário para design rápido'
   },
   {
-    name: 'HTML/CSS',
+    name: 'HTML',
     icon: 'html',
     level: 'Avançado',
     category: 'Frontend',
-    description: 'Estruturação e estilização de páginas web'
+    description: 'Estruturação semântica de páginas web'
+  },
+  {
+    name: 'CSS',
+    icon: 'css',
+    level: 'Avançado',
+    category: 'Frontend',
+    description: 'Estilização e layout responsivo de páginas web'
   },
   {
     name: 'TypeScript',

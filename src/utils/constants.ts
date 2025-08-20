@@ -6,6 +6,8 @@ export const SITE_CONFIG = {
   github: 'https://github.com/Laion459',
   linkedin: 'https://www.linkedin.com/in/borgesleonardod/',
   email: 'laion459@gmail.com',
+  whatsapp: 'https://api.whatsapp.com/send/?phone=5551999092387&text&type=phone_number&app_absent=0',
+  instagram: 'https://www.instagram.com/laionzzzz/#',
   cvUrl: '/cv-leonardo.pdf',
   // Imagens do site
   images: {
@@ -32,5 +34,7 @@ export const NAVIGATION = [
 export const SOCIAL_LINKS = [
   { name: 'GitHub', href: SITE_CONFIG.github, icon: 'github' },
   { name: 'LinkedIn', href: SITE_CONFIG.linkedin, icon: 'linkedin' },
+  { name: 'WhatsApp', href: SITE_CONFIG.whatsapp, icon: 'whatsapp' },
+  { name: 'Instagram', href: SITE_CONFIG.instagram, icon: 'instagram' },
   { name: 'Email', href: `mailto:${SITE_CONFIG.email}`, icon: 'mail' },
 ] as const; 

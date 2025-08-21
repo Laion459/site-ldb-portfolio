@@ -6,6 +6,8 @@ import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/components/ui/ThemeProvider';
 import { NAVIGATION, SITE_CONFIG } from '@/utils/constants';
 import Button from '@/components/ui/Button';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

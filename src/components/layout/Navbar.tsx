@@ -70,7 +70,7 @@ const Navbar = () => {
             <img
               src={theme === 'light' ? SITE_CONFIG.images.logo.light : SITE_CONFIG.images.logo.dark}
               alt="Leonardo Portfolio"
-              className="relative z-10 h-8 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
+              className="relative z-10 h-10 w-10 rounded-full object-cover transition-all duration-300 group-hover:drop-shadow-lg"
               onError={(e) => {
                 // Fallback para texto se o logo não carregar
                 const target = e.target as HTMLImageElement;

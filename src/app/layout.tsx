@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title:
     'Leonardo - Full Stack Developer | sites app s APIs Escaláveis e Seguras',
   description:
-    'Desenvolvedor backend sênior especializado em criar APIs escaláveis, seguras e de alta performance. Experiência em Node.js, Laravel, PostgreSQL e arquiteturas distribuídas.',
+    'Desenvolvedor Full Stack Developer especializado em criar APIs, app s web, sitesscaláveis, seguras e de alta performance. Experiência em Node.js, Laravel, PostgreSQL e arquiteturas distribuídas.',
   keywords: [
     'Backend Engineer',
     'Node.js Developer',

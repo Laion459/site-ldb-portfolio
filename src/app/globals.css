@@ -86,6 +86,12 @@
   --accent-900: #581c87;
   --accent-foreground: #ffffff;
 
+  /* Cores do Salão Flor de Lis */
+  --salon-pink: #d3648f;
+  --salon-lightPink: #f8e9ee;
+  --salon-darkPink: #c04079;
+  --salon-cream: #fff8fa;
+
   /* Novas cores de destaque */
   --success: #10b981;
   --success-50: #ecfdf5;
@@ -675,4 +681,99 @@ html {
   a[href]:after {
     content: ' (' attr(href) ')';
   }
+}
+
+/* 🎨 Cores do Salão Flor de Lis */
+.bg-salon-pink {
+  background-color: var(--salon-pink);
+}
+
+.bg-salon-lightPink {
+  background-color: var(--salon-lightPink);
+}
+
+.bg-salon-darkPink {
+  background-color: var(--salon-darkPink);
+}
+
+.bg-salon-cream {
+  background-color: var(--salon-cream);
+}
+
+.text-salon-pink {
+  color: var(--salon-pink);
+}
+
+.text-salon-lightPink {
+  color: var(--salon-lightPink);
+}
+
+.text-salon-darkPink {
+  color: var(--salon-darkPink);
+}
+
+.text-salon-cream {
+  color: var(--salon-cream);
+}
+
+.border-salon-pink {
+  border-color: var(--salon-pink);
+}
+
+.border-salon-lightPink {
+  border-color: var(--salon-lightPink);
+}
+
+.border-salon-darkPink {
+  border-color: var(--salon-darkPink);
+}
+
+.border-salon-cream {
+  border-color: var(--salon-cream);
+}
+
+/* Gradientes com cores do salão */
+.from-salon-pink {
+  --tw-gradient-from: var(--salon-pink);
+  --tw-gradient-stops:
+    var(--tw-gradient-from), var(--tw-gradient-to, rgba(211, 100, 143, 0));
+}
+
+.via-salon-lightPink {
+  --tw-gradient-stops:
+    var(--tw-gradient-from), var(--salon-lightPink),
+    var(--tw-gradient-to, rgba(248, 233, 238, 0));
+}
+
+.to-salon-lightPink {
+  --tw-gradient-to: var(--salon-lightPink);
+}
+
+.to-salon-darkPink {
+  --tw-gradient-to: var(--salon-darkPink);
+}
+
+.to-salon-cream {
+  --tw-gradient-to: var(--salon-cream);
+}
+
+/* Hover states */
+.hover\:bg-salon-darkPink:hover {
+  background-color: var(--salon-darkPink);
+}
+
+.hover\:text-salon-pink:hover {
+  color: var(--salon-pink);
+}
+
+.hover\:text-salon-darkPink:hover {
+  color: var(--salon-darkPink);
+}
+
+.hover\:bg-salon-lightPink:hover {
+  background-color: var(--salon-lightPink);
+}
+
+.hover\:border-salon-pink:hover {
+  border-color: var(--salon-pink);
 }

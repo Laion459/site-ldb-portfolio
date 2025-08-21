@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
 
@@ -20,7 +20,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     // Aguardar hidratação completa
     const timer = setTimeout(() => {
       setMounted(true);
-      
+
       const savedTheme = localStorage.getItem('theme') as Theme;
       if (savedTheme) {
         setTheme(savedTheme);
@@ -28,33 +28,31 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         setTheme('dark');
       }
     }, 100);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (!mounted) return;
-    
+
     try {
       const root = window.document.documentElement;
       root.classList.remove('light', 'dark');
       root.classList.add(theme);
       localStorage.setItem('theme', theme);
-    } catch (error) {
-      console.warn('Erro ao configurar tema:', error);
+    } catch {
+      // Erro ao configurar tema
     }
   }, [theme, mounted]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
   const value = { theme, toggleTheme, mounted };
 
   return (
-    <ThemeContext.Provider value={value}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 }
 

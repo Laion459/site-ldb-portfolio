@@ -19,65 +19,6 @@ const MorphingShapes = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
 
-  // Formas para morphing
-  const shapes = [
-    // Círculo
-    (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
-      ctx.beginPath();
-      ctx.arc(x, y, size, 0, Math.PI * 2);
-    },
-    // Triângulo
-    (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
-      ctx.beginPath();
-      ctx.moveTo(x, y - size);
-      ctx.lineTo(x - size * 0.866, y + size * 0.5);
-      ctx.lineTo(x + size * 0.866, y + size * 0.5);
-      ctx.closePath();
-    },
-    // Quadrado
-    (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
-      ctx.beginPath();
-      ctx.rect(x - size, y - size, size * 2, size * 2);
-    },
-    // Estrela
-    (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
-      const spikes = 5;
-      const outerRadius = size;
-      const innerRadius = size * 0.5;
-
-      ctx.beginPath();
-      for (let i = 0; i < spikes * 2; i++) {
-        const radius = i % 2 === 0 ? outerRadius : innerRadius;
-        const angle = (i * Math.PI) / spikes;
-        const px = x + Math.cos(angle) * radius;
-        const py = y + Math.sin(angle) * radius;
-
-        if (i === 0) {
-          ctx.moveTo(px, py);
-        } else {
-          ctx.lineTo(px, py);
-        }
-      }
-      ctx.closePath();
-    },
-    // Hexágono
-    (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
-      ctx.beginPath();
-      for (let i = 0; i < 6; i++) {
-        const angle = (i * Math.PI) / 3;
-        const px = x + Math.cos(angle) * size;
-        const py = y + Math.sin(angle) * size;
-
-        if (i === 0) {
-          ctx.moveTo(px, py);
-        } else {
-          ctx.lineTo(px, py);
-        }
-      }
-      ctx.closePath();
-    },
-  ];
-
   // Sistema de morphing
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -85,6 +26,65 @@ const MorphingShapes = ({
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    // Formas para morphing (movido para dentro do useEffect)
+    const shapes = [
+      // Círculo
+      (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+      },
+      // Triângulo
+      (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
+        ctx.beginPath();
+        ctx.moveTo(x, y - size);
+        ctx.lineTo(x - size * 0.866, y + size * 0.5);
+        ctx.lineTo(x + size * 0.866, y + size * 0.5);
+        ctx.closePath();
+      },
+      // Quadrado
+      (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
+        ctx.beginPath();
+        ctx.rect(x - size, y - size, size * 2, size * 2);
+      },
+      // Estrela
+      (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
+        const spikes = 5;
+        const outerRadius = size;
+        const innerRadius = size * 0.5;
+
+        ctx.beginPath();
+        for (let i = 0; i < spikes * 2; i++) {
+          const radius = i % 2 === 0 ? outerRadius : innerRadius;
+          const angle = (i * Math.PI) / spikes;
+          const px = x + Math.cos(angle) * radius;
+          const py = y + Math.sin(angle) * radius;
+
+          if (i === 0) {
+            ctx.moveTo(px, py);
+          } else {
+            ctx.lineTo(px, py);
+          }
+        }
+        ctx.closePath();
+      },
+      // Hexágono
+      (ctx: CanvasRenderingContext2D, x: number, y: number, size: number) => {
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const angle = (i * Math.PI) / 3;
+          const px = x + Math.cos(angle) * size;
+          const py = y + Math.sin(angle) * size;
+
+          if (i === 0) {
+            ctx.moveTo(px, py);
+          } else {
+            ctx.lineTo(px, py);
+          }
+        }
+        ctx.closePath();
+      },
+    ];
 
     // Configurar canvas
     const resizeCanvas = () => {
@@ -180,7 +180,7 @@ const MorphingShapes = ({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [shapeCount, colors, morphingSpeed, shapes]); // ✅ Adicionada dependência 'shapes'
+  }, [shapeCount, colors, morphingSpeed]); // ✅ Removida dependência 'shapes'
 
   return (
     <motion.canvas

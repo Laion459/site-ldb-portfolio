@@ -1,8 +1,10 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 
-export const useScrollAnimation = <T extends HTMLElement = HTMLElement>(threshold = 0.1) => {
+export const useScrollAnimation = <T extends HTMLElement = HTMLElement>(
+  threshold = 0.1
+) => {
   const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -17,16 +19,17 @@ export const useScrollAnimation = <T extends HTMLElement = HTMLElement>(threshol
       { threshold }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [threshold]);
 
   return { ref, isVisible };
-}; 
+};

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 interface Particle {
@@ -23,11 +23,11 @@ interface ParticleSystemProps {
   interactive?: boolean;
 }
 
-const ParticleSystem = ({ 
-  className = "", 
-  particleCount = 50, 
+const ParticleSystem = ({
+  className = '',
+  particleCount = 50,
   colors = ['#3B82F6', '#8B5CF6', '#06B6D4', '#10B981'],
-  interactive = true 
+  interactive = true,
 }: ParticleSystemProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
@@ -37,24 +37,27 @@ const ParticleSystem = ({
   const isInitializedRef = useRef(false);
 
   // Inicializar partículas apenas uma vez
-  const initializeParticles = useCallback((canvas: HTMLCanvasElement) => {
-    if (isInitializedRef.current) return;
-    
-    particlesRef.current = Array.from({ length: particleCount }, (_, i) => ({
-      id: i,
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      size: Math.random() * 3 + 1,
-      opacity: Math.random() * 0.5 + 0.3,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      life: Math.random() * 100,
-      maxLife: 100
-    }));
-    
-    isInitializedRef.current = true;
-  }, [particleCount, colors]);
+  const initializeParticles = useCallback(
+    (canvas: HTMLCanvasElement) => {
+      if (isInitializedRef.current) return;
+
+      particlesRef.current = Array.from({ length: particleCount }, (_, i) => ({
+        id: i,
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 3 + 1,
+        opacity: Math.random() * 0.5 + 0.3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        life: Math.random() * 100,
+        maxLife: 100,
+      }));
+
+      isInitializedRef.current = true;
+    },
+    [particleCount, colors]
+  );
 
   // Sistema de física e animação otimizado
   const animate = useCallback(() => {
@@ -95,7 +98,7 @@ const ParticleSystem = ({
         const dx = mousePosRef.current.x - particle.x;
         const dy = mousePosRef.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < 100) {
           const force = (100 - distance) / 100;
           particle.vx += (dx / distance) * force * 0.01;
@@ -126,7 +129,7 @@ const ParticleSystem = ({
         const dx = mousePosRef.current.x - particle.x;
         const dy = mousePosRef.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < 80) {
           const glowIntensity = (80 - distance) / 80;
           ctx.shadowColor = particle.color;
@@ -138,28 +141,23 @@ const ParticleSystem = ({
       ctx.restore();
     });
 
-    // Conectar partículas próximas
-    if (interactive) {
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.1)';
-      ctx.lineWidth = 0.5;
-      
-      particlesRef.current.forEach((particle1, i) => {
-        particlesRef.current.slice(i + 1).forEach(particle2 => {
-          const dx = particle1.x - particle2.x;
-          const dy = particle1.y - particle2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 80) {
-            const opacity = (80 - distance) / 80 * 0.3;
-            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity})`;
-            ctx.beginPath();
-            ctx.moveTo(particle1.x, particle1.y);
-            ctx.lineTo(particle2.x, particle2.y);
-            ctx.stroke();
-          }
-        });
+    // Desenhar conexões entre partículas próximas
+    particlesRef.current.forEach((particle1, i) => {
+      particlesRef.current.slice(i + 1).forEach(particle2 => {
+        const dx = particle1.x - particle2.x;
+        const dy = particle1.y - particle2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 80) {
+          const opacity = ((80 - distance) / 80) * 0.3;
+          ctx.strokeStyle = `rgba(59, 130, 246, ${opacity})`;
+          ctx.beginPath();
+          ctx.moveTo(particle1.x, particle1.y);
+          ctx.lineTo(particle2.x, particle2.y);
+          ctx.stroke();
+        }
       });
-    }
+    });
 
     animationRef.current = requestAnimationFrame(animate);
   }, [interactive]);
@@ -174,28 +172,66 @@ const ParticleSystem = ({
 
     // Configurar canvas
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      // Reinicializar partículas após resize
-      isInitializedRef.current = false;
-      initializeParticles(canvas);
+      // ✅ Usar viewport em vez de window.innerWidth/Height para evitar overflow
+      const vw = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      );
+      const vh = Math.max(
+        document.documentElement.clientHeight || 0,
+        window.innerHeight || 0
+      );
+
+      canvas.width = vw;
+      canvas.height = vh;
+
+      // Reinicializar partículas apenas se o canvas mudou de tamanho
+      if (
+        !isInitializedRef.current ||
+        canvas.width !== vw ||
+        canvas.height !== vh
+      ) {
+        isInitializedRef.current = false;
+        initializeParticles(canvas);
+
+        // Iniciar animação após inicialização
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+        animate();
+      }
     };
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Inicializar partículas
-    initializeParticles(canvas);
+    // Inicializar partículas apenas uma vez
+    if (!isInitializedRef.current) {
+      initializeParticles(canvas);
+
+      // Iniciar animação após inicialização
+      setTimeout(() => {
+        if (canvasRef.current && isInitializedRef.current) {
+          animate();
+        }
+      }, 100); // Pequeno delay para garantir que tudo esteja pronto
+    }
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
-  }, [initializeParticles]);
+  }, [initializeParticles, animate]);
 
   // Sistema de animação
   useEffect(() => {
-    animate();
-    
+    // Só iniciar animação se o canvas estiver pronto
+    if (canvasRef.current && isInitializedRef.current) {
+      animate();
+    }
+
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -214,7 +250,7 @@ const ParticleSystem = ({
     const handleMouseEnter = () => {
       isHoveringRef.current = true;
     };
-    
+
     const handleMouseLeave = () => {
       isHoveringRef.current = false;
     };
@@ -238,15 +274,15 @@ const ParticleSystem = ({
   return (
     <motion.canvas
       ref={canvasRef}
-      className={`fixed inset-0 pointer-events-none z-0 ${className}`}
+      className={`absolute inset-0 pointer-events-none z-0 ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       style={{
-        background: 'transparent'
+        background: 'transparent',
       }}
     />
   );
 };
 
-export default ParticleSystem; 
+export default ParticleSystem;

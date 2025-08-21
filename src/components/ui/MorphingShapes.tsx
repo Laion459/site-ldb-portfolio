@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 interface MorphingShapesProps {
@@ -10,14 +10,13 @@ interface MorphingShapesProps {
   morphingSpeed?: number;
 }
 
-const MorphingShapes = ({ 
-  className = "", 
-  shapeCount = 3, 
+const MorphingShapes = ({
+  className = '',
+  shapeCount = 3,
   colors = ['#3B82F6', '#8B5CF6', '#06B6D4'],
-  morphingSpeed = 8000 
+  morphingSpeed = 8000,
 }: MorphingShapesProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [currentShape, setCurrentShape] = useState(0);
   const animationRef = useRef<number>();
 
   // Formas para morphing
@@ -45,14 +44,14 @@ const MorphingShapes = ({
       const spikes = 5;
       const outerRadius = size;
       const innerRadius = size * 0.5;
-      
+
       ctx.beginPath();
       for (let i = 0; i < spikes * 2; i++) {
         const radius = i % 2 === 0 ? outerRadius : innerRadius;
         const angle = (i * Math.PI) / spikes;
         const px = x + Math.cos(angle) * radius;
         const py = y + Math.sin(angle) * radius;
-        
+
         if (i === 0) {
           ctx.moveTo(px, py);
         } else {
@@ -68,7 +67,7 @@ const MorphingShapes = ({
         const angle = (i * Math.PI) / 3;
         const px = x + Math.cos(angle) * size;
         const py = y + Math.sin(angle) * size;
-        
+
         if (i === 0) {
           ctx.moveTo(px, py);
         } else {
@@ -76,7 +75,7 @@ const MorphingShapes = ({
         }
       }
       ctx.closePath();
-    }
+    },
   ];
 
   // Sistema de morphing
@@ -89,8 +88,18 @@ const MorphingShapes = ({
 
     // Configurar canvas
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      // ✅ Usar viewport em vez de window.innerWidth/Height para evitar overflow
+      const vw = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      );
+      const vh = Math.max(
+        document.documentElement.clientHeight || 0,
+        window.innerHeight || 0
+      );
+
+      canvas.width = vw;
+      canvas.height = vh;
     };
 
     resizeCanvas();
@@ -98,59 +107,59 @@ const MorphingShapes = ({
 
     // Variáveis de animação
     let morphProgress = 0;
-    let startTime = Date.now();
+    const startTime = Date.now();
 
     const animate = () => {
       const currentTime = Date.now();
       const elapsed = currentTime - startTime;
-      
+
       // Calcular progresso do morphing
       morphProgress = (elapsed % morphingSpeed) / morphingSpeed;
-      
+
       // Limpar canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // Desenhar formas com morphing
       for (let i = 0; i < shapeCount; i++) {
         const x = (canvas.width / (shapeCount + 1)) * (i + 1);
         const y = canvas.height / 2;
         const size = 60 + Math.sin(morphProgress * Math.PI * 2 + i) * 20;
-        
+
         // Interpolação entre formas
         const currentShapeIndex = Math.floor(morphProgress * shapes.length);
         const nextShapeIndex = (currentShapeIndex + 1) % shapes.length;
         const localProgress = (morphProgress * shapes.length) % 1;
-        
+
         // Desenhar forma atual
         ctx.save();
         ctx.globalAlpha = 1 - localProgress;
         ctx.fillStyle = colors[i % colors.length];
         ctx.shadowColor = colors[i % colors.length];
         ctx.shadowBlur = 20;
-        
+
         shapes[currentShapeIndex](ctx, x, y, size);
         ctx.fill();
         ctx.restore();
-        
+
         // Desenhar próxima forma
         ctx.save();
         ctx.globalAlpha = localProgress;
         ctx.fillStyle = colors[i % colors.length];
         ctx.shadowColor = colors[i % colors.length];
         ctx.shadowBlur = 20;
-        
+
         shapes[nextShapeIndex](ctx, x, y, size);
         ctx.fill();
         ctx.restore();
       }
-      
+
       // Efeitos de partículas flutuantes
       for (let i = 0; i < 20; i++) {
-        const angle = (morphProgress * Math.PI * 2) + (i * 0.3);
+        const angle = morphProgress * Math.PI * 2 + i * 0.3;
         const radius = 100 + Math.sin(morphProgress * Math.PI * 4 + i) * 50;
         const px = canvas.width / 2 + Math.cos(angle) * radius;
         const py = canvas.height / 2 + Math.sin(angle) * radius;
-        
+
         ctx.save();
         ctx.globalAlpha = 0.3;
         ctx.fillStyle = colors[i % colors.length];
@@ -159,7 +168,7 @@ const MorphingShapes = ({
         ctx.fill();
         ctx.restore();
       }
-      
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -171,20 +180,20 @@ const MorphingShapes = ({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [shapeCount, colors, morphingSpeed]);
+  }, [shapeCount, colors, morphingSpeed, shapes]); // ✅ Adicionada dependência 'shapes'
 
   return (
     <motion.canvas
       ref={canvasRef}
-      className={`fixed inset-0 pointer-events-none z-0 ${className}`}
+      className={`absolute inset-0 pointer-events-none z-0 ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 2 }}
       style={{
-        background: 'transparent'
+        background: 'transparent',
       }}
     />
   );
 };
 
-export default MorphingShapes; 
+export default MorphingShapes;

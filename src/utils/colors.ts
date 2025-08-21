@@ -13,7 +13,7 @@ export const colorPalette = {
     800: '#1e40af',
     900: '#1e3a8a',
   },
-  
+
   // Cores de destaque
   accent: {
     50: '#faf5ff',
@@ -27,7 +27,7 @@ export const colorPalette = {
     800: '#6b21a8',
     900: '#581c87',
   },
-  
+
   // Cores de marca
   brand: {
     50: '#ecfeff',
@@ -41,7 +41,7 @@ export const colorPalette = {
     800: '#155e75',
     900: '#164e63',
   },
-  
+
   // Cores de sucesso
   success: {
     50: '#ecfdf5',
@@ -55,7 +55,7 @@ export const colorPalette = {
     800: '#065f46',
     900: '#064e3b',
   },
-  
+
   // Cores de aviso
   warning: {
     50: '#fffbeb',
@@ -69,7 +69,7 @@ export const colorPalette = {
     800: '#92400e',
     900: '#78350f',
   },
-  
+
   // Cores de erro
   error: {
     50: '#fef2f2',
@@ -83,7 +83,7 @@ export const colorPalette = {
     800: '#991b1b',
     900: '#7f1d1d',
   },
-  
+
   // Cores rosa
   rose: {
     50: '#fff1f2',
@@ -105,18 +105,18 @@ export const gradients = {
   primary: 'linear-gradient(135deg, #3b82f6, #1d4ed8, #1e40af)',
   accent: 'linear-gradient(135deg, #a855f7, #7c3aed, #6b21a8)',
   brand: 'linear-gradient(135deg, #06b6d4, #0891b2, #0e7490)',
-  
+
   // Gradientes combinados
   hero: 'linear-gradient(135deg, #eff6ff, #faf5ff, #ecfeff)',
   heroDark: 'linear-gradient(135deg, #0c4a6e, #1a0b2e, #164e63)',
   card: 'linear-gradient(135deg, #f8fafc, #f1f5f9, #eff6ff)',
   cardDark: 'linear-gradient(135deg, #0a0a0a, #0f172a, #0c4a6e)',
-  
+
   // Gradientes de texto
   textPrimary: 'linear-gradient(135deg, #60a5fa, #2563eb, #1e40af)',
   textAccent: 'linear-gradient(135deg, #c084fc, #9333ea, #7c3aed)',
   textBrand: 'linear-gradient(135deg, #22d3ee, #06b6d4, #0891b2)',
-  
+
   // Gradientes especiais
   sunset: 'linear-gradient(135deg, #fbbf24, #f59e0b, #d97706)',
   ocean: 'linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6)',
@@ -126,13 +126,19 @@ export const gradients = {
 
 // Efeitos de sombra coloridos
 export const shadows = {
-  primary: '0 10px 25px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(59, 130, 246, 0.1)',
-  accent: '0 10px 25px -3px rgba(139, 92, 246, 0.3), 0 4px 6px -2px rgba(139, 92, 246, 0.1)',
-  brand: '0 10px 25px -3px rgba(6, 182, 212, 0.3), 0 4px 6px -2px rgba(6, 182, 212, 0.1)',
+  primary:
+    '0 10px 25px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(59, 130, 246, 0.1)',
+  accent:
+    '0 10px 25px -3px rgba(139, 92, 246, 0.3), 0 4px 6px -2px rgba(139, 92, 246, 0.1)',
+  brand:
+    '0 10px 25px -3px rgba(6, 182, 212, 0.3), 0 4px 6px -2px rgba(6, 182, 212, 0.1)',
   rose: '0 10px 25px -3px rgba(244, 63, 94, 0.3), 0 4px 6px -2px rgba(244, 63, 94, 0.1)',
-  success: '0 10px 25px -3px rgba(16, 185, 129, 0.3), 0 4px 6px -2px rgba(16, 185, 129, 0.1)',
-  warning: '0 10px 25px -3px rgba(245, 158, 11, 0.3), 0 4px 6px -2px rgba(245, 158, 11, 0.1)',
-  error: '0 10px 25px -3px rgba(239, 68, 68, 0.3), 0 4px 6px -2px rgba(239, 68, 68, 0.1)',
+  success:
+    '0 10px 25px -3px rgba(16, 185, 129, 0.3), 0 4px 6px -2px rgba(16, 185, 129, 0.1)',
+  warning:
+    '0 10px 25px -3px rgba(245, 158, 11, 0.3), 0 4px 6px -2px rgba(245, 158, 11, 0.1)',
+  error:
+    '0 10px 25px -3px rgba(239, 68, 68, 0.3), 0 4px 6px -2px rgba(239, 68, 68, 0.1)',
 };
 
 // Efeitos de brilho
@@ -155,7 +161,7 @@ export const getColorWithOpacity = (color: string, opacity: number) => {
 
 export const getGradientWithOpacity = (gradient: string, opacity: number) => {
   // Aplica opacidade a um gradiente
-  return gradient.replace(/rgba?\([^)]+\)/g, (match) => {
+  return gradient.replace(/rgba?\([^)]+\)/g, match => {
     const rgba = match.match(/rgba?\(([^)]+)\)/);
     if (rgba) {
       const values = rgba[1].split(',').map(v => v.trim());
@@ -170,22 +176,28 @@ export const getGradientWithOpacity = (gradient: string, opacity: number) => {
 // Classes CSS para Tailwind
 export const colorClasses = {
   // Texto com gradiente
-  gradientText: 'bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent',
-  gradientTextPrimary: 'bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 bg-clip-text text-transparent',
-  gradientTextAccent: 'bg-gradient-to-r from-purple-400 via-purple-600 to-rose-500 bg-clip-text text-transparent',
-  gradientTextBrand: 'bg-gradient-to-r from-cyan-400 via-cyan-600 to-blue-500 bg-clip-text text-transparent',
-  
+  gradientText:
+    'bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent',
+  gradientTextPrimary:
+    'bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 bg-clip-text text-transparent',
+  gradientTextAccent:
+    'bg-gradient-to-r from-purple-400 via-purple-600 to-rose-500 bg-clip-text text-transparent',
+  gradientTextBrand:
+    'bg-gradient-to-r from-cyan-400 via-cyan-600 to-blue-500 bg-clip-text text-transparent',
+
   // Fundos com gradiente
   gradientBg: 'bg-gradient-to-br from-blue-50 via-purple-50 to-cyan-50',
   gradientBgDark: 'bg-gradient-to-br from-blue-900 via-purple-900 to-cyan-900',
   gradientBgCard: 'bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50',
-  gradientBgCardDark: 'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900',
-  
+  gradientBgCardDark:
+    'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900',
+
   // Bordas com gradiente
-  gradientBorder: 'border-2 border-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-border',
+  gradientBorder:
+    'border-2 border-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-border',
 };
 
-export default {
+const colorUtils = {
   colorPalette,
   gradients,
   shadows,
@@ -193,4 +205,6 @@ export default {
   getColorWithOpacity,
   getGradientWithOpacity,
   colorClasses,
-}; 
+};
+
+export default colorUtils;

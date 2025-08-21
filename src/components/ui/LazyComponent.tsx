@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
 import { Suspense, lazy, ComponentType } from 'react';
 import { LoadingSpinner } from './AdvancedLoading';
 
 interface LazyComponentProps {
-  component: () => Promise<{ default: ComponentType<any> }>;
+  component: () => Promise<{ default: ComponentType<Record<string, unknown>> }>;
   fallback?: React.ReactNode;
-  props?: Record<string, any>;
+  props?: Record<string, unknown>;
 }
 
-const LazyComponent = ({ 
-  component, 
-  fallback = <LoadingSpinner size="lg" />,
-  props = {}
+const LazyComponent = ({
+  component,
+  fallback = <LoadingSpinner size='lg' />,
+  props = {},
 }: LazyComponentProps) => {
   const LazyComponent = lazy(component);
 
@@ -23,4 +23,4 @@ const LazyComponent = ({
   );
 };
 
-export default LazyComponent; 
+export default LazyComponent;

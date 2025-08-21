@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
@@ -12,25 +12,29 @@ interface TouchGesturesProps {
   onDoubleTap?: () => void;
 }
 
-const TouchGestures = ({ 
-  children, 
-  className = "",
+const TouchGestures = ({
+  children,
+  className = '',
   onSwipe,
   onPinch,
   onRotate,
-  onDoubleTap
+  onDoubleTap,
 }: TouchGesturesProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isTouching, setIsTouching] = useState(false);
-  const [touchStart, setTouchStart] = useState<{ x: number; y: number; time: number } | null>(null);
+  const [touchStart, setTouchStart] = useState<{
+    x: number;
+    y: number;
+    time: number;
+  } | null>(null);
   const [lastTap, setLastTap] = useState(0);
-  
+
   // Motion values para animações
   const scale = useMotionValue(1);
   const rotate = useMotionValue(0);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   // Transformações
   const scaleTransform = useTransform(scale, [0.5, 2], [0.5, 2]);
   const rotateTransform = useTransform(rotate, [-180, 180], [-180, 180]);
@@ -51,15 +55,10 @@ const TouchGestures = ({
 
   // Calcular ângulo entre dois pontos
   const getAngle = (p1: Touch, p2: Touch) => {
-    return Math.atan2(p2.clientY - p1.clientY, p2.clientX - p1.clientX) * 180 / Math.PI;
-  };
-
-  // Calcular centro entre dois pontos
-  const getCenter = (p1: Touch, p2: Touch) => {
-    return {
-      x: (p1.clientX + p2.clientX) / 2,
-      y: (p1.clientY + p2.clientY) / 2
-    };
+    return (
+      (Math.atan2(p2.clientY - p1.clientY, p2.clientX - p1.clientX) * 180) /
+      Math.PI
+    );
   };
 
   // Eventos de touch
@@ -73,18 +72,22 @@ const TouchGestures = ({
     let initialRotation = 0;
 
     const handleTouchStart = (e: TouchEvent) => {
-      e.preventDefault();
+      // Só prevenir default para gestos específicos, não para scroll
+      if (e.touches.length === 2) {
+        e.preventDefault(); // Apenas para pinch/rotate
+      }
+
       setIsTouching(true);
-      
+
       const touches = Array.from(e.touches);
-      
+
       if (touches.length === 1) {
         // Single touch - detectar tap e swipe
         const touch = touches[0];
         setTouchStart({
           x: touch.clientX,
           y: touch.clientY,
-          time: Date.now()
+          time: Date.now(),
         });
       } else if (touches.length === 2) {
         // Two touches - detectar pinch e rotate
@@ -97,27 +100,30 @@ const TouchGestures = ({
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
-      
+      // Só prevenir default para gestos específicos
+      if (e.touches.length === 2) {
+        e.preventDefault(); // Apenas para pinch/rotate
+      }
+
       const touches = Array.from(e.touches);
-      
+
       if (touches.length === 2) {
         // Pinch e rotate
         const [touch1, touch2] = touches;
         const currentDistance = getDistance(touch1, touch2);
         const currentAngle = getAngle(touch1, touch2);
-        
+
         // Calcular mudanças
         const scaleChange = currentDistance / initialDistance;
         const angleChange = currentAngle - initialAngle;
-        
+
         // Aplicar transformações
         const newScale = Math.max(0.5, Math.min(2, initialScale * scaleChange));
         const newRotation = initialRotation + angleChange;
-        
+
         scale.set(newScale);
         rotate.set(newRotation);
-        
+
         // Callbacks
         onPinch?.(newScale);
         onRotate?.(newRotation);
@@ -125,29 +131,30 @@ const TouchGestures = ({
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
-      e.preventDefault();
+      // Não prevenir default para permitir scroll natural
       setIsTouching(false);
-      
+
       if (touchStart && e.touches.length === 0) {
         const touch = e.changedTouches[0];
         const deltaX = touch.clientX - touchStart.x;
         const deltaY = touch.clientY - touchStart.y;
         const deltaTime = Date.now() - touchStart.time;
         const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        
-        // Detectar swipe
+
+        // Detectar swipe apenas se for um gesto claro
         if (distance > 50 && deltaTime < 300) {
           const absX = Math.abs(deltaX);
           const absY = Math.abs(deltaY);
-          
-          if (absX > absY) {
+
+          // Só detectar swipe se for claramente horizontal ou vertical
+          if (absX > absY * 1.5) {
             // Swipe horizontal
             if (deltaX > 0) {
               onSwipe?.('right');
             } else {
               onSwipe?.('left');
             }
-          } else {
+          } else if (absY > absX * 1.5) {
             // Swipe vertical
             if (deltaY > 0) {
               onSwipe?.('down');
@@ -156,17 +163,17 @@ const TouchGestures = ({
             }
           }
         }
-        
+
         // Detectar double tap
         const currentTime = Date.now();
         if (currentTime - lastTap < 300 && distance < 10) {
           onDoubleTap?.();
         }
         setLastTap(currentTime);
-        
+
         setTouchStart(null);
       }
-      
+
       // Resetar transformações
       scale.set(1);
       rotate.set(0);
@@ -175,16 +182,31 @@ const TouchGestures = ({
     };
 
     // Adicionar event listeners
-    container.addEventListener('touchstart', handleTouchStart, { passive: false });
-    container.addEventListener('touchmove', handleTouchMove, { passive: false });
-    container.addEventListener('touchend', handleTouchEnd, { passive: false });
+    container.addEventListener('touchstart', handleTouchStart, {
+      passive: false,
+    });
+    container.addEventListener('touchmove', handleTouchMove, {
+      passive: false,
+    });
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       container.removeEventListener('touchstart', handleTouchStart);
       container.removeEventListener('touchmove', handleTouchMove);
       container.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [onSwipe, onPinch, onRotate, onDoubleTap, lastTap, scale, rotate, x, y]);
+  }, [
+    onSwipe,
+    onPinch,
+    onRotate,
+    onDoubleTap,
+    lastTap,
+    scale,
+    rotate,
+    x,
+    y,
+    touchStart,
+  ]);
 
   // Eventos de mouse para desktop
   useEffect(() => {
@@ -202,10 +224,10 @@ const TouchGestures = ({
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDragging) return;
-      
+
       const deltaX = e.clientX - startPos.x;
       const deltaY = e.clientY - startPos.y;
-      
+
       x.set(deltaX * 0.1);
       y.set(deltaY * 0.1);
     };
@@ -237,22 +259,22 @@ const TouchGestures = ({
         rotate: rotateTransform,
         x: xTransform,
         y: yTransform,
-        touchAction: 'none'
+        touchAction: 'pan-y', // ✅ Permitir scroll vertical, bloquear horizontal
       }}
       whileHover={!isTouchDevice() ? { scale: 1.02 } : {}}
       whileTap={{ scale: 0.98 }}
       transition={{
-        type: "spring",
+        type: 'spring',
         stiffness: 300,
-        damping: 30
+        damping: 30,
       }}
     >
       {children}
-      
+
       {/* Indicador visual de touch */}
       {isTouching && (
         <motion.div
-          className="absolute inset-0 bg-blue-500/10 rounded-lg pointer-events-none"
+          className='absolute inset-0 bg-blue-500/10 rounded-lg pointer-events-none'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -262,4 +284,4 @@ const TouchGestures = ({
   );
 };
 
-export default TouchGestures; 
+export default TouchGestures;

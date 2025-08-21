@@ -1,0 +1,203 @@
+<testsuites id="" name="" tests="11" failures="4" skipped="0" errors="0" time="100.566323">
+<testsuite name="navigation.spec.ts" timestamp="2025-08-21T16:35:22.249Z" hostname="chromium" tests="11" failures="4" skipped="0" time="287.403" errors="0">
+<testcase name="Navegação e Funcionalidades Principais › deve carregar a página inicial corretamente" classname="navigation.spec.ts" time="33.499">
+<failure message="navigation.spec.ts:10:7 deve carregar a página inicial corretamente" type="FAILURE">
+<![CDATA[  [chromium] › navigation.spec.ts:10:7 › Navegação e Funcionalidades Principais › deve carregar a página inicial corretamente 
+
+    Error: expect(page).toHaveTitle(expected) failed
+
+    Expected pattern: /Leonardo.*Backend Engineer/
+    Received string:  "Leonardo - Full Stack Developer | sites app s APIs Escaláveis e Seguras"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveTitle" with timeout 5000ms
+        8 × unexpected value "Leonardo - Full Stack Developer | sites app s APIs Escaláveis e Seguras"
+
+
+      10 |   test('deve carregar a página inicial corretamente', async ({ page }) => {
+      11 |     // Verificar se a página carrega
+    > 12 |     await expect(page).toHaveTitle(/Leonardo.*Backend Engineer/);
+         |                        ^
+      13 |
+      14 |     // Verificar se o hero section está visível (usando o ID correto)
+      15 |     await expect(page.locator('#home')).toBeVisible();
+        at /home/momme/LEONARDO/portifolio/ldb/tests/e2e/navigation.spec.ts:12:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/navigation-Navegação-e-Fun-0d9a2-página-inicial-corretamente-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/navigation-Navegação-e-Fun-0d9a2-página-inicial-corretamente-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/navigation-Navegação-e-Fun-0d9a2-página-inicial-corretamente-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|navigation-Navegação-e-Fun-0d9a2-página-inicial-corretamente-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|navigation-Navegação-e-Fun-0d9a2-página-inicial-corretamente-chromium/video.webm]]
+
+[[ATTACHMENT|navigation-Navegação-e-Fun-0d9a2-página-inicial-corretamente-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve navegar entre seções via menu" classname="navigation.spec.ts" time="53.027">
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve alternar entre temas claro e escuro" classname="navigation.spec.ts" time="31.08">
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve exibir projetos corretamente" classname="navigation.spec.ts" time="35.747">
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve exibir habilidades técnicas organizadas por categoria" classname="navigation.spec.ts" time="24.024">
+<failure message="navigation.spec.ts:88:7 deve exibir habilidades técnicas organizadas por categoria" type="FAILURE">
+<![CDATA[  [chromium] › navigation.spec.ts:88:7 › Navegação e Funcionalidades Principais › deve exibir habilidades técnicas organizadas por categoria 
+
+    Error: expect.toBeVisible: Error: strict mode violation: getByText('Frontend') resolved to 5 elements:
+        1) <p class="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">Stack tecnológico completo para desenvolvimento F…</p> aka getByText('Stack tecnológico completo')
+        2) <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Frontend</h3> aka getByRole('heading', { name: 'Frontend' })
+        3) <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-3 line-clamp-2">Linguagem principal para desenvolvimento frontend</p> aka getByText('Linguagem principal para desenvolvimento frontend')
+        4) <span>Refatorou completamente sites corporativos com fr…</span> aka getByText('Refatorou completamente sites')
+        5) <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">Refatoração total de sites corporativos com front…</p> aka getByText('Refatoração total de sites')
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByText('Frontend')
+
+
+       97 |
+       98 |     // Verificar se as categorias estão presentes (usando texto mais específico)
+    >  99 |     await expect(page.getByText('Frontend', { exact: false })).toBeVisible();
+          |                                                                ^
+      100 |     await expect(page.getByText('Backend', { exact: false })).toBeVisible();
+      101 |     await expect(page.getByText('DevOps', { exact: false })).toBeVisible();
+      102 |   });
+        at /home/momme/LEONARDO/portifolio/ldb/tests/e2e/navigation.spec.ts:99:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/navigation-Navegação-e-Fun-095d0-s-organizadas-por-categoria-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/navigation-Navegação-e-Fun-095d0-s-organizadas-por-categoria-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/navigation-Navegação-e-Fun-095d0-s-organizadas-por-categoria-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|navigation-Navegação-e-Fun-095d0-s-organizadas-por-categoria-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|navigation-Navegação-e-Fun-095d0-s-organizadas-por-categoria-chromium/video.webm]]
+
+[[ATTACHMENT|navigation-Navegação-e-Fun-095d0-s-organizadas-por-categoria-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve permitir download do CV" classname="navigation.spec.ts" time="19.149">
+<failure message="navigation.spec.ts:104:7 deve permitir download do CV" type="FAILURE">
+<![CDATA[  [chromium] › navigation.spec.ts:104:7 › Navegação e Funcionalidades Principais › deve permitir download do CV 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  locator('a[href*="cv"], a[href*="CV"], button:has-text("Download CV")').first()
+    Expected: visible
+    Received: <element(s) not found>
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('a[href*="cv"], a[href*="CV"], button:has-text("Download CV")').first()
+
+
+      108 |     // Verificar se o link do CV está presente (usando seletor mais flexível)
+      109 |     const cvLink = page.locator('a[href*="cv"], a[href*="CV"], button:has-text("Download CV")');
+    > 110 |     await expect(cvLink.first()).toBeVisible();
+          |                                  ^
+      111 |   });
+      112 |
+      113 |   test('deve ter links para redes sociais funcionais', async ({ page }) => {
+        at /home/momme/LEONARDO/portifolio/ldb/tests/e2e/navigation.spec.ts:110:34
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/navigation-Navegação-e-Fun-639af-eve-permitir-download-do-CV-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/navigation-Navegação-e-Fun-639af-eve-permitir-download-do-CV-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/navigation-Navegação-e-Fun-639af-eve-permitir-download-do-CV-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|navigation-Navegação-e-Fun-639af-eve-permitir-download-do-CV-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|navigation-Navegação-e-Fun-639af-eve-permitir-download-do-CV-chromium/video.webm]]
+
+[[ATTACHMENT|navigation-Navegação-e-Fun-639af-eve-permitir-download-do-CV-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve ter links para redes sociais funcionais" classname="navigation.spec.ts" time="23.952">
+<failure message="navigation.spec.ts:113:7 deve ter links para redes sociais funcionais" type="FAILURE">
+<![CDATA[  [chromium] › navigation.spec.ts:113:7 › Navegação e Funcionalidades Principais › deve ter links para redes sociais funcionais 
+
+    Error: locator.isVisible: Error: strict mode violation: locator('a[href*="github.com"]') resolved to 8 elements:
+        1) <a tabindex="0" target="_blank" rel="noopener noreferrer" href="https://github.com/Laion459" class="w-8 h-8 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-white hover:text-gray-900 transition-all duration-200 shadow-lg">…</a> aka locator('.w-8.h-8.bg-white\\/90.dark\\:bg-gray-800\\/90.rounded-full.flex.items-center.justify-center.text-gray-700.dark\\:text-gray-300.hover\\:bg-white.hover\\:text-gray-900').first()
+        2) <a tabindex="0" target="_blank" rel="noopener noreferrer" href="https://github.com/Laion459" class="w-8 h-8 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-white hover:text-gray-900 transition-all duration-200 shadow-lg">…</a> aka locator('div:nth-child(2) > .relative.h-48 > .absolute.bottom-4 > .w-8.h-8.bg-white\\/90.dark\\:bg-gray-800\\/90.rounded-full.flex.items-center.justify-center.text-gray-700.dark\\:text-gray-300.hover\\:bg-white.hover\\:text-gray-900')
+        3) <a tabindex="0" target="_blank" rel="noopener noreferrer" href="https://github.com/Laion459" class="w-8 h-8 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-white hover:text-gray-900 transition-all duration-200 shadow-lg">…</a> aka locator('div:nth-child(3) > .relative.h-48 > .absolute.bottom-4 > .w-8.h-8.bg-white\\/90.dark\\:bg-gray-800\\/90.rounded-full.flex.items-center.justify-center.text-gray-700.dark\\:text-gray-300.hover\\:bg-white.hover\\:text-gray-900')
+        4) <a tabindex="0" target="_blank" rel="noopener noreferrer" href="https://github.com/Laion459" class="w-8 h-8 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-white hover:text-gray-900 transition-all duration-200 shadow-lg">…</a> aka locator('div:nth-child(4) > .w-8.h-8.bg-white\\/90.dark\\:bg-gray-800\\/90.rounded-full.flex.items-center.justify-center.text-gray-700.dark\\:text-gray-300.hover\\:bg-white.hover\\:text-gray-900').first()
+        5) <a tabindex="0" target="_blank" rel="noopener noreferrer" href="https://github.com/Laion459" class="w-8 h-8 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-white hover:text-gray-900 transition-all duration-200 shadow-lg">…</a> aka locator('div:nth-child(5) > .relative.h-48 > .absolute.bottom-4 > .w-8.h-8.bg-white\\/90.dark\\:bg-gray-800\\/90.rounded-full.flex.items-center.justify-center.text-gray-700.dark\\:text-gray-300.hover\\:bg-white.hover\\:text-gray-900')
+        6) <a tabindex="0" target="_blank" rel="noopener noreferrer" href="https://github.com/Laion459" class="w-8 h-8 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-white hover:text-gray-900 transition-all duration-200 shadow-lg">…</a> aka locator('div:nth-child(6) > .relative.h-48 > .absolute.bottom-4 > .w-8.h-8.bg-white\\/90.dark\\:bg-gray-800\\/90.rounded-full.flex.items-center.justify-center.text-gray-700.dark\\:text-gray-300.hover\\:bg-white.hover\\:text-gray-900')
+        7) <a target="_blank" rel="noopener noreferrer" href="https://github.com/Laion459" class="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200">…</a> aka locator('div').filter({ hasText: /^Redes Sociais$/ }).getByRole('link').first()
+        8) <a target="_blank" rel="noopener noreferrer" href="https://github.com/Laion459" class="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-gray-300 hover:text-white transition-all duration-200 group">…</a> aka locator('footer').getByRole('link').filter({ hasText: /^$/ }).first()
+
+    Call log:
+        - checking visibility of locator('a[href*="github.com"]')
+
+
+      125 |     for (const link of socialLinks) {
+      126 |       const socialLink = page.locator(`a[href*="${link}"]`);
+    > 127 |       if (await socialLink.isVisible()) {
+          |                            ^
+      128 |         await expect(socialLink).toBeVisible();
+      129 |       }
+      130 |     }
+        at /home/momme/LEONARDO/portifolio/ldb/tests/e2e/navigation.spec.ts:127:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../test-results/navigation-Navegação-e-Fun-59047-ra-redes-sociais-funcionais-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../test-results/navigation-Navegação-e-Fun-59047-ra-redes-sociais-funcionais-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../test-results/navigation-Navegação-e-Fun-59047-ra-redes-sociais-funcionais-chromium/error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|navigation-Navegação-e-Fun-59047-ra-redes-sociais-funcionais-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|navigation-Navegação-e-Fun-59047-ra-redes-sociais-funcionais-chromium/video.webm]]
+
+[[ATTACHMENT|navigation-Navegação-e-Fun-59047-ra-redes-sociais-funcionais-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve ser responsivo em dispositivos móveis" classname="navigation.spec.ts" time="13.667">
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve ter formulário de contato funcional" classname="navigation.spec.ts" time="18.915">
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve ter animações suaves e funcionais" classname="navigation.spec.ts" time="16.459">
+</testcase>
+<testcase name="Navegação e Funcionalidades Principais › deve ter performance otimizada" classname="navigation.spec.ts" time="17.884">
+</testcase>
+</testsuite>
+</testsuites>

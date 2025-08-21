@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Leonardo - Backend Engineer | APIs Escaláveis e Seguras',
+  title:
+    'Leonardo - Full Stack Developer | sites app s APIs Escaláveis e Seguras',
   description:
     'Desenvolvedor backend sênior especializado em criar APIs escaláveis, seguras e de alta performance. Experiência em Node.js, Laravel, PostgreSQL e arquiteturas distribuídas.',
   keywords: [

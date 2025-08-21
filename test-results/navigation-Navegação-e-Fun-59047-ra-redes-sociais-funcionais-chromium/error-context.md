@@ -1,0 +1,867 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+    - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+        - img [ref=e8] [cursor=pointer]
+    - alert [ref=e11]
+    - main [ref=e12]:
+        - navigation [ref=e13]:
+            - generic [ref=e15]:
+                - img "Leonardo Portfolio" [ref=e18] [cursor=pointer]
+                - generic [ref=e19]:
+                    - button "Início" [ref=e20]: Início
+                    - button "Sobre" [ref=e22]: Sobre
+                    - button "Projetos" [ref=e24]: Projetos
+                    - button "Habilidades" [ref=e26]: Habilidades
+                    - button "Experiência" [ref=e28]: Experiência
+                    - button "Contato" [ref=e30]: Contato
+                - button [ref=e33]:
+                    - img [ref=e36]
+        - generic [ref=e42]:
+            - generic [ref=e51]:
+                - heading "Leonardo D. Borges" [level=1] [ref=e53]
+                - generic [ref=e54]:
+                    - heading "Desenvolvedor Full Stack & Product Manager" [level=2] [ref=e55]
+                    - paragraph [ref=e56]:
+                        - text: Especialista em
+                        - generic [ref=e57]: Laravel
+                        - text: ','
+                        - generic [ref=e58]: React
+                        - text: e
+                        - generic [ref=e59]: PHP
+                        - text: .
+                        - generic [ref=e60]: Product Manager com visão de dono e capacidade de entrega rápida.
+                        - generic [ref=e61]: Transformo ideias em produtos completos e escaláveis que geram valor real.
+                - generic [ref=e62]:
+                    - button "🚀 Ver Projetos →" [ref=e68]:
+                        - generic [ref=e70]:
+                            - generic [ref=e71]: 🚀 Ver Projetos
+                            - generic [ref=e72]: →
+                    - button "💬 Contato" [ref=e79]:
+                        - generic [ref=e81]:
+                            - generic [ref=e82]: 💬
+                            - generic [ref=e83]: Contato
+                    - button "📄 Download CV" [ref=e91]:
+                        - generic [ref=e93]:
+                            - generic [ref=e94]: 📄
+                            - generic [ref=e95]: Download CV
+                - img [ref=e101] [cursor=pointer]
+            - generic [ref=e107]:
+                - heading "Sobre Mim" [level=2] [ref=e109]
+                - generic [ref=e111]:
+                    - generic [ref=e113]:
+                        - img "Leonardo - Backend Engineer" [ref=e116]
+                        - generic [ref=e117] [cursor=pointer]: 🚀
+                        - generic [ref=e118] [cursor=pointer]: ⚡
+                        - generic [ref=e119]: 💻
+                        - generic [ref=e120]: 🔥
+                    - generic [ref=e121]:
+                        - generic [ref=e122]:
+                            - heading "Olá! Sou Leonardo D. Borges 👋" [level=3] [ref=e123]:
+                                - text: Olá! Sou
+                                - generic [ref=e124]: Leonardo D. Borges
+                                - text: 👋
+                            - paragraph [ref=e125]:
+                                - text: Sou um
+                                - strong [ref=e126]: Desenvolvedor Full Stack
+                                - text: e
+                                - strong [ref=e127]: Product Manager
+                                - text: apaixonado por criar soluções completas que resolvem problemas reais. Com base sólida em
+                                - strong [ref=e128]: C, C++ e Java
+                                - text: ', evolui para'
+                                - strong [ref=e129]: Laravel
+                                - text: e desenvolvimento Full Stack.
+                            - paragraph [ref=e130]:
+                                - text: Minha jornada na tecnologia começou com
+                                - strong [ref=e131]: Bacharelado em Ciência da Computação
+                                - text: na UNIVALI, onde desenvolvi interesse por
+                                - strong [ref=e132]: segurança da informação, computação forense e pentest
+                                - text: . Atualmente, atuo paralelamente como desenvolvedor e Product Manager, aplicando visão de dono em cada projeto.
+                            - paragraph [ref=e133]:
+                                - text: Acredito que a excelência técnica deve estar sempre alinhada com
+                                - strong [ref=e134]: visão de negócio
+                                - text: . Por isso, foco em entregar produtos completos, desde o conceito até a implementação, sempre com
+                                - strong [ref=e135]: qualidade acima da média e capacidade de entrega rápida
+                                - text: .
+                        - generic [ref=e136]:
+                            - generic [ref=e137]:
+                                - generic [ref=e138]: 🎯
+                                - generic [ref=e139]:
+                                    - heading "Visão de Produto" [level=4] [ref=e140]
+                                    - paragraph [ref=e141]: Product Manager com visão de dono
+                            - generic [ref=e142]:
+                                - generic [ref=e143]: ⚡
+                                - generic [ref=e144]:
+                                    - heading "Entrega Rápida" [level=4] [ref=e145]
+                                    - paragraph [ref=e146]: Capacidade de entrega acima da média
+                            - generic [ref=e147]:
+                                - generic [ref=e148]: 🚀
+                                - generic [ref=e149]:
+                                    - heading "Full Stack" [level=4] [ref=e150]
+                                    - paragraph [ref=e151]: Laravel, React, PHP e muito mais
+                            - generic [ref=e152]:
+                                - generic [ref=e153]: 🎓
+                                - generic [ref=e154]:
+                                    - heading "Formação Sólida" [level=4] [ref=e155]
+                                    - paragraph [ref=e156]: Ciência da Computação + Especializações
+                        - generic [ref=e157]:
+                            - link "Download CV" [ref=e158] [cursor=pointer]:
+                                - /url: /cv-leonardo.pdf
+                                - img [ref=e159] [cursor=pointer]
+                                - text: Download CV
+                            - link "Vamos Conversar" [ref=e162] [cursor=pointer]:
+                                - /url: '#contact'
+                                - img [ref=e163] [cursor=pointer]
+                                - text: Vamos Conversar
+            - generic [ref=e170]:
+                - generic [ref=e171]:
+                    - heading "Habilidades Técnicas" [level=2] [ref=e172]
+                    - paragraph [ref=e173]: Stack tecnológico completo para desenvolvimento Full Stack, desde backend robusto com Laravel até frontend moderno com React, sempre aliado a ferramentas de gestão de projetos e qualidade de código.
+                - generic [ref=e175]:
+                    - generic [ref=e176]:
+                        - generic [ref=e177]:
+                            - generic [ref=e179]: 🎨
+                            - heading "Frontend" [level=3] [ref=e180]
+                        - generic [ref=e181]:
+                            - generic [ref=e183]:
+                                - generic [ref=e184]:
+                                    - generic [ref=e185]:
+                                        - img "React" [ref=e187]
+                                        - generic [ref=e188]: React
+                                    - generic [ref=e189]: Avançado
+                                - paragraph [ref=e190]: Desenvolvimento de interfaces modernas e responsivas
+                            - generic [ref=e195]:
+                                - generic [ref=e196]:
+                                    - generic [ref=e197]:
+                                        - img "Next.js" [ref=e199]
+                                        - generic [ref=e200]: Next.js
+                                    - generic [ref=e201]: Avançado
+                                - paragraph [ref=e202]: Framework React para aplicações full-stack e SSR
+                            - generic [ref=e207]:
+                                - generic [ref=e208]:
+                                    - generic [ref=e209]:
+                                        - img "JavaScript" [ref=e211]
+                                        - generic [ref=e212]: JavaScript
+                                    - generic [ref=e213]: Avançado
+                                - paragraph [ref=e214]: Linguagem principal para desenvolvimento frontend
+                            - generic [ref=e219]:
+                                - generic [ref=e220]:
+                                    - generic [ref=e221]:
+                                        - img "Tailwind CSS" [ref=e223]
+                                        - generic [ref=e224]: Tailwind CSS
+                                    - generic [ref=e225]: Avançado
+                                - paragraph [ref=e226]: Framework CSS utilitário para design rápido
+                            - generic [ref=e231]:
+                                - generic [ref=e232]:
+                                    - generic [ref=e233]:
+                                        - img "HTML" [ref=e235]
+                                        - generic [ref=e236]: HTML
+                                    - generic [ref=e237]: Avançado
+                                - paragraph [ref=e238]: Estruturação semântica de páginas web
+                            - generic [ref=e243]:
+                                - generic [ref=e244]:
+                                    - generic [ref=e245]:
+                                        - img "CSS" [ref=e247]
+                                        - generic [ref=e248]: CSS
+                                    - generic [ref=e249]: Avançado
+                                - paragraph [ref=e250]: Estilização e layout responsivo de páginas web
+                            - generic [ref=e255]:
+                                - generic [ref=e256]:
+                                    - generic [ref=e257]:
+                                        - img "TypeScript" [ref=e259]
+                                        - generic [ref=e260]: TypeScript
+                                    - generic [ref=e261]: Intermediário
+                                - paragraph [ref=e262]: JavaScript tipado para maior robustez
+                    - generic [ref=e266]:
+                        - generic [ref=e267]:
+                            - generic [ref=e269]: ⚙️
+                            - heading "Backend" [level=3] [ref=e270]
+                        - generic [ref=e271]:
+                            - generic [ref=e273]:
+                                - generic [ref=e274]:
+                                    - generic [ref=e275]:
+                                        - img "PHP" [ref=e277]
+                                        - generic [ref=e278]: PHP
+                                    - generic [ref=e279]: Avançado
+                                - paragraph [ref=e280]: Linguagem principal para desenvolvimento backend
+                            - generic [ref=e285]:
+                                - generic [ref=e286]:
+                                    - generic [ref=e287]:
+                                        - img "Laravel" [ref=e289]
+                                        - generic [ref=e290]: Laravel
+                                    - generic [ref=e291]: Avançado
+                                - paragraph [ref=e292]: Framework PHP para aplicações web robustas
+                            - generic [ref=e297]:
+                                - generic [ref=e298]:
+                                    - generic [ref=e299]:
+                                        - img "C" [ref=e301]
+                                        - generic [ref=e302]: C
+                                    - generic [ref=e303]: Intermediário
+                                - paragraph [ref=e304]: Base sólida em programação de sistemas
+                            - generic [ref=e309]:
+                                - generic [ref=e310]:
+                                    - generic [ref=e311]:
+                                        - img "C++" [ref=e313]
+                                        - generic [ref=e314]: C++
+                                    - generic [ref=e315]: Intermediário
+                                - paragraph [ref=e316]: Programação orientada a objetos e sistemas
+                            - generic [ref=e321]:
+                                - generic [ref=e322]:
+                                    - generic [ref=e323]:
+                                        - img "Java" [ref=e325]
+                                        - generic [ref=e326]: Java
+                                    - generic [ref=e327]: Intermediário
+                                - paragraph [ref=e328]: Desenvolvimento de aplicações enterprise
+                            - generic [ref=e333]:
+                                - generic [ref=e334]:
+                                    - generic [ref=e335]:
+                                        - img "Python" [ref=e337]
+                                        - generic [ref=e338]: Python
+                                    - generic [ref=e339]: Intermediário
+                                - paragraph [ref=e340]: Automação e desenvolvimento de scripts
+                    - generic [ref=e344]:
+                        - generic [ref=e345]:
+                            - generic [ref=e347]: 🗄️
+                            - heading "Database" [level=3] [ref=e348]
+                        - generic [ref=e349]:
+                            - generic [ref=e351]:
+                                - generic [ref=e352]:
+                                    - generic [ref=e353]:
+                                        - img "PostgreSQL" [ref=e355]
+                                        - generic [ref=e356]: PostgreSQL
+                                    - generic [ref=e357]: Avançado
+                                - paragraph [ref=e358]: Banco de dados relacional robusto
+                            - generic [ref=e363]:
+                                - generic [ref=e364]:
+                                    - generic [ref=e365]:
+                                        - img "MySQL" [ref=e367]
+                                        - generic [ref=e368]: MySQL
+                                    - generic [ref=e369]: Avançado
+                                - paragraph [ref=e370]: Sistema de gerenciamento de banco de dados
+                            - generic [ref=e375]:
+                                - generic [ref=e376]:
+                                    - generic [ref=e377]:
+                                        - img "Redis" [ref=e379]
+                                        - generic [ref=e380]: Redis
+                                    - generic [ref=e381]: Avançado
+                                - paragraph [ref=e382]: Cache em memória e banco NoSQL
+                    - generic [ref=e386]:
+                        - generic [ref=e387]:
+                            - generic [ref=e389]: 🚀
+                            - heading "DevOps" [level=3] [ref=e390]
+                        - generic [ref=e391]:
+                            - generic [ref=e393]:
+                                - generic [ref=e394]:
+                                    - generic [ref=e395]:
+                                        - img "Docker" [ref=e397]
+                                        - generic [ref=e398]: Docker
+                                    - generic [ref=e399]: Avançado
+                                - paragraph [ref=e400]: Containerização de aplicações
+                            - generic [ref=e405]:
+                                - generic [ref=e406]:
+                                    - generic [ref=e407]:
+                                        - img "Git" [ref=e409]
+                                        - generic [ref=e410]: Git
+                                    - generic [ref=e411]: Avançado
+                                - paragraph [ref=e412]: Controle de versão e colaboração
+                            - generic [ref=e417]:
+                                - generic [ref=e418]:
+                                    - generic [ref=e419]:
+                                        - img "CI/CD" [ref=e421]
+                                        - generic [ref=e422]: CI/CD
+                                    - generic [ref=e423]: Avançado
+                                - paragraph [ref=e424]: Integração e entrega contínua
+                            - generic [ref=e429]:
+                                - generic [ref=e430]:
+                                    - generic [ref=e431]:
+                                        - img "Linux" [ref=e433]
+                                        - generic [ref=e434]: Linux
+                                    - generic [ref=e435]: Avançado
+                                - paragraph [ref=e436]: Administração de sistemas Unix
+                    - generic [ref=e440]:
+                        - generic [ref=e441]:
+                            - generic [ref=e443]: 🔗
+                            - heading "Integrations" [level=3] [ref=e444]
+                        - generic [ref=e445]:
+                            - generic [ref=e447]:
+                                - generic [ref=e448]:
+                                    - generic [ref=e449]:
+                                        - img "APIs REST" [ref=e451]
+                                        - generic [ref=e452]: APIs REST
+                                    - generic [ref=e453]: Avançado
+                                - paragraph [ref=e454]: Desenvolvimento de APIs web
+                            - generic [ref=e459]:
+                                - generic [ref=e460]:
+                                    - generic [ref=e461]:
+                                        - img "Blade" [ref=e463]
+                                        - generic [ref=e464]: Blade
+                                    - generic [ref=e465]: Avançado
+                                - paragraph [ref=e466]: Template engine do Laravel
+                            - generic [ref=e471]:
+                                - generic [ref=e472]:
+                                    - generic [ref=e473]:
+                                        - img "Filament" [ref=e475]
+                                        - generic [ref=e476]: Filament
+                                    - generic [ref=e477]: Avançado
+                                - paragraph [ref=e478]: Admin panel para Laravel
+                    - generic [ref=e482]:
+                        - generic [ref=e483]:
+                            - generic [ref=e485]: 🧪
+                            - heading "Testing" [level=3] [ref=e486]
+                        - generic [ref=e487]:
+                            - generic [ref=e489]:
+                                - generic [ref=e490]:
+                                    - generic [ref=e491]:
+                                        - img "PHPUnit" [ref=e493]
+                                        - generic [ref=e494]: PHPUnit
+                                    - generic [ref=e495]: Avançado
+                                - paragraph [ref=e496]: Framework de testes para PHP
+                            - generic [ref=e501]:
+                                - generic [ref=e502]:
+                                    - generic [ref=e503]:
+                                        - img "Swagger" [ref=e505]
+                                        - generic [ref=e506]: Swagger
+                                    - generic [ref=e507]: Intermediário
+                                - paragraph [ref=e508]: Documentação de APIs
+                    - generic [ref=e512]:
+                        - generic [ref=e513]:
+                            - generic [ref=e515]: 📊
+                            - heading "Management" [level=3] [ref=e516]
+                        - generic [ref=e517]:
+                            - generic [ref=e519]:
+                                - generic [ref=e520]:
+                                    - generic [ref=e521]:
+                                        - img "Notion" [ref=e523]
+                                        - generic [ref=e524]: Notion
+                                    - generic [ref=e525]: Avançado
+                                - paragraph [ref=e526]: Gestão de projetos e documentação
+                            - generic [ref=e531]:
+                                - generic [ref=e532]:
+                                    - generic [ref=e533]:
+                                        - img "Jira" [ref=e535]
+                                        - generic [ref=e536]: Jira
+                                    - generic [ref=e537]: Intermediário
+                                - paragraph [ref=e538]: Gestão ágil de projetos
+                    - generic [ref=e542]:
+                        - generic [ref=e543]:
+                            - generic [ref=e545]: 🛠️
+                            - heading "Tools" [level=3] [ref=e546]
+                        - generic [ref=e549]:
+                            - generic [ref=e550]:
+                                - generic [ref=e551]:
+                                    - img "VS Code" [ref=e553]
+                                    - generic [ref=e554]: VS Code
+                                - generic [ref=e555]: Avançado
+                            - paragraph [ref=e556]: Editor de código principal
+            - generic [ref=e563]:
+                - generic [ref=e564]:
+                    - heading "Experiência Profissional" [level=2] [ref=e565]
+                    - paragraph [ref=e566]: Jornada focada em entregar produtos completos e impacto mensurável, combinando excelência técnica com visão de negócio e capacidade de entrega rápida em cada projeto.
+                - generic [ref=e568]:
+                    - generic [ref=e577]:
+                        - generic [ref=e580]:
+                            - img "Eleven Soft Logo" [ref=e582]
+                            - generic [ref=e583]:
+                                - heading "Eleven Soft" [level=3] [ref=e584]
+                                - paragraph [ref=e585]: Desenvolvedor Full Stack & Product Manager
+                        - generic [ref=e586]:
+                            - generic [ref=e587]:
+                                - img [ref=e588]
+                                - generic [ref=e590]: 2025 - Presente
+                            - generic [ref=e591]:
+                                - img [ref=e592]
+                                - generic [ref=e595]: Remoto / Brasil
+                        - paragraph [ref=e596]: Atuação paralela como desenvolvedor Full Stack e Product Manager, liderando projetos desde concepção até implementação com visão de dono
+                        - generic [ref=e597]:
+                            - heading "Tecnologias Utilizadas" [level=4] [ref=e598]:
+                                - img [ref=e599]
+                                - text: Tecnologias Utilizadas
+                            - generic [ref=e602]:
+                                - generic [ref=e603]: PHP
+                                - generic [ref=e604]: Laravel
+                                - generic [ref=e605]: React
+                                - generic [ref=e606]: JavaScript
+                                - generic [ref=e607]: PostgreSQL
+                                - generic [ref=e608]: MySQL
+                                - generic [ref=e609]: Redis
+                                - generic [ref=e610]: Docker
+                        - generic [ref=e611]:
+                            - heading "Principais Conquistas" [level=4] [ref=e612]:
+                                - img [ref=e613]
+                                - text: Principais Conquistas
+                            - list [ref=e616]:
+                                - listitem [ref=e617]:
+                                    - generic [ref=e619]: Desenvolvei Keyring - sistema completo de gerenciamento de licenças com Laravel e React
+                                - listitem [ref=e620]:
+                                    - generic [ref=e622]: Ajudei a criar o ESH - sistema de monitoramento e controle de acessos a datacenters robusto com dashboards e alertas em tempo real
+                                - listitem [ref=e623]:
+                                    - generic [ref=e625]: Refatorou completamente sites corporativos com frontend moderno e otimizações de performance
+                                - listitem [ref=e626]:
+                                    - generic [ref=e628]: Implementou integração de pagamentos com compliance PCI e auditoria completa
+                                - listitem [ref=e629]:
+                                    - generic [ref=e631]: Reconhecido por líderes e sócios pela qualidade acima da média e capacidade de entrega rápida
+                    - generic [ref=e636]:
+                        - generic [ref=e639]:
+                            - generic [ref=e641]: F
+                            - generic [ref=e642]:
+                                - heading "Freelance & Projetos Independentes" [level=3] [ref=e643]
+                                - paragraph [ref=e644]: Desenvolvedor Full Stack
+                        - generic [ref=e645]:
+                            - generic [ref=e646]:
+                                - img [ref=e647]
+                                - generic [ref=e649]: 2019 - Presente
+                            - generic [ref=e650]:
+                                - img [ref=e651]
+                                - generic [ref=e654]: Remoto / Brasil
+                        - paragraph [ref=e655]: Desenvolvimento de soluções personalizadas para clientes, focando em qualidade, performance e experiência do usuário
+                        - generic [ref=e656]:
+                            - heading "Tecnologias Utilizadas" [level=4] [ref=e657]:
+                                - img [ref=e658]
+                                - text: Tecnologias Utilizadas
+                            - generic [ref=e661]:
+                                - generic [ref=e662]: PHP
+                                - generic [ref=e663]: Laravel
+                                - generic [ref=e664]: React
+                                - generic [ref=e665]: JavaScript
+                                - generic [ref=e666]: MySQL
+                                - generic [ref=e667]: CSS
+                                - generic [ref=e668]: HTML
+                                - generic [ref=e669]: Git
+                        - generic [ref=e670]:
+                            - heading "Principais Conquistas" [level=4] [ref=e671]:
+                                - img [ref=e672]
+                                - text: Principais Conquistas
+                            - list [ref=e675]:
+                                - listitem [ref=e676]:
+                                    - generic [ref=e678]: Desenvolvi painéis de métricas e dashboards com gráficos interativos e relatórios
+                                - listitem [ref=e679]:
+                                    - generic [ref=e681]: Criei CLI tools para automação de tarefas de desenvolvimento e deploy
+                                - listitem [ref=e682]:
+                                    - generic [ref=e684]: Implementou sistemas de autenticação segura com múltiplas formas de login
+                                - listitem [ref=e685]:
+                                    - generic [ref=e687]: Otimizei performance de aplicações web com melhorias de 60-80% no tempo de carregamento
+                                - listitem [ref=e688]:
+                                    - generic [ref=e690]: Desenvolvi APIs REST robustas para integração com sistemas externos
+                    - generic [ref=e695]:
+                        - generic [ref=e698]:
+                            - generic [ref=e700]: F
+                            - generic [ref=e701]:
+                                - heading "Formação Acadêmica & Especializações" [level=3] [ref=e702]
+                                - paragraph [ref=e703]: Estudante de Ciência da Computação
+                        - generic [ref=e704]:
+                            - generic [ref=e705]:
+                                - img [ref=e706]
+                                - generic [ref=e708]: 2019 - 2026
+                            - generic [ref=e709]:
+                                - img [ref=e710]
+                                - generic [ref=e713]: Remoto / Brasil
+                        - paragraph [ref=e714]: Bacharelado em Ciência da Computação na UNIVALI com foco em desenvolvimento de software, segurança da informação e computação forense
+                        - generic [ref=e715]:
+                            - heading "Tecnologias Utilizadas" [level=4] [ref=e716]:
+                                - img [ref=e717]
+                                - text: Tecnologias Utilizadas
+                            - generic [ref=e720]:
+                                - generic [ref=e721]: C
+                                - generic [ref=e722]: C++
+                                - generic [ref=e723]: Java
+                                - generic [ref=e724]: Python
+                                - generic [ref=e725]: JavaScript
+                                - generic [ref=e726]: PHP
+                                - generic [ref=e727]: PostgreSQL
+                                - generic [ref=e728]: MySQL
+                        - generic [ref=e729]:
+                            - heading "Principais Conquistas" [level=4] [ref=e730]:
+                                - img [ref=e731]
+                                - text: Principais Conquistas
+                            - list [ref=e734]:
+                                - listitem [ref=e735]:
+                                    - generic [ref=e737]: Bacharel em Ciências da Computação - UNIVALI (2019/2026) - 3252h
+                                - listitem [ref=e738]:
+                                    - generic [ref=e740]: Especialização em Computação Forense - UNIVALI (2020) - 32h
+                                - listitem [ref=e741]:
+                                    - generic [ref=e743]: Curso Intensivo de Maratona Python - Bruno Fraga (2020) - 42h
+                                - listitem [ref=e744]:
+                                    - generic [ref=e746]: Formação em Segurança da Informação e Pentest (2024) - 8h
+                                - listitem [ref=e747]:
+                                    - generic [ref=e749]: Cursos em PHP, JavaScript e Banco de Dados com foco em aplicações web
+                                - listitem [ref=e750]:
+                                    - generic [ref=e752]: Interesse em microsserviços, testes automatizados e arquiteturas escaláveis
+                    - generic [ref=e757]:
+                        - generic [ref=e760]:
+                            - generic [ref=e762]: D
+                            - generic [ref=e763]:
+                                - heading "Desenvolvimento Pessoal & Certificações" [level=3] [ref=e764]
+                                - paragraph [ref=e765]: Aprendizado Contínuo
+                        - generic [ref=e766]:
+                            - generic [ref=e767]:
+                                - img [ref=e768]
+                                - generic [ref=e770]: 2015 - Presente
+                            - generic [ref=e771]:
+                                - img [ref=e772]
+                                - generic [ref=e775]: Remoto / Brasil
+                        - paragraph [ref=e776]: Compromisso com aprendizado contínuo através de cursos, conferências e desenvolvimento de projetos pessoais
+                        - generic [ref=e777]:
+                            - heading "Tecnologias Utilizadas" [level=4] [ref=e778]:
+                                - img [ref=e779]
+                                - text: Tecnologias Utilizadas
+                            - generic [ref=e782]:
+                                - generic [ref=e783]: Laravel
+                                - generic [ref=e784]: React
+                                - generic [ref=e785]: Docker
+                                - generic [ref=e786]: CI/CD
+                                - generic [ref=e787]: Git
+                                - generic [ref=e788]: Notion
+                                - generic [ref=e789]: Jira
+                        - generic [ref=e790]:
+                            - heading "Principais Conquistas" [level=4] [ref=e791]:
+                                - img [ref=e792]
+                                - text: Principais Conquistas
+                            - list [ref=e795]:
+                                - listitem [ref=e796]:
+                                    - generic [ref=e798]: Participação em Empreende Brasil Conference (2024/2025) - 48h
+                                - listitem [ref=e799]:
+                                    - generic [ref=e801]: Formação Dev Meetup Startup SC (2025) - 5h
+                                - listitem [ref=e802]:
+                                    - generic [ref=e804]: Formação DEV Front-end (2024) - 9h 40m
+                                - listitem [ref=e805]:
+                                    - generic [ref=e807]: Ciber Explorer e Introdução ao Pentest (2024) - 10h
+                                - listitem [ref=e808]:
+                                    - generic [ref=e810]: Proteção para Bancos e Fintechs - Akamai (2023) - 5h
+                                - listitem [ref=e811]:
+                                    - generic [ref=e813]: Liderança e capacidade de aprender - PUCRS (2021) - 4h
+                - generic [ref=e815]:
+                    - heading "🚀 Pronto para o Próximo Desafio" [level=3] [ref=e816]
+                    - paragraph [ref=e817]: Com experiência comprovada em desenvolvimento Full Stack e visão de Product Manager, estou sempre buscando novos desafios que me permitam aplicar minhas habilidades técnicas e de gestão de produtos em projetos estratégicos de alto impacto.
+                    - link "Vamos Conversar →" [ref=e818] [cursor=pointer]:
+                        - /url: '#contact'
+                        - text: Vamos Conversar
+                        - generic [ref=e819] [cursor=pointer]: →
+            - generic [ref=e823]:
+                - generic [ref=e824]:
+                    - heading "Projetos em Destaque" [level=2] [ref=e825]
+                    - paragraph [ref=e826]: Produtos completos e soluções reais que demonstram minha capacidade de transformar ideias em sistemas funcionais, desde a concepção até a implementação, sempre com visão de produto e foco no usuário.
+                - generic [ref=e828]:
+                    - generic [ref=e829]:
+                        - generic [ref=e830]:
+                            - img "Keyring - App Web de Licenças" [ref=e831]
+                            - generic [ref=e833]: ⭐ Destaque
+                            - generic [ref=e834]:
+                                - button [ref=e835]:
+                                    - img [ref=e836]
+                                - link [ref=e839] [cursor=pointer]:
+                                    - /url: https://github.com/Laion459
+                                    - img [ref=e840] [cursor=pointer]
+                        - generic [ref=e843]:
+                            - heading "Keyring - App Web de Licenças" [level=3] [ref=e844]
+                            - paragraph [ref=e845]: Sistema completo de gerenciamento de licenças com interface moderna e funcionalidades avançadas
+                            - generic [ref=e846]:
+                                - generic [ref=e847]: Laravel
+                                - generic [ref=e848]: PHP
+                                - generic [ref=e849]: React
+                                - generic [ref=e850]: JavaScript
+                            - button "Ver Detalhes" [ref=e851]
+                    - generic [ref=e852]:
+                        - generic [ref=e853]:
+                            - img "ESH - Sistema de Monitoramento" [ref=e854]
+                            - generic [ref=e856]: ⭐ Destaque
+                            - generic [ref=e857]:
+                                - button [ref=e858]:
+                                    - img [ref=e859]
+                                - link [ref=e862] [cursor=pointer]:
+                                    - /url: https://github.com/Laion459
+                                    - img [ref=e863] [cursor=pointer]
+                        - generic [ref=e866]:
+                            - heading "ESH - Sistema de Monitoramento" [level=3] [ref=e867]
+                            - paragraph [ref=e868]: Sistema robusto de monitoramento e alertas para infraestrutura crítica em databases com controle granular de acesso
+                            - generic [ref=e869]:
+                                - generic [ref=e870]: PHP
+                                - generic [ref=e871]: Laravel
+                                - generic [ref=e872]: MySQL
+                                - generic [ref=e873]: Redis
+                            - button "Ver Detalhes" [ref=e874]
+                    - generic [ref=e875]:
+                        - generic [ref=e876]:
+                            - img "Sites Eleven Soft - Refatoração Completa" [ref=e877]
+                            - generic [ref=e879]: ⭐ Destaque
+                            - generic [ref=e880]:
+                                - button [ref=e881]:
+                                    - img [ref=e882]
+                                - link [ref=e885] [cursor=pointer]:
+                                    - /url: https://github.com/Laion459
+                                    - img [ref=e886] [cursor=pointer]
+                        - generic [ref=e889]:
+                            - heading "Sites Eleven Soft - Refatoração Completa" [level=3] [ref=e890]
+                            - paragraph [ref=e891]: Refatoração total de sites corporativos com frontend moderno e otimizações de performance
+                            - generic [ref=e892]:
+                                - generic [ref=e893]: React
+                                - generic [ref=e894]: JavaScript
+                                - generic [ref=e895]: Tailwind CSS
+                                - generic [ref=e896]: HTML
+                            - button "Ver Detalhes" [ref=e897]
+                    - generic [ref=e898]:
+                        - generic [ref=e899]:
+                            - img "Sistema de Integração de Pagamentos e ERP" [ref=e900]
+                            - generic [ref=e902]:
+                                - button [ref=e903]:
+                                    - img [ref=e904]
+                                - link [ref=e907] [cursor=pointer]:
+                                    - /url: https://github.com/Laion459
+                                    - img [ref=e908] [cursor=pointer]
+                        - generic [ref=e911]:
+                            - heading "Sistema de Integração de Pagamentos e ERP" [level=3] [ref=e912]
+                            - paragraph [ref=e913]: Solução completa para processamento de pagamentos online com múltiplas formas de pagamento e integração com ERP
+                            - generic [ref=e914]:
+                                - generic [ref=e915]: PHP
+                                - generic [ref=e916]: Laravel
+                                - generic [ref=e917]: MySQL
+                                - generic [ref=e918]: Redis
+                            - button "Ver Detalhes" [ref=e919]
+                    - generic [ref=e920]:
+                        - generic [ref=e921]:
+                            - img "Painéis de Métricas e Dashboards" [ref=e922]
+                            - generic [ref=e924]:
+                                - button [ref=e925]:
+                                    - img [ref=e926]
+                                - link [ref=e929] [cursor=pointer]:
+                                    - /url: https://github.com/Laion459
+                                    - img [ref=e930] [cursor=pointer]
+                        - generic [ref=e933]:
+                            - heading "Painéis de Métricas e Dashboards" [level=3] [ref=e934]
+                            - paragraph [ref=e935]: Sistema de visualização de dados em tempo real com gráficos interativos e relatórios
+                            - generic [ref=e936]:
+                                - generic [ref=e937]: React
+                                - generic [ref=e938]: JavaScript
+                                - generic [ref=e939]: Chart.js
+                                - generic [ref=e940]: CSS
+                            - button "Ver Detalhes" [ref=e941]
+                    - generic [ref=e942]:
+                        - generic [ref=e943]:
+                            - img "CLI e Ferramentas de Desenvolvimento" [ref=e944]
+                            - generic [ref=e946]:
+                                - button [ref=e947]:
+                                    - img [ref=e948]
+                                - link [ref=e951] [cursor=pointer]:
+                                    - /url: https://github.com/Laion459
+                                    - img [ref=e952] [cursor=pointer]
+                        - generic [ref=e955]:
+                            - heading "CLI e Ferramentas de Desenvolvimento" [level=3] [ref=e956]
+                            - paragraph [ref=e957]: Ferramentas de linha de comando para automação de tarefas de desenvolvimento
+                            - generic [ref=e958]:
+                                - generic [ref=e959]: PHP
+                                - generic [ref=e960]: Laravel
+                                - generic [ref=e961]: CLI
+                                - generic [ref=e962]: Shell Scripts
+                            - button "Ver Detalhes" [ref=e963]
+            - generic [ref=e967]:
+                - generic [ref=e968]:
+                    - heading "O Que Dizem Sobre Mim" [level=2] [ref=e969]
+                    - paragraph [ref=e970]: Depoimentos de colegas, clientes e parceiros que confiaram em meu trabalho.
+                - generic [ref=e972]:
+                    - button [ref=e973]:
+                        - img [ref=e974]
+                    - button [ref=e976]:
+                        - img [ref=e977]
+                    - generic [ref=e979]:
+                        - generic [ref=e982]:
+                            - generic [ref=e984]: '"'
+                            - generic [ref=e985]:
+                                - paragraph [ref=e986]: '"Leonardo é um desenvolvedor excepcional. Sua capacidade de resolver problemas complexos e implementar soluções escaláveis transformou nossa infraestrutura. Recomendo fortemente!"'
+                                - generic [ref=e987]:
+                                    - generic [ref=e988]: J
+                                    - generic [ref=e989]:
+                                        - heading "João Silva" [level=4] [ref=e990]
+                                        - paragraph [ref=e991]: CTO
+                                        - paragraph [ref=e992]: TechCorp Solutions
+                                - generic [ref=e993]:
+                                    - img [ref=e995]
+                                    - img [ref=e998]
+                                    - img [ref=e1001]
+                                    - img [ref=e1004]
+                                    - img [ref=e1007]
+                        - generic [ref=e1011]:
+                            - generic [ref=e1013]: '"'
+                            - generic [ref=e1014]:
+                                - paragraph [ref=e1015]: '"Trabalhar com Leonardo foi uma experiência incrível. Ele entregou nosso MVP de pagamentos em tempo recorde, sempre focando na qualidade e segurança."'
+                                - generic [ref=e1016]:
+                                    - generic [ref=e1017]: M
+                                    - generic [ref=e1018]:
+                                        - heading "Maria Santos" [level=4] [ref=e1019]
+                                        - paragraph [ref=e1020]: Product Manager
+                                        - paragraph [ref=e1021]: StartupXYZ
+                                - generic [ref=e1022]:
+                                    - img [ref=e1024]
+                                    - img [ref=e1027]
+                                    - img [ref=e1030]
+                                    - img [ref=e1033]
+                                    - img [ref=e1036]
+                        - generic [ref=e1040]:
+                            - generic [ref=e1042]: '"'
+                            - generic [ref=e1043]:
+                                - paragraph [ref=e1044]: '"Leonardo tem uma visão técnica muito sólida. Suas implementações são sempre robustas e bem documentadas. Um profissional de primeira linha."'
+                                - generic [ref=e1045]:
+                                    - generic [ref=e1046]: C
+                                    - generic [ref=e1047]:
+                                        - heading "Carlos Oliveira" [level=4] [ref=e1048]
+                                        - paragraph [ref=e1049]: Tech Lead
+                                        - paragraph [ref=e1050]: Digital Agency ABC
+                                - generic [ref=e1051]:
+                                    - img [ref=e1053]
+                                    - img [ref=e1056]
+                                    - img [ref=e1059]
+                                    - img [ref=e1062]
+                                    - img [ref=e1065]
+                        - generic [ref=e1069]:
+                            - generic [ref=e1071]: '"'
+                            - generic [ref=e1072]:
+                                - paragraph [ref=e1073]: '"Contratamos o Leonardo para reestruturar nosso sistema legado. O resultado foi impressionante: 70% de melhoria na performance e 100% de satisfação dos usuários."'
+                                - generic [ref=e1074]:
+                                    - generic [ref=e1075]: A
+                                    - generic [ref=e1076]:
+                                        - heading "Ana Costa" [level=4] [ref=e1077]
+                                        - paragraph [ref=e1078]: CEO
+                                        - paragraph [ref=e1079]: E-commerce Plus
+                                - generic [ref=e1080]:
+                                    - img [ref=e1082]
+                                    - img [ref=e1085]
+                                    - img [ref=e1088]
+                                    - img [ref=e1091]
+                                    - img [ref=e1094]
+                    - generic [ref=e1096]:
+                        - button [ref=e1097]
+                        - button [ref=e1098]
+                        - button [ref=e1099]
+                        - button [ref=e1100]
+                    - generic [ref=e1103]: Auto-play ativo
+            - generic [ref=e1105]:
+                - generic [ref=e1106]:
+                    - heading "Vamos Conversar?" [level=2] [ref=e1107]
+                    - paragraph [ref=e1108]: Estou sempre aberto a novas oportunidades e projetos desafiadores. Entre em contato e vamos discutir como posso ajudar!
+                - generic [ref=e1110]:
+                    - generic [ref=e1111]:
+                        - generic [ref=e1112]:
+                            - heading "Informações de Contato" [level=3] [ref=e1113]
+                            - paragraph [ref=e1114]: Prefere contato direto? Aqui estão minhas principais formas de comunicação. Respondo rapidamente e estou sempre disponível para uma conversa.
+                        - generic [ref=e1115]:
+                            - generic [ref=e1116]:
+                                - img [ref=e1118]
+                                - generic [ref=e1121]:
+                                    - heading "Email" [level=4] [ref=e1122]
+                                    - link "laion459@gmail.com" [ref=e1123] [cursor=pointer]:
+                                        - /url: mailto:laion459@gmail.com
+                            - generic [ref=e1124]:
+                                - img [ref=e1126]
+                                - generic [ref=e1128]:
+                                    - heading "Telefone" [level=4] [ref=e1129]
+                                    - link "+55 51 99909-2387" [ref=e1130] [cursor=pointer]:
+                                        - /url: https://api.whatsapp.com/send/?phone=5551999092387&text&type=phone_number&app_absent=0
+                                    - paragraph [ref=e1131]: Clique para abrir no WhatsApp
+                            - generic [ref=e1132]:
+                                - img [ref=e1134]
+                                - generic [ref=e1137]:
+                                    - heading "Localização" [level=4] [ref=e1138]
+                                    - paragraph [ref=e1139]: Remoto / Florianópolis - SC, Brasil
+                        - generic [ref=e1140]:
+                            - heading "Redes Sociais" [level=4] [ref=e1141]
+                            - generic [ref=e1142]:
+                                - link [ref=e1143] [cursor=pointer]:
+                                    - /url: https://github.com/Laion459
+                                    - img [ref=e1145] [cursor=pointer]
+                                - link [ref=e1147] [cursor=pointer]:
+                                    - /url: https://www.linkedin.com/in/borgesleonardod/
+                                    - img [ref=e1149] [cursor=pointer]
+                                - link [ref=e1151] [cursor=pointer]:
+                                    - /url: https://api.whatsapp.com/send/?phone=5551999092387&text&type=phone_number&app_absent=0
+                                    - img [ref=e1153] [cursor=pointer]
+                                - link [ref=e1155] [cursor=pointer]:
+                                    - /url: https://www.instagram.com/laionzzzz/#
+                                    - img [ref=e1157] [cursor=pointer]
+                                - link [ref=e1159] [cursor=pointer]:
+                                    - /url: mailto:laion459@gmail.com
+                                    - img [ref=e1161] [cursor=pointer]
+                        - generic [ref=e1163]:
+                            - heading "🚀 Disponibilidade" [level=4] [ref=e1164]
+                            - paragraph [ref=e1165]: Atualmente disponível para novos projetos e oportunidades. Resposta garantida em até 24 horas.
+                    - generic [ref=e1166]:
+                        - heading "Envie uma Mensagem" [level=3] [ref=e1167]
+                        - generic [ref=e1168]:
+                            - generic [ref=e1169]:
+                                - generic [ref=e1170]: Nome Completo *
+                                - textbox "Nome Completo *" [ref=e1171]
+                            - generic [ref=e1172]:
+                                - generic [ref=e1173]: Email *
+                                - textbox "Email *" [ref=e1174]
+                            - generic [ref=e1175]:
+                                - generic [ref=e1176]: Mensagem *
+                                - textbox "Mensagem *" [ref=e1177]
+                            - button "Enviar Mensagem" [ref=e1178]:
+                                - img [ref=e1179]
+                                - text: Enviar Mensagem
+        - generic [ref=e1185]:
+            - generic [ref=e1186]:
+                - generic [ref=e1187]:
+                    - generic [ref=e1188]:
+                        - heading "Leonardo D. Borges" [level=3] [ref=e1189]
+                        - paragraph [ref=e1190]: Desenvolvedor Full Stack especializado em Laravel, React e PHP. Product Manager com visão de dono e capacidade de entrega rápida. Criador de soluções completas e escaláveis.
+                    - generic [ref=e1191]:
+                        - link [ref=e1192] [cursor=pointer]:
+                            - /url: https://github.com/Laion459
+                            - img [ref=e1194] [cursor=pointer]
+                        - link [ref=e1196] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/borgesleonardod/
+                            - img [ref=e1198] [cursor=pointer]
+                        - link [ref=e1200] [cursor=pointer]:
+                            - /url: https://api.whatsapp.com/send/?phone=5551999092387&text&type=phone_number&app_absent=0
+                            - img [ref=e1202] [cursor=pointer]
+                        - link [ref=e1204] [cursor=pointer]:
+                            - /url: https://www.instagram.com/laionzzzz/#
+                            - img [ref=e1206] [cursor=pointer]
+                        - link [ref=e1208] [cursor=pointer]:
+                            - /url: mailto:laion459@gmail.com
+                            - img [ref=e1210] [cursor=pointer]
+                - generic [ref=e1212]:
+                    - heading "Navegação" [level=4] [ref=e1213]
+                    - list [ref=e1214]:
+                        - listitem [ref=e1215]:
+                            - link "Início" [ref=e1216] [cursor=pointer]:
+                                - /url: '#home'
+                        - listitem [ref=e1217]:
+                            - link "Sobre" [ref=e1218] [cursor=pointer]:
+                                - /url: '#about'
+                        - listitem [ref=e1219]:
+                            - link "Projetos" [ref=e1220] [cursor=pointer]:
+                                - /url: '#projects'
+                        - listitem [ref=e1221]:
+                            - link "Habilidades" [ref=e1222] [cursor=pointer]:
+                                - /url: '#skills'
+                        - listitem [ref=e1223]:
+                            - link "Experiência" [ref=e1224] [cursor=pointer]:
+                                - /url: '#experience'
+                        - listitem [ref=e1225]:
+                            - link "Contato" [ref=e1226] [cursor=pointer]:
+                                - /url: '#contact'
+                - generic [ref=e1227]:
+                    - heading "Contato" [level=4] [ref=e1228]
+                    - generic [ref=e1229]:
+                        - paragraph [ref=e1230]:
+                            - generic [ref=e1231]: 'Email:'
+                            - link "laion459@gmail.com" [ref=e1232] [cursor=pointer]:
+                                - /url: mailto:laion459@gmail.com
+                        - paragraph [ref=e1233]:
+                            - generic [ref=e1234]: 'Localização:'
+                            - text: Florianópolis - SC, Brasil
+                        - paragraph [ref=e1235]:
+                            - generic [ref=e1236]: 'Disponibilidade:'
+                            - text: Remoto / Presencial
+            - generic [ref=e1238]:
+                - generic [ref=e1239]:
+                    - paragraph [ref=e1240]: © 2025 Leonardo D. Borges. Todos os direitos reservados.
+                    - paragraph [ref=e1241]:
+                        - text: Feito com
+                        - img [ref=e1242]
+                        - text: e muito código
+                - generic [ref=e1244]:
+                    - button "Mudar para modo claro" [ref=e1245]: ☀️
+                    - button "Voltar ao topo" [ref=e1246]:
+                        - img [ref=e1247]
+```

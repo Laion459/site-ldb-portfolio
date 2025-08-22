@@ -137,7 +137,11 @@ const ProjectsSection = () => {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className='object-cover transition-transform duration-500 group-hover:scale-110'
+                  className='object-contain transition-transform duration-500 group-hover:scale-110'
+                  style={{
+                    objectPosition: 'center',
+                    padding: '8px',
+                  }}
                 />
                 {/* Fallback placeholder */}
                 <div className='hidden absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-rose-100 dark:from-blue-900 dark:via-purple-900 dark:to-rose-900 flex items-center justify-center text-6xl text-gray-400 dark:text-gray-600'>
@@ -211,14 +215,28 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Action Button */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => openProjectModal(project)}
-                  className='w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl'
-                >
-                  Ver Detalhes
-                </motion.button>
+                {project.liveUrl ? (
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={project.liveUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
+                  >
+                    <ExternalLink size={16} />
+                    Ver Site
+                  </motion.a>
+                ) : (
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => openProjectModal(project)}
+                    className='w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl'
+                  >
+                    Ver Detalhes
+                  </motion.button>
+                )}
               </div>
 
               {/* Hover Effect */}

@@ -142,7 +142,13 @@ const ExperienceSection = () => {
                   <div className='mb-6 relative z-10'>
                     <div className='flex items-center gap-3 mb-3'>
                       <motion.div
-                        className='w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg overflow-hidden shadow-lg'
+                        className='w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg overflow-hidden shadow-lg relative'
+                        style={{
+                          minWidth: '48px',
+                          minHeight: '48px',
+                          maxWidth: '48px',
+                          maxHeight: '48px',
+                        }}
                         whileHover={{
                           scale: 1.1,
                           rotate: 5,
@@ -151,15 +157,16 @@ const ExperienceSection = () => {
                         transition={{ duration: 0.2 }}
                       >
                         {exp.company === 'Eleven Soft' ? (
-                          <>
+                          <div className='absolute inset-0'>
                             <Image
                               src='/images/icons/eleven-soft.png'
                               alt='Eleven Soft Logo'
                               fill
-                              className='object-cover'
+                              className='object-cover rounded-full'
+                              sizes='48px'
+                              priority
                             />
-                            <span className='hidden font-bold text-lg'>E</span>
-                          </>
+                          </div>
                         ) : (
                           <span>{exp.company.charAt(0)}</span>
                         )}

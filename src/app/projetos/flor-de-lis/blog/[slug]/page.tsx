@@ -8,15 +8,16 @@ import { blogPosts } from '@/data/flor-de-lis/blog';
 import { ArrowLeft, Calendar, Clock, User, Tag } from 'lucide-react';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  const post = blogPosts.find(post => post.slug === params.slug);
+  const { slug } = await params;
+  const post = blogPosts.find(post => post.slug === slug);
 
   if (!post) {
     return {
@@ -46,8 +47,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = blogPosts.find(post => post.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = blogPosts.find(post => post.slug === slug);
 
   if (!post) {
     notFound();
@@ -125,10 +127,64 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <section className='py-16 bg-white'>
           <div className='container mx-auto px-6 lg:px-8 max-w-4xl'>
             <article className='prose prose-lg max-w-none'>
-              <div
-                className='text-gray-700 leading-relaxed'
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
+              <div className='text-gray-700 leading-relaxed'>
+                <h2 className='text-2xl font-bold text-salon-darkPink mb-4'>
+                  As Principais Tendências de 2025
+                </h2>
+                <p className='mb-4'>
+                  O ano de 2025 promete trazer revoluções no mundo da beleza
+                  capilar. As tendências apontam para um equilíbrio perfeito
+                  entre ousadia e naturalidade, com técnicas inovadoras que
+                  respeitam a saúde dos fios.
+                </p>
+
+                <h3 className='text-xl font-semibold text-salon-darkPink mb-3'>
+                  1. Cores Pantone-Inspired
+                </h3>
+                <p className='mb-4'>
+                  As cores do ano da Pantone influenciam diretamente as
+                  tendências capilares. Em 2025, veremos muito do "Peach Fuzz"
+                  em versões suaves e elegantes, criando looks sofisticados e
+                  atemporais.
+                </p>
+
+                <h3 className='text-xl font-semibold text-salon-darkPink mb-3'>
+                  2. Cortes Asimétricos e Geométricos
+                </h3>
+                <p className='mb-4'>
+                  Os cortes geométricos ganham força, com linhas limpas e
+                  ângulos precisos. A assimetria cria movimento e personalidade,
+                  sendo perfeita para quem busca um visual único e moderno.
+                </p>
+
+                <h3 className='text-xl font-semibold text-salon-darkPink mb-3'>
+                  3. Técnicas de Coloração Avançadas
+                </h3>
+                <p className='mb-4'>
+                  O balayage evoluiu para técnicas como "shadow root" e "money
+                  piece", criando transições suaves e naturais. A tendência é
+                  para cores que parecem ter nascido com você.
+                </p>
+
+                <h3 className='text-xl font-semibold text-salon-darkPink mb-3'>
+                  4. Cabelos Texturizados
+                </h3>
+                <p className='mb-4'>
+                  A textura natural está em alta, com técnicas que realçam o
+                  movimento natural dos fios. Produtos específicos para
+                  texturização são essenciais para manter o look desejado.
+                </p>
+
+                <h2 className='text-2xl font-bold text-salon-darkPink mb-4'>
+                  Como Aplicar em Você
+                </h2>
+                <p className='mb-4'>
+                  Antes de escolher uma tendência, é fundamental consultar um
+                  profissional que entenda seu tipo de cabelo, rosto e estilo de
+                  vida. Na Flor de Lis, nossa equipe está sempre atualizada com
+                  as últimas técnicas e produtos.
+                </p>
+              </div>
             </article>
 
             {/* Tags */}
@@ -138,9 +194,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 Tags relacionadas
               </h3>
               <div className='flex flex-wrap gap-2'>
-                {post.tags.map((tag, index) => (
+                {post.tags.map(tag => (
                   <span
-                    key={index}
+                    key={tag}
                     className='bg-salon-lightPink text-salon-darkPink px-3 py-1 rounded-full text-sm font-medium'
                   >
                     {tag}

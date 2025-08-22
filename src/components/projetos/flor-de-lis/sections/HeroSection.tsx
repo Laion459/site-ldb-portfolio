@@ -92,12 +92,12 @@ export default function HeroSection() {
 
         {/* Dots Indicator */}
         <div className='absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3'>
-          {carouselImages.map((_, index) => (
+          {carouselImages.map(image => (
             <button
-              key={index}
-              onClick={() => goToSlide(index)}
+              key={image.id}
+              onClick={() => goToSlide(carouselImages.indexOf(image))}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide
+                carouselImages.indexOf(image) === currentSlide
                   ? 'bg-white scale-125'
                   : 'bg-white bg-opacity-50 hover:bg-opacity-75'
               }`}

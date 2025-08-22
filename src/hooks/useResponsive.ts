@@ -3,6 +3,16 @@
 import { useEffect, useCallback } from 'react';
 import { useAppStore } from '@/store';
 
+// 🎯 Interface para classes responsivas
+interface ResponsiveClasses {
+  base?: string;
+  sm?: string;
+  md?: string;
+  lg?: string;
+  xl?: string;
+  '2xl'?: string;
+}
+
 /**
  * 🎯 Hook inteligente para gerenciar responsividade
  * Integra com o store global e detecta mudanças de breakpoint automaticamente
@@ -105,9 +115,9 @@ export const useResponsive = () => {
     [responsive.breakpoint]
   );
 
-  // 🎯 Função para obter classes CSS responsivas
+  // 🎯 Função para obter classes responsivas
   const getResponsiveClasses = useCallback(
-    (classes: Record<string, string>) => {
+    (classes: ResponsiveClasses): string => {
       const { breakpoint } = responsive;
 
       // Retornar classes baseadas no breakpoint atual
@@ -141,7 +151,7 @@ export const useResponsive = () => {
           return classes.base || '';
       }
     },
-    [responsive.breakpoint]
+    [responsive]
   );
 
   // 🎯 Função para obter valores responsivos
@@ -174,7 +184,7 @@ export const useResponsive = () => {
           return values.base;
       }
     },
-    [responsive.breakpoint]
+    [responsive]
   );
 
   return {

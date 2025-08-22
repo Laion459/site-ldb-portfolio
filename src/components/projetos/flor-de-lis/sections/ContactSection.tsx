@@ -28,8 +28,8 @@ const itemVariants: Variants = {
 
 export default function ContactSection() {
   return (
-    <section className='section-padding bg-salon-lightPink'>
-      <div className='container-custom'>
+    <section className='py-20 bg-salon-lightPink'>
+      <div className='container mx-auto px-6 lg:px-8 max-w-7xl'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,10 +38,11 @@ export default function ContactSection() {
           className='text-center mb-16'
         >
           <h2 className='font-playfair text-4xl md:text-5xl font-bold text-salon-pink mb-4'>
-            Nossos Contatos
+            Entre em Contato
           </h2>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Venha nos visitar ou entre em contato para agendar seu horário
+          <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
+            Estamos aqui para transformar sua experiência de beleza. Entre em
+            contato e descubra como podemos cuidar de você
           </p>
         </motion.div>
 

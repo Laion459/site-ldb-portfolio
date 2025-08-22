@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
 import { carouselImages } from '@/data/flor-de-lis/carousel';
 
 export default function HeroSection() {
@@ -19,16 +19,6 @@ export default function HeroSection() {
 
     return () => clearInterval(interval);
   }, [isPlaying]);
-
-  const nextSlide = () => {
-    setCurrentSlide(prev => (prev + 1) % carouselImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(
-      prev => (prev - 1 + carouselImages.length) % carouselImages.length
-    );
-  };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -68,13 +58,13 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className='text-center text-white z-10'
+                className='text-center text-white z-10 px-6'
               >
-                <h1 className='font-playfair text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg'>
+                <h1 className='font-playfair text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg'>
                   {carouselImages[currentSlide].title}
                 </h1>
-                <p className='text-xl md:text-2xl mb-8 drop-shadow-lg max-w-2xl mx-auto'>
-                  Mais de 25 anos de experiência em beleza e bem-estar
+                <p className='text-xl md:text-2xl mb-8 drop-shadow-lg max-w-3xl mx-auto leading-relaxed'>
+                  {carouselImages[currentSlide].subtitle}
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -88,25 +78,10 @@ export default function HeroSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className='absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110'
-        >
-          <ChevronLeft className='w-6 h-6' />
-        </button>
-
-        <button
-          onClick={nextSlide}
-          className='absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110'
-        >
-          <ChevronRight className='w-6 h-6' />
-        </button>
-
         {/* Play/Pause Button */}
         <button
           onClick={togglePlayPause}
-          className='absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110'
+          className='absolute top-6 right-6 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110'
         >
           {isPlaying ? (
             <Pause className='w-5 h-5' />
@@ -131,7 +106,7 @@ export default function HeroSection() {
         </div>
 
         {/* Slide Counter */}
-        <div className='absolute bottom-4 right-4 bg-white bg-opacity-20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm'>
+        <div className='absolute bottom-4 right-6 bg-white bg-opacity-20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm'>
           {currentSlide + 1} / {carouselImages.length}
         </div>
       </div>

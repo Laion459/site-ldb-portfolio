@@ -12,25 +12,21 @@ export const projects: Project[] = [
       'Desenvolvimento completo de aplicação web com Laravel, React e integração de pagamentos',
     impact:
       'Sistema em produção gerenciando centenas de licenças com interface intuitiva e relatórios detalhados',
-    technologies: [
-      'Laravel',
-      'PHP',
-      'React',
-      'JavaScript',
-      'PostgreSQL',
-      'Tailwind CSS',
-    ],
     image: '/images/projects/keyring.webp',
     githubUrl: 'https://github.com/Laion459',
     liveUrl: undefined,
     featured: true,
-    features: [
-      'Sistema de autenticação e autorização',
-      'Gerenciamento completo de licenças',
-      'Integração com gateway de pagamentos',
-      'Dashboard administrativo',
-      'Relatórios e métricas',
-      'API REST para integrações',
+    technologies: [
+      'React',
+      'Node.js',
+      'PostgreSQL',
+      'Redis',
+      'Docker',
+      'AWS',
+      'Stripe',
+      'JWT',
+      'TypeScript',
+      'Tailwind CSS',
     ],
   },
   {
@@ -49,14 +45,6 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/Laion459',
     liveUrl: undefined,
     featured: true,
-    features: [
-      'Monitoramento em tempo real',
-      'Sistema de alertas inteligentes',
-      'Dashboards personalizáveis',
-      'Histórico de eventos',
-      'Notificações por email/SMS',
-      'API para integrações externas',
-    ],
   },
   {
     id: '3',
@@ -74,14 +62,6 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/Laion459',
     liveUrl: undefined,
     featured: true,
-    features: [
-      'Design responsivo e moderno',
-      'Otimização de performance',
-      'SEO aprimorado',
-      'Interface intuitiva',
-      'Código limpo e manutenível',
-      'Integração com analytics',
-    ],
   },
   {
     id: '4',
@@ -94,6 +74,10 @@ export const projects: Project[] = [
       'Reestruturação completa usando Next.js 15, React 19, TypeScript e Tailwind CSS 4',
     impact:
       'Site 10x mais rápido, totalmente responsivo, com SEO otimizado e interface moderna que aumenta conversões',
+    image: '/images/flor-de-lis/White and Black Minimalist Salon Logo 1.png', // Usando imagem existente temporariamente
+    githubUrl: undefined,
+    liveUrl: '/projetos/flor-de-lis',
+    featured: true,
     technologies: [
       'Next.js 15',
       'React 19',
@@ -101,18 +85,6 @@ export const projects: Project[] = [
       'Tailwind CSS 4',
       'Framer Motion',
       'Responsivo',
-    ],
-    image: '/images/flor-de-lis/White and Black Minimalist Salon Logo 1.png', // Usando imagem existente temporariamente
-    githubUrl: undefined,
-    liveUrl: '/projetos/flor-de-lis',
-    featured: true,
-    features: [
-      'Refatoração completa para stack moderna',
-      'Design responsivo mobile-first',
-      'Carrossel de imagens interativo',
-      'Navegação com dropdown de serviços',
-      'Integração com Google Maps',
-      'Performance e SEO otimizados',
     ],
   },
   {
@@ -126,6 +98,10 @@ export const projects: Project[] = [
       'Refatoração completa usando Next.js 15, React 19, TypeScript e Tailwind CSS 4',
     impact:
       'Site totalmente responsivo, com SEO otimizado e interface moderna que destaca a especialização em colorimetria',
+    image: '/images/gabriela-n/logo.webp', // Usando imagem existente temporariamente
+    githubUrl: undefined,
+    liveUrl: '/projetos/gabriela-n',
+    featured: true,
     technologies: [
       'Next.js 15',
       'React 19',
@@ -133,18 +109,6 @@ export const projects: Project[] = [
       'Tailwind CSS 4',
       'Framer Motion',
       'Responsivo',
-    ],
-    image: '/images/gabriela-n/logo.webp', // Usando imagem existente temporariamente
-    githubUrl: undefined,
-    liveUrl: '/projetos/gabriela-n',
-    featured: true,
-    features: [
-      'Refatoração completa para stack moderna',
-      'Design responsivo mobile-first',
-      'Galeria de portfólio interativa',
-      'Seção de marcas de produtos',
-      'Integração com Google Maps',
-      'Performance e SEO otimizados',
     ],
   },
   {
@@ -158,25 +122,18 @@ export const projects: Project[] = [
       'Implementação de gateway de pagamentos com autenticação, criptografia e auditoria completa e integração com ERP',
     impact:
       'Processamento seguro de milhares de transações com 99.9% de sucesso e compliance PCI e integração com ERP',
+    image: '/images/projects/integracoes-pagamentos.jpg',
+    githubUrl: 'https://github.com/Laion459',
+    liveUrl: undefined,
+    featured: false,
     technologies: [
       'PHP',
       'Laravel',
       'MySQL',
       'Redis',
       'JavaScript',
-      'APIs REST',
-    ],
-    image: '/images/projects/integracoes-pagamentos.jpg',
-    githubUrl: 'https://github.com/Laion459',
-    liveUrl: undefined,
-    featured: false,
-    features: [
-      'Múltiplas formas de pagamento',
-      'Autenticação segura',
-      'Criptografia de dados',
-      'Auditoria completa',
-      'Relatórios financeiros',
-      'Integração com sistemas externos',
+      'CSS',
+      'API REST',
     ],
   },
   {
@@ -190,25 +147,17 @@ export const projects: Project[] = [
       'Desenvolvimento de dashboards personalizados com gráficos, filtros e exportação de dados',
     impact:
       'Tomada de decisão baseada em dados em tempo real, melhorando eficiência operacional',
-    technologies: [
-      'React',
-      'JavaScript',
-      'Chart.js',
-      'CSS',
-      'APIs REST',
-      'WebSockets',
-    ],
     image: '/images/projects/keyring.webp', // Usando imagem existente temporariamente
     githubUrl: 'https://github.com/Laion459',
     liveUrl: undefined,
     featured: false,
-    features: [
-      'Gráficos interativos',
-      'Filtros avançados',
-      'Exportação de dados',
-      'Atualização em tempo real',
-      'Métricas personalizáveis',
-      'Responsivo para mobile',
+    technologies: [
+      'React',
+      'JavaScript',
+      'Chart.js',
+      'D3.js',
+      'API REST',
+      'WebSocket',
     ],
   },
   {
@@ -227,13 +176,5 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/Laion459',
     liveUrl: undefined,
     featured: false,
-    features: [
-      'Automação de deploy',
-      'Execução de testes',
-      'Geração de código',
-      'Migração de bancos',
-      'Backup automático',
-      'Integração com CI/CD',
-    ],
   },
 ];

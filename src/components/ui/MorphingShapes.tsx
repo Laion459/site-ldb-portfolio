@@ -17,7 +17,7 @@ const MorphingShapes = ({
   morphingSpeed = 8000,
 }: MorphingShapesProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
 
   // Sistema de morphing
   useEffect(() => {

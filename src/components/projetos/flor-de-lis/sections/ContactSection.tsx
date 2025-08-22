@@ -1,10 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { MapPin, Phone, Clock, Mail, MessageCircle, Car } from 'lucide-react';
 import { contactInfo } from '@/data/flor-de-lis/contact';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -14,7 +14,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -131,7 +131,6 @@ export default function ContactSection() {
                   rel='noopener noreferrer'
                   className='flex items-center space-x-2 text-pink-600 hover:text-pink-700 transition-colors duration-300'
                 >
-                  {/* Instagram icon was removed from imports, so using a placeholder or removing if not needed */}
                   <span>Instagram</span>
                 </a>
                 <a
@@ -140,7 +139,6 @@ export default function ContactSection() {
                   rel='noopener noreferrer'
                   className='flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors duration-300'
                 >
-                  {/* Facebook icon was removed from imports, so using a placeholder or removing if not needed */}
                   <span>Facebook</span>
                 </a>
                 <a
@@ -153,34 +151,23 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Horário de Funcionamento */}
+            {/* Horários */}
             <div className='bg-white p-6 rounded-xl shadow-lg'>
               <div className='flex items-start space-x-3'>
                 <Clock className='w-6 h-6 text-salon-pink mt-1 flex-shrink-0' />
-                <div className='flex-1'>
-                  <h4 className='font-semibold text-gray-800 mb-3'>
-                    Horário de Funcionamento
-                  </h4>
-                  <div className='space-y-2'>
-                    {contactInfo.workingHours.map((schedule, index) => (
-                      <div
-                        key={index}
-                        className={`flex justify-between items-center py-1 ${
-                          schedule.isOpen ? 'text-gray-800' : 'text-gray-500'
-                        }`}
-                      >
-                        <span className='font-medium'>{schedule.day}</span>
-                        <span
-                          className={
-                            schedule.isOpen
-                              ? 'text-salon-pink'
-                              : 'text-gray-400'
-                          }
-                        >
-                          {schedule.hours}
-                        </span>
-                      </div>
-                    ))}
+                <div>
+                  <h4 className='font-semibold text-gray-800 mb-2'>Horários</h4>
+                  <div className='space-y-1 text-gray-600'>
+                    <p>
+                      <span className='font-medium'>Segunda a Sexta:</span> 8:00
+                      - 19:00
+                    </p>
+                    <p>
+                      <span className='font-medium'>Sábado:</span> 8:00 - 17:00
+                    </p>
+                    <p>
+                      <span className='font-medium'>Domingo:</span> Fechado
+                    </p>
                   </div>
                 </div>
               </div>
@@ -188,14 +175,14 @@ export default function ContactSection() {
 
             {/* Estacionamento */}
             <div className='bg-white p-6 rounded-xl shadow-lg'>
-              <div className='flex items-center space-x-3'>
+              <div className='flex items-start space-x-3'>
                 <Car className='w-6 h-6 text-salon-pink mt-1 flex-shrink-0' />
                 <div>
-                  <h4 className='font-semibold text-gray-800'>
+                  <h4 className='font-semibold text-gray-800 mb-1'>
                     Estacionamento
                   </h4>
                   <p className='text-gray-600'>
-                    Estacionamento privativo disponível
+                    Estacionamento gratuito disponível
                   </p>
                 </div>
               </div>
@@ -203,40 +190,30 @@ export default function ContactSection() {
           </motion.div>
         </motion.div>
 
-        {/* CTA */}
+        {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className='text-center mt-16'
         >
-          <div className='bg-white p-8 rounded-2xl shadow-xl max-w-2xl mx-auto'>
-            <h3 className='font-playfair text-2xl font-bold text-salon-pink mb-4'>
-              Agende seu Horário
+          <div className='bg-gradient-to-r from-salon-pink to-salon-darkPink p-8 rounded-2xl text-white'>
+            <h3 className='font-playfair text-3xl font-bold mb-4'>
+              Agende seu Horário Hoje!
             </h3>
-            <p className='text-gray-600 mb-6'>
-              Entre em contato conosco para agendar seu horário ou tirar dúvidas
-              sobre nossos serviços
+            <p className='text-lg mb-6 opacity-90'>
+              Transforme sua aparência com nossos serviços profissionais
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <a
-                href={`https://wa.me/5548991319135`}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='btn-primary inline-flex items-center justify-center space-x-2'
-              >
-                <MessageCircle className='w-5 h-5' />
-                <span>WhatsApp</span>
-              </a>
-              <a
-                href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
-                className='btn-secondary inline-flex items-center justify-center space-x-2'
-              >
-                <Phone className='w-5 h-5' />
-                <span>Ligar</span>
-              </a>
-            </div>
+            <a
+              href={contactInfo.whatsapp}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center space-x-2 bg-white text-salon-pink px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl'
+            >
+              <MessageCircle className='w-5 h-5' />
+              <span>Agendar por WhatsApp</span>
+            </a>
           </div>
         </motion.div>
       </div>

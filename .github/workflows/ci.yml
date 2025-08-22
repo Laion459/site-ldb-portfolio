@@ -1,216 +1,274 @@
-name: CI/CD Pipeline
+name: 🚀 CI/CD Pipeline
 
 on:
   push:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  workflow_dispatch:
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: '20'
   PNPM_VERSION: '8'
 
 jobs:
-  # Job de qualidade de código
-  code-quality:
-    name: Code Quality
+  # 🔍 Linting e Formatação
+  lint:
+    name: 🔍 Lint & Format
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Run TypeScript check
-        run: npm run type-check
-
-      - name: Run ESLint
+      - name: 🔍 Run ESLint
         run: npm run lint
 
-      - name: Check Prettier formatting
+      - name: 🎨 Check Prettier formatting
         run: npm run format:check
 
-      - name: Check for security vulnerabilities
-        run: npm audit --audit-level=moderate
+      - name: 🔍 Run TypeScript check
+        run: npm run type-check
 
-  # Job de testes unitários
-  unit-tests:
-    name: Unit Tests
+  # 🧪 Testes Unitários
+  test:
+    name: 🧪 Unit Tests
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Run unit tests with coverage
+      - name: 🧪 Run tests
         run: npm run test:coverage
 
-      - name: Upload coverage to Codecov
+      - name: 📊 Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           file: ./coverage/lcov.info
           flags: unittests
           name: codecov-umbrella
 
-  # Job de testes E2E
-  e2e-tests:
-    name: E2E Tests
+  # 🌐 Testes E2E
+  e2e:
+    name: 🌐 E2E Tests
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Install Playwright browsers
+      - name: 🟢 Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Build application
-        run: npm run build
-
-      - name: Run E2E tests
+      - name: 🧪 Run E2E tests
         run: npm run test:e2e
 
-      - name: Upload test results
-        uses: actions/upload-artifact@v3
+      - name: 📊 Upload test results
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
-          path: test-results/
+          path: playwright-report/
           retention-days: 30
 
-  # Job de build e deploy
-  build-and-deploy:
-    name: Build and Deploy
+  # 🏗️ Build e Análise
+  build:
+    name: 🏗️ Build & Analyze
     runs-on: ubuntu-latest
-    needs: [code-quality, unit-tests, e2e-tests]
-    if: github.ref == 'refs/heads/main'
-
+    needs: [lint, test]
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Build application
+      - name: 🏗️ Build application
         run: npm run build
 
-      - name: Deploy to Vercel
+      - name: 📊 Analyze bundle size
+        run: |
+          npm install -g @next/bundle-analyzer
+          ANALYZE=true npm run build
+
+      - name: 📊 Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: .next/
+          retention-days: 7
+
+  # 🚀 Deploy para Vercel (Staging)
+  deploy-staging:
+    name: 🚀 Deploy Staging
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: github.ref == 'refs/heads/develop'
+    environment: staging
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🏗️ Build application
+        run: npm run build
+
+      - name: 🚀 Deploy to Vercel (Staging)
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.PROJECT_ID }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
 
-  # Job de análise de performance
-  performance:
-    name: Performance Analysis
+  # 🚀 Deploy para Vercel (Production)
+  deploy-production:
+    name: 🚀 Deploy Production
     runs-on: ubuntu-latest
+    needs: [build]
     if: github.ref == 'refs/heads/main'
-
+    environment: production
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
 
-      - name: Build application
+      - name: 🏗️ Build application
         run: npm run build
 
-      - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v10
+      - name: 🚀 Deploy to Vercel (Production)
+        uses: amondnet/vercel-action@v25
         with:
-          urls: |
-            http://localhost:3000
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-          configPath: './.lighthouserc.js'
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
 
-  # Job de segurança
+  # 🔒 Security Audit
   security:
-    name: Security Scan
+    name: 🔒 Security Audit
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Snyk security scan
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🔒 Run security audit
+        run: npm audit --audit-level=moderate
+
+      - name: 🔒 Run Snyk security scan
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --severity-threshold=high
 
-      - name: Run OWASP ZAP scan
-        uses: zaproxy/action-full-scan@v0.8.0
-        with:
-          target: 'http://localhost:3000'
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
-
-  # Job de notificação
-  notify:
-    name: Notify Team
+  # 📊 Performance Testing
+  performance:
+    name: 📊 Performance Testing
     runs-on: ubuntu-latest
-    needs: [code-quality, unit-tests, e2e-tests, build-and-deploy]
-    if: always()
-
+    needs: [deploy-staging]
+    if: github.ref == 'refs/heads/develop'
     steps:
-      - name: Notify on failure
-        if: failure()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: failure
-          text: '❌ CI/CD Pipeline falhou! Verifique os logs.'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
 
-      - name: Notify on success
-        if: success()
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 📊 Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun
+
+      - name: 📊 Upload Lighthouse results
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results
+          path: .lighthouseci/
+          retention-days: 30
+
+  # 🔄 Notifications
+  notify:
+    name: 🔔 Notifications
+    runs-on: ubuntu-latest
+    needs: [deploy-production]
+    if: always()
+    steps:
+      - name: 📧 Send Slack notification
         uses: 8398a7/action-slack@v3
         with:
-          status: success
-          text: '✅ CI/CD Pipeline executado com sucesso!'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          status: ${{ job.status }}
+          channel: '#deployments'
+          webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+        if: always()
+
+      - name: 📧 Send Discord notification
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        if: always()

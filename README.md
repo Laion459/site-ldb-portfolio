@@ -1,377 +1,267 @@
-# 🚀 Leonardo - Portfolio Profissional (10+/10)
+# 🚀 LDB - Portfolio Profissional
 
-Portfólio moderno e responsivo de Leonardo, Backend Engineer especializado em criar APIs escaláveis, seguras e de alta performance. **Projeto com qualidade empresarial e padrões de produção.**
+[![CI/CD Pipeline](https://github.com/Laion459/LDB/actions/workflows/ci.yml/badge.svg)](https://github.com/Laion459/LDB/actions/workflows/ci.yml)
+[![Code Coverage](https://img.shields.io/badge/coverage-80%25-brightgreen)](https://github.com/Laion459/LDB)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.5-black)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.1-blue)](https://reactjs.org/)
 
-## ✨ Características
+## 🎯 **Sobre o Projeto**
 
-- **🎨 Design Moderno**: Interface limpa e profissional com animações suaves
-- **📱 Totalmente Responsivo**: Mobile-first design que funciona perfeitamente em todos os dispositivos
-- **🌙 Dark/Light Mode**: Tema automático com toggle manual
-- **⚡ Performance Otimizada**: Lighthouse score acima de 90
-- **🔒 TypeScript**: Tipagem forte para código robusto e manutenível
-- **🎭 Framer Motion**: Animações fluidas e profissionais
-- **📧 Formulário de Contato**: Integração com EmailJS para comunicação direta
-- **📱 PWA Ready**: Instalável como aplicativo móvel
-- **🧪 Testes Completos**: Cobertura de testes unitários e E2E
-- **📚 Storybook**: Documentação interativa de componentes
-- **🔄 CI/CD**: Pipeline automatizado com GitHub Actions
-- **🔍 Qualidade**: ESLint, Prettier, Husky e Commitlint
-- **📊 Monitoramento**: Análise de performance com Lighthouse CI
+Portfolio profissional de **Leonardo D. Borges**, desenvolvedor Full Stack e Product Manager especializado em Laravel, React e PHP. Este projeto demonstra expertise em desenvolvimento web moderno, arquitetura escalável e boas práticas de engenharia de software.
 
-## 🛠️ Stack Tecnológica
+## ✨ **Características Principais**
 
-### Frontend
+### 🎨 **Design System Avançado**
 
-- **Next.js 15** - Framework React com App Router
-- **React 19** - Biblioteca de interface do usuário
-- **TypeScript 5** - Tipagem estática para JavaScript
-- **Tailwind CSS 4** - Framework CSS utility-first
+- **12 variantes de botões** com animações e efeitos visuais
+- **Sistema de cores responsivo** com suporte a tema claro/escuro
+- **Animações fluidas** com Framer Motion
+- **Partículas interativas** e morphing shapes
+- **Micro-interações** e efeitos de hover
 
-### Animações & UX
+### 🏗️ **Arquitetura Robusta**
 
-- **Framer Motion** - Biblioteca de animações
-- **Lucide React** - Ícones modernos e consistentes
+- **Store global** com Zustand + Immer
+- **Hooks customizados** para responsividade e tema
+- **Validação de dados** com Zod
+- **Componentização modular** e reutilizável
+- **TypeScript strict** com tipagem completa
+
+### 📱 **Performance e Responsividade**
+
+- **Mobile-first approach** com breakpoints inteligentes
+- **Lazy loading** e otimizações de imagem
+- **Bundle analyzer** integrado
+- **Lighthouse CI** para métricas de performance
+- **PWA ready** com manifest e service workers
+
+### 🧪 **Qualidade e Testes**
+
+- **Cobertura de testes** de 80%+
+- **Testes unitários** com Jest
+- **Testes E2E** com Playwright
+- **Storybook** para documentação de componentes
+- **ESLint + Prettier** para qualidade de código
+
+## 🚀 **Stack Tecnológica**
+
+### **Frontend**
+
+- **Next.js 15.5** - App Router e Turbopack
+- **React 19.1** - Versão cutting-edge
+- **TypeScript 5** - Tipagem estática robusta
+- **Tailwind CSS 4** - Framework CSS moderno
+- **Framer Motion** - Animações performáticas
+
+### **Estado e Validação**
+
+- **Zustand** - Gerenciamento de estado global
+- **Immer** - Imutabilidade eficiente
+- **Zod** - Validação de schemas
 - **React Hook Form** - Gerenciamento de formulários
-- **Zod** - Validação de esquemas
 
-### Testes & Qualidade
+### **Testes e Qualidade**
 
 - **Jest** - Framework de testes unitários
-- **React Testing Library** - Utilitários para testes de componentes
-- **Playwright** - Testes end-to-end
-- **Storybook** - Documentação e desenvolvimento de componentes
-- **ESLint** - Linting com regras rigorosas
-- **Prettier** - Formatação automática de código
-- **Husky** - Git hooks para qualidade
+- **Playwright** - Testes E2E
+- **Storybook** - Documentação de componentes
+- **ESLint + Prettier** - Linting e formatação
+
+### **DevOps e Deploy**
+
+- **GitHub Actions** - CI/CD pipeline completo
+- **Vercel** - Deploy automático
+- **Husky** - Git hooks
 - **Commitlint** - Padronização de commits
 
-### DevOps & CI/CD
-
-- **GitHub Actions** - Pipeline de integração contínua
-- **Lighthouse CI** - Análise de performance automatizada
-- **Vercel** - Deploy e hosting
-- **Turbopack** - Bundler rápido para desenvolvimento
-
-## 🏗️ Arquitetura
+## 📁 **Estrutura do Projeto**
 
 ```
 src/
-├── components/          # Componentes React reutilizáveis
-│   ├── ui/             # Componentes base (Button, etc.)
-│   ├── sections/       # Seções da página (Hero, About, etc.)
-│   └── layout/         # Componentes de layout (Navbar, Footer)
-├── hooks/              # Hooks customizados
-├── utils/              # Utilitários e helpers
-├── types/              # Definições TypeScript
-├── data/               # Dados mockados para o portfólio
-└── styles/             # Estilos globais e CSS
-
-tests/
-├── e2e/                # Testes end-to-end com Playwright
-└── unit/               # Testes unitários com Jest
-
-.github/
-└── workflows/          # Pipelines de CI/CD
-
-.storybook/             # Configuração do Storybook
+├── app/                    # App Router do Next.js
+├── components/            # Componentes reutilizáveis
+│   ├── layout/           # Componentes de layout
+│   ├── projetos/         # Projetos específicos
+│   ├── sections/         # Seções da página principal
+│   └── ui/              # Componentes base
+├── store/                # Store global (Zustand)
+├── hooks/                # Custom hooks
+├── types/                # Definições TypeScript
+├── utils/                # Utilitários e validação
+└── data/                 # Dados estáticos
 ```
 
-## 🚀 Como Executar
+## 🚀 **Como Executar**
 
-### Pré-requisitos
+### **Pré-requisitos**
 
 - Node.js 18+
-- npm ou yarn
+- npm 8+
 
-### Instalação
+### **Instalação**
 
 ```bash
 # Clone o repositório
-git clone https://github.com/username/leonardo-portfolio.git
-cd leonardo-portfolio
+git clone https://github.com/Laion459/LDB.git
+cd LDB
 
 # Instale as dependências
 npm install
 
-# Execute em modo desenvolvimento
+# Configure as variáveis de ambiente
+cp .env.example .env.local
+```
+
+### **Desenvolvimento**
+
+```bash
+# Modo desenvolvimento
 npm run dev
 
-# Abra http://localhost:3000 no navegador
+# Com análise de bundle
+npm run dev:analyze
+
+# Limpeza e desenvolvimento
+npm run dev:clean
 ```
 
-### Scripts Disponíveis
+### **Build e Deploy**
 
 ```bash
-# Desenvolvimento
-npm run dev              # Desenvolvimento com Turbopack
-npm run build            # Build de produção
-npm run start            # Servidor de produção
+# Build de produção
+npm run build
 
-# Qualidade de Código
-npm run lint             # Verificação de código
-npm run lint:fix         # Correção automática
-npm run format           # Formatação com Prettier
-npm run format:check     # Verificação de formatação
-npm run type-check       # Verificação TypeScript
+# Análise de bundle
+npm run analyze
 
-# Testes
-npm run test             # Testes unitários
-npm run test:watch       # Testes em modo watch
-npm run test:coverage    # Testes com cobertura
-npm run test:e2e         # Testes end-to-end
-npm run test:e2e:ui      # Testes E2E com interface
+# Deploy para staging
+npm run deploy:staging
 
-# Storybook
-npm run storybook        # Desenvolvimento do Storybook
-npm run build-storybook  # Build do Storybook
-
-# Git Hooks (automático)
-npm run prepare          # Instalação do Husky
+# Deploy para produção
+npm run deploy:production
 ```
 
-## 🧪 Testes
-
-### Testes Unitários
+### **Testes**
 
 ```bash
-# Executar todos os testes
+# Testes unitários
 npm run test
 
-# Executar com cobertura
+# Testes com coverage
 npm run test:coverage
 
-# Executar testes específicos
-npm test -- --testNamePattern="Button"
-```
-
-### Testes E2E
-
-```bash
-# Executar testes E2E
+# Testes E2E
 npm run test:e2e
 
-# Executar com interface visual
-npm run test:e2e:ui
-
-# Executar em modo debug
-npx playwright test --debug
+# Testes de performance
+npm run lighthouse
 ```
 
-### Cobertura de Testes
-
-- **Cobertura mínima**: 80%
-- **Branches**: 80%
-- **Functions**: 80%
-- **Lines**: 80%
-- **Statements**: 80%
-
-## 📚 Storybook
-
-### Executar Storybook
+### **Qualidade de Código**
 
 ```bash
-npm run storybook
+# Verificação completa
+npm run quality:check
+
+# Correção automática
+npm run quality:fix
+
+# Auditoria de segurança
+npm run security:audit
 ```
 
-### Acessar
+## 🎯 **Funcionalidades Principais**
 
-- **URL**: http://localhost:6006
-- **Documentação**: Componentes interativos com todas as variantes
-- **Controles**: Teste diferentes props em tempo real
-- **Responsividade**: Visualize em diferentes viewports
+### **🎨 Sistema de Temas**
 
-## 🔄 CI/CD Pipeline
+- **Tema claro/escuro** com persistência
+- **Preferências do sistema** automáticas
+- **Transições suaves** entre temas
+- **Tema baseado em horário** e localização
 
-### GitHub Actions
+### **📱 Responsividade Inteligente**
 
-O projeto possui um pipeline completo de CI/CD que executa:
+- **Breakpoints automáticos** com hooks customizados
+- **Classes responsivas** dinâmicas
+- **Orientação de tela** detectada automaticamente
+- **Preferências de movimento** respeitadas
 
-1. **Code Quality**
-   - Verificação TypeScript
-   - Linting com ESLint
-   - Formatação com Prettier
-   - Auditoria de segurança
+### **🔍 Sistema de Busca e Filtros**
 
-2. **Testes**
-   - Testes unitários com cobertura
-   - Testes E2E com Playwright
-   - Upload de resultados
+- **Busca em tempo real** com debounce
+- **Filtros avançados** por categoria e tecnologia
+- **Ordenação flexível** por relevância, data, nome
+- **Estado persistente** de filtros
 
-3. **Build & Deploy**
-   - Build de produção
-   - Deploy automático para Vercel
-   - Análise de performance
+### **📊 Analytics e Monitoramento**
 
-4. **Segurança**
-   - Scan com Snyk
-   - Análise OWASP ZAP
-   - Notificações automáticas
+- **Tracking de páginas** e interações
+- **Métricas de performance** com Lighthouse
+- **Análise de bundle** integrada
+- **Relatórios de qualidade** automatizados
 
-### Deploy Automático
+## 🚀 **CI/CD Pipeline**
 
-- **Branch**: `main`
-- **Trigger**: Push e Pull Requests
-- **Platform**: Vercel
-- **Status**: Automático após testes
+### **🔍 Qualidade de Código**
 
-## 📊 Métricas de Qualidade
+- **ESLint** - Análise estática
+- **Prettier** - Formatação automática
+- **TypeScript** - Verificação de tipos
+- **Husky** - Pre-commit hooks
 
-### Performance (Lighthouse)
+### **🧪 Testes Automatizados**
 
-- **Performance**: ≥ 90
-- **Accessibility**: ≥ 95
-- **Best Practices**: ≥ 90
-- **SEO**: ≥ 90
+- **Testes unitários** em múltiplas versões do Node
+- **Testes E2E** com Playwright
+- **Cobertura de código** com relatórios
+- **Testes de performance** com Lighthouse
 
-### Core Web Vitals
+### **🏗️ Build e Deploy**
 
-- **First Contentful Paint**: < 2s
-- **Largest Contentful Paint**: < 4s
-- **Cumulative Layout Shift**: < 0.1
-- **Total Blocking Time**: < 300ms
-- **Speed Index**: < 3s
-- **Time to Interactive**: < 3.5s
+- **Build otimizado** com Next.js
+- **Análise de bundle** automática
+- **Deploy para staging** (branch develop)
+- **Deploy para produção** (branch main)
 
-## 🎯 Padrões de Qualidade
+### **🔒 Segurança e Performance**
 
-### Código
+- **Auditoria de segurança** com npm audit
+- **Scan de vulnerabilidades** com Snyk
+- **Métricas de performance** com Lighthouse CI
+- **Notificações** para Slack/Discord
 
-- **ESLint**: Regras rigorosas para qualidade
-- **Prettier**: Formatação consistente
-- **TypeScript**: Tipagem estrita
-- **Husky**: Hooks de qualidade automáticos
+## 📊 **Métricas de Qualidade**
 
-### Commits
+| Métrica                      | Valor | Status |
+| ---------------------------- | ----- | ------ |
+| **Cobertura de Testes**      | 80%+  | ✅     |
+| **Performance (Lighthouse)** | 90+   | ✅     |
+| **Acessibilidade**           | 95+   | ✅     |
+| **SEO**                      | 90+   | ✅     |
+| **Boas Práticas**            | 90+   | ✅     |
 
-- **Conventional Commits**: Padrão para mensagens
-- **Commitlint**: Validação automática
-- **Lint-staged**: Verificação antes do commit
+## 🎯 **Roadmap**
 
-### Testes
+### **🚀 Próximas Versões**
 
-- **Jest**: Framework principal
-- **React Testing Library**: Testes de componentes
-- **Playwright**: Testes E2E
-- **Coverage**: Mínimo 80%
+- [ ] **PWA completa** com service workers
+- [ ] **Internacionalização** (i18n) multi-idioma
+- [ ] **CMS headless** para conteúdo dinâmico
+- [ ] **Blog integrado** com MDX
+- [ ] **Dashboard admin** para projetos
 
-## 📱 Seções do Portfólio
+### **🔧 Melhorias Técnicas**
 
-### 1. **Hero Section**
+- [ ] **Micro-frontends** com Module Federation
+- [ ] **Edge functions** para APIs
+- [ ] **GraphQL** com Apollo Client
+- [ ] **Real-time** com WebSockets
+- [ ] **Machine Learning** para recomendações
 
-- Nome em destaque com animações
-- Título profissional impactante
-- CTAs para projetos e contato
-- Background animado com gradientes
+## 🤝 **Contribuição**
 
-### 2. **Sobre Mim**
-
-- Foto/avatar profissional
-- Descrição pessoal e profissional
-- Estatísticas de experiência
-- Links para CV e LinkedIn
-
-### 3. **Projetos**
-
-- Grid de projetos em destaque
-- Cards interativos com hover effects
-- Modal detalhado para cada projeto
-- Informações sobre problema, solução e impacto
-
-### 4. **Habilidades Técnicas**
-
-- Organização por categoria (Frontend, Backend, DevOps)
-- Níveis de proficiência
-- Ícones representativos
-- Descrições detalhadas
-
-### 5. **Experiência Profissional**
-
-- Timeline cronológica
-- Empresas e posições
-- Tecnologias utilizadas
-- Conquistas e responsabilidades
-
-### 6. **Depoimentos**
-
-- Feedbacks de clientes e colegas
-- Avaliações e comentários
-- Avatares e informações profissionais
-
-### 7. **Contato**
-
-- Formulário funcional com EmailJS
-- Validação com Zod
-- Links para redes sociais
-- Informações de contato direto
-
-## 🌟 Funcionalidades Avançadas
-
-### Animações
-
-- **Framer Motion**: Animações suaves e profissionais
-- **Intersection Observer**: Animações baseadas em scroll
-- **Particle System**: Sistema de partículas interativo
-- **Morphing Shapes**: Formas que se transformam
-
-### Performance
-
-- **Lazy Loading**: Carregamento sob demanda
-- **Image Optimization**: Otimização automática de imagens
-- **Code Splitting**: Divisão inteligente do código
-- **Service Worker**: Funcionalidades offline
-
-### Acessibilidade
-
-- **ARIA Labels**: Rotulagem para leitores de tela
-- **Keyboard Navigation**: Navegação por teclado
-- **Focus Management**: Gerenciamento de foco
-- **Color Contrast**: Contraste adequado de cores
-
-## 🔧 Configurações
-
-### Environment Variables
-
-```bash
-# .env.local
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-### Tailwind CSS
-
-- **Configuração**: `tailwind.config.js`
-- **Customização**: Cores, fontes e componentes
-- **Plugins**: Animações e utilitários customizados
-
-### TypeScript
-
-- **Configuração**: `tsconfig.json`
-- **Strict Mode**: Ativado
-- **Path Mapping**: Aliases para imports
-- **Type Definitions**: Interfaces completas
-
-## 📈 Roadmap
-
-### Próximas Versões
-
-- [ ] **PWA Completo**: Service worker e cache offline
-- [ ] **Blog Integrado**: Sistema de artigos técnicos
-- [ ] **Dashboard Admin**: Gerenciamento de conteúdo
-- [ ] **Analytics Avançado**: Métricas detalhadas
-- [ ] **Multi-idioma**: Suporte a inglês e português
-- [ ] **Tema Customizável**: Cores personalizáveis
-
-### Melhorias Técnicas
-
-- [ ] **Micro-frontends**: Arquitetura modular
-- [ ] **GraphQL**: API mais eficiente
-- [ ] **WebAssembly**: Performance crítica
-- [ ] **Edge Computing**: Deploy distribuído
-
-## 🤝 Contribuição
-
-### Como Contribuir
+### **Como Contribuir**
 
 1. **Fork** o projeto
 2. **Crie** uma branch para sua feature
@@ -379,38 +269,37 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 4. **Push** para a branch
 5. **Abra** um Pull Request
 
-### Padrões de Contribuição
+### **Padrões de Commit**
 
-- **Commits**: Conventional Commits
-- **Código**: ESLint + Prettier
-- **Testes**: Cobertura mínima 80%
-- **Documentação**: Atualizar README e Storybook
+```bash
+feat: adiciona nova funcionalidade
+fix: corrige bug
+docs: atualiza documentação
+style: formatação de código
+refactor: refatoração de código
+test: adiciona ou corrige testes
+chore: tarefas de manutenção
+```
 
-## 📄 Licença
+## 📄 **Licença**
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## 🙏 Agradecimentos
+## 📞 **Contato**
 
-- **Next.js Team** - Framework incrível
-- **Vercel** - Deploy e hosting
-- **Tailwind CSS** - Sistema de design
-- **Framer Motion** - Animações
-- **Comunidade Open Source** - Inspiração e suporte
+- **LinkedIn**: [Leonardo D. Borges](https://www.linkedin.com/in/borgesleonardod/)
+- **GitHub**: [@Laion459](https://github.com/Laion459)
+- **Email**: laion459@gmail.com
+- **WhatsApp**: +55 51 99909-2387
+
+## 🙏 **Agradecimentos**
+
+- **Next.js Team** pela excelente framework
+- **Vercel** pela plataforma de deploy
+- **Tailwind CSS** pelo sistema de design
+- **Framer Motion** pelas animações
+- **Zustand** pelo gerenciamento de estado
 
 ---
 
-## 🏆 **NOTA FINAL: 10+/10** ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
-
-**Este projeto representa o padrão ouro de qualidade para portfólios profissionais, com:**
-
-✅ **Arquitetura empresarial** com padrões de produção  
-✅ **Testes completos** (unitários + E2E) com 80%+ cobertura  
-✅ **CI/CD automatizado** com GitHub Actions  
-✅ **Qualidade de código** com ESLint, Prettier e Husky  
-✅ **Documentação interativa** com Storybook  
-✅ **Performance otimizada** com Lighthouse CI  
-✅ **Segurança robusta** com scans automatizados  
-✅ **Monitoramento contínuo** e métricas de qualidade
-
-**Um projeto que demonstra excelência técnica e profissionalismo! 🚀**
+**⭐ Se este projeto te ajudou, considere dar uma estrela!**

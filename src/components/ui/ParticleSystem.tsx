@@ -33,7 +33,7 @@ const ParticleSystem = ({
   const particlesRef = useRef<Particle[]>([]);
   const mousePosRef = useRef({ x: 0, y: 0 });
   const isHoveringRef = useRef(false);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
   const isInitializedRef = useRef(false);
 
   // Inicializar partículas apenas uma vez

@@ -10,7 +10,7 @@ import Image from 'next/image';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const { mode, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +67,7 @@ const Navbar = () => {
 
             <Image
               src={
-                theme === 'light'
+                mode === 'light'
                   ? SITE_CONFIG.images.logo.light
                   : SITE_CONFIG.images.logo.dark
               }
@@ -98,74 +98,107 @@ const Navbar = () => {
                   whileHover={{ width: '100%' }}
                   transition={{ duration: 0.3 }}
                 />
-                {/* Efeito de brilho no hover */}
-                <motion.div
-                  className='absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 rounded-lg'
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ duration: 0.6 }}
-                />
               </motion.button>
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button com efeitos glassmorphism */}
+          {/* Theme Toggle e Mobile Menu Button */}
           <div className='flex items-center space-x-4'>
+            {/* Theme Toggle Button */}
             <motion.button
-              whileHover={{ scale: 1.1, rotate: 180 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              className='relative p-2 rounded-xl bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-gray-800/30 transition-all duration-300 shadow-lg hover:shadow-xl'
-              style={{
-                boxShadow:
-                  '0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1)',
-              }}
+              className='relative p-2 rounded-full bg-white/10 dark:bg-gray-800/10 backdrop-blur-sm border border-white/20 dark:border-gray-700/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group'
             >
-              {/* Efeito de brilho no botão */}
+              {/* Animate icon change */}
+              <AnimatePresence mode='wait'>
+                {mode === 'light' ? (
+                  <motion.div
+                    key='sun'
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Sun className='h-5 w-5' />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key='moon'
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Moon className='h-5 w-5' />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Ripple effect */}
               <motion.div
-                className='absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-xl opacity-0 hover:opacity-100'
-                animate={{
-                  x: ['-100%', '200%'],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
+                className='absolute inset-0 rounded-full bg-blue-500/20'
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
               />
-              <span className='relative z-10'>
-                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-              </span>
             </motion.button>
 
+            {/* Mobile Menu Button */}
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className='md:hidden p-2 rounded-xl bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 text-gray-700 dark:text-gray-300 hover:bg-white/30 dark:hover:bg-gray-800/30 transition-all duration-300 shadow-lg'
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
+              className='md:hidden relative p-2 rounded-full bg-white/10 dark:bg-gray-800/10 backdrop-blur-sm border border-white/20 dark:border-gray-700/20 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300'
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              <AnimatePresence mode='wait'>
+                {isOpen ? (
+                  <motion.div
+                    key='close'
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <X className='h-5 w-5' />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key='menu'
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Menu className='h-5 w-5' />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className='md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700'
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className='md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/20 overflow-hidden'
           >
-            <div className='px-4 py-4 space-y-4'>
-              {NAVIGATION.map(item => (
+            <div className='px-4 py-6 space-y-4'>
+              {NAVIGATION.map((item, index) => (
                 <motion.button
                   key={item.name}
-                  whileHover={{ x: 10 }}
-                  className='block w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium py-2'
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.href)}
+                  className='block w-full text-left text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-3 px-4 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20'
                 >
                   {item.name}
                 </motion.button>

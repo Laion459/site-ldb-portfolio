@@ -18,7 +18,27 @@
     "lint:fix": "eslint --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analyze": "ANALYZE=true next build",
+    "build:analyze": "ANALYZE=true npm run build",
+    "lighthouse": "lhci autorun",
+    "lighthouse:collect": "lhci collect",
+    "lighthouse:assert": "lhci assert",
+    "lighthouse:upload": "lhci upload",
+    "quality:check": "npm run lint && npm run format:check && npm run type-check",
+    "quality:fix": "npm run lint:fix && npm run format",
+    "security:audit": "npm audit --audit-level=moderate",
+    "security:fix": "npm audit fix",
+    "perf:build": "npm run build && npm run lighthouse",
+    "perf:analyze": "npm run analyze && npm run lighthouse",
+    "clean": "rm -rf .next out dist coverage .lighthouseci",
+    "clean:all": "npm run clean && rm -rf node_modules package-lock.json",
+    "dev:clean": "npm run clean && npm run dev",
+    "dev:analyze": "ANALYZE=true npm run dev",
+    "deploy:staging": "npm run build && vercel --prod",
+    "deploy:production": "npm run build && vercel --prod --yes",
+    "monitor:build": "npm run build && npm run lighthouse",
+    "monitor:performance": "npm run lighthouse:collect && npm run lighthouse:assert"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -34,7 +54,9 @@
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
     "tailwind-merge": "^3.3.1",
-    "zod": "^4.0.17"
+    "zod": "^4.0.17",
+    "zustand": "^4.5.0",
+    "immer": "^10.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -66,6 +88,34 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3"
+    "@commitlint/config-conventional": "^19.0.3",
+    "@next/bundle-analyzer": "^15.5.0",
+    "lighthouse": "^11.6.0",
+    "@lhci/cli": "^0.12.0",
+    "snyk": "^1.1260.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

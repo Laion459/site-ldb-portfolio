@@ -294,16 +294,16 @@ const ProjectsSection = () => {
 
                   <div>
                     <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-3'>
-                      Funcionalidades
+                      Tecnologias
                     </h3>
                     <ul className='space-y-2 text-gray-600 dark:text-gray-400'>
-                      {selectedProject.features?.map(feature => (
+                      {selectedProject.technologies?.map(tech => (
                         <li
-                          key={`${selectedProject.title}-feature-${feature}`}
+                          key={`${selectedProject.title}-tech-${tech}`}
                           className='flex items-center'
                         >
                           <span className='w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mr-3' />
-                          {feature}
+                          {tech}
                         </li>
                       ))}
                     </ul>

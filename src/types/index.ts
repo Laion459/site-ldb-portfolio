@@ -16,7 +16,15 @@ export interface Skill {
   name: string;
   icon: string;
   level: 'Avançado' | 'Intermediário' | 'Básico';
-  category: 'Frontend' | 'Backend' | 'DevOps' | 'Database' | 'Tools' | 'Integrations' | 'Testing' | 'Management';
+  category:
+    | 'Frontend'
+    | 'Backend'
+    | 'DevOps'
+    | 'Database'
+    | 'Tools'
+    | 'Integrations'
+    | 'Testing'
+    | 'Management';
   description: string;
 }
 
@@ -47,4 +55,8 @@ export interface ContactForm {
 
 export interface Theme {
   mode: 'light' | 'dark';
-} 
+}
+
+// Re-export types from specific projects
+export * from './gabriela-n';
+export * from './conversor-moedas';

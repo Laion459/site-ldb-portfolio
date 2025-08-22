@@ -8,7 +8,7 @@ import ContactSection from '@/components/projetos/flor-de-lis/sections/ContactSe
 export const metadata: Metadata = {
   title: 'Estética Flor de Lis - Beleza & Bem-estar',
   description:
-    'Salão de beleza com mais de 25 anos de experiência. Cortes, coloração, depilação, manicure e muito mais em Santinho, SC.',
+    'Salão de beleza especializado em tratamentos personalizados. Cortes, coloração, depilação, manicure e muito mais em Santinho, SC.',
 };
 
 export default function FlorDeLisPage() {
@@ -20,14 +20,13 @@ export default function FlorDeLisPage() {
 
         {/* Seção de Destaque */}
         <section className='py-20 bg-gradient-to-b from-salon-cream to-white'>
-          <div className='container mx-auto px-4'>
+          <div className='container mx-auto px-6 lg:px-8 max-w-7xl'>
             <div className='text-center mb-16'>
               <h2 className='text-4xl md:text-5xl font-playfair font-bold text-salon-darkPink mb-6'>
                 Por que escolher a Flor de Lis?
               </h2>
-              <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-                Mais de 25 anos de dedicação à beleza e ao bem-estar de nossos
-                clientes
+              <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
+                Descubra o que nos torna únicos no mundo da beleza e bem-estar
               </p>
             </div>
 
@@ -37,11 +36,11 @@ export default function FlorDeLisPage() {
                   <span className='text-white text-3xl'>✨</span>
                 </div>
                 <h3 className='text-xl font-semibold text-salon-darkPink mb-4'>
-                  Qualidade Garantida
+                  Excelência Garantida
                 </h3>
-                <p className='text-gray-600'>
-                  Utilizamos apenas produtos de primeira linha e técnicas
-                  comprovadas para garantir resultados excepcionais.
+                <p className='text-gray-600 leading-relaxed'>
+                  Utilizamos apenas produtos premium e técnicas avançadas para
+                  resultados que superam expectativas.
                 </p>
               </div>
 
@@ -50,11 +49,11 @@ export default function FlorDeLisPage() {
                   <span className='text-white text-3xl'>💝</span>
                 </div>
                 <h3 className='text-xl font-semibold text-salon-darkPink mb-4'>
-                  Atendimento Personalizado
+                  Cuidado Personalizado
                 </h3>
-                <p className='text-gray-600'>
-                  Cada cliente é único. Oferecemos tratamentos personalizados
-                  que respeitam suas características individuais.
+                <p className='text-gray-600 leading-relaxed'>
+                  Cada cliente recebe atenção individualizada, com tratamentos
+                  adaptados às suas necessidades únicas.
                 </p>
               </div>
 
@@ -63,11 +62,11 @@ export default function FlorDeLisPage() {
                   <span className='text-white text-3xl'>🌟</span>
                 </div>
                 <h3 className='text-xl font-semibold text-salon-darkPink mb-4'>
-                  Experiência Comprovada
+                  Tradição e Inovação
                 </h3>
-                <p className='text-gray-600'>
-                  Nossa equipe possui vasta experiência e está sempre atualizada
-                  com as últimas tendências e técnicas.
+                <p className='text-gray-600 leading-relaxed'>
+                  Combinamos anos de experiência com as mais recentes tendências
+                  e tecnologias do mercado.
                 </p>
               </div>
             </div>

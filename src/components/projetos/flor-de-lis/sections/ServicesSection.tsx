@@ -8,14 +8,14 @@ import { services } from '@/data/flor-de-lis/services';
 export default function ServicesSection() {
   return (
     <section className='py-20 bg-gradient-to-b from-white to-salon-lightPink'>
-      <div className='container-custom'>
+      <div className='container mx-auto px-6 lg:px-8 max-w-7xl'>
         <div className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-playfair font-bold text-salon-darkPink mb-6'>
             Nossos Serviços
           </h2>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Oferecemos uma ampla gama de serviços de beleza com qualidade
-            profissional e produtos de primeira linha
+          <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
+            Descubra nossa coleção exclusiva de tratamentos de beleza,
+            desenvolvidos para realçar sua beleza natural e elevar sua confiança
           </p>
         </div>
 

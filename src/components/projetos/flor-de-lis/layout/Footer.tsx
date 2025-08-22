@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -13,8 +14,21 @@ import {
   Heart,
 } from 'lucide-react';
 import { contactInfo } from '@/data/flor-de-lis/contact';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Footer() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setShowScrollTop(scrollTop > 300); // Mostra o botão após 300px de scroll
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -23,7 +37,7 @@ export default function Footer() {
 
   return (
     <footer className='bg-salon-darkPink text-white'>
-      <div className='container mx-auto px-4 py-16'>
+      <div className='container mx-auto px-6 lg:px-8 py-16 max-w-7xl'>
         <div className='grid lg:grid-cols-4 md:grid-cols-2 gap-8'>
           {/* Logo e Sobre */}
           <div className='lg:col-span-1'>
@@ -40,9 +54,9 @@ export default function Footer() {
               Estética Flor de Lis
             </h3>
             <p className='text-gray-300 mb-6 leading-relaxed'>
-              Mais de 25 anos de experiência em beleza e bem-estar. Cuidamos da
-              sua autoestima com produtos de primeira linha e atendimento
-              personalizado.
+              Transformamos sonhos em realidade através da beleza. Nossa missão
+              é elevar sua autoestima com tratamentos personalizados e produtos
+              de excelência.
             </p>
             <div className='flex space-x-4'>
               <a
@@ -120,7 +134,7 @@ export default function Footer() {
                   href='/projetos/flor-de-lis/servicos#cortes'
                   className='text-gray-300 hover:text-white transition-colors duration-300'
                 >
-                  Cortes
+                  Cortes & Finalizações
                 </Link>
               </li>
               <li>
@@ -128,7 +142,7 @@ export default function Footer() {
                   href='/projetos/flor-de-lis/servicos#coloracao'
                   className='text-gray-300 hover:text-white transition-colors duration-300'
                 >
-                  Coloração
+                  Coloração & Tinturas
                 </Link>
               </li>
               <li>
@@ -136,7 +150,7 @@ export default function Footer() {
                   href='/projetos/flor-de-lis/servicos#depilacao'
                   className='text-gray-300 hover:text-white transition-colors duration-300'
                 >
-                  Depilação
+                  Depilação Profissional
                 </Link>
               </li>
               <li>
@@ -152,7 +166,7 @@ export default function Footer() {
                   href='/projetos/flor-de-lis/servicos#massagem'
                   className='text-gray-300 hover:text-white transition-colors duration-300'
                 >
-                  Massagem
+                  Massagem Relaxante
                 </Link>
               </li>
             </ul>
@@ -160,7 +174,7 @@ export default function Footer() {
 
           {/* Contato */}
           <div>
-            <h4 className='text-lg font-semibold mb-6'>Contato</h4>
+            <h4 className='text-lg font-semibold mb-6'>Entre em Contato</h4>
             <div className='space-y-4'>
               <div className='flex items-start space-x-3'>
                 <MapPin className='w-5 h-5 text-salon-pink mt-1 flex-shrink-0' />
@@ -229,15 +243,22 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Botão Voltar ao Topo */}
-      <motion.button
-        onClick={scrollToTop}
-        className='fixed bottom-8 right-8 bg-salon-pink text-white p-3 rounded-full shadow-lg hover:bg-salon-darkPink hover:scale-110 transition-all duration-300 z-40'
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <ArrowUp className='w-6 h-6' />
-      </motion.button>
+      {/* Botão Voltar ao Topo - Só aparece após scroll */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={scrollToTop}
+            className='fixed bottom-8 right-8 bg-salon-pink text-white p-3 rounded-full shadow-lg hover:bg-salon-darkPink hover:scale-110 transition-all duration-300 z-40'
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <ArrowUp className='w-6 h-6' />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }

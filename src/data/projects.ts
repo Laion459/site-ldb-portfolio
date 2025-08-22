@@ -113,6 +113,31 @@ export const projects: Project[] = [
   },
   {
     id: '6',
+    title: 'Conversor de Moedas - API Externa',
+    description:
+      'Aplicação web moderna para conversão de moedas em tempo real com integração a API externa de câmbio',
+    problem:
+      'Necessidade de ferramenta simples e eficiente para conversão de moedas com taxas atualizadas em tempo real',
+    solution:
+      'Desenvolvimento de interface moderna com React, TypeScript e integração a API de câmbio para conversões precisas',
+    impact:
+      'Ferramenta prática para usuários que precisam converter moedas rapidamente com interface intuitiva e responsiva',
+    image: '/images/projects/conversor-moedas.webp',
+    githubUrl: undefined,
+    liveUrl: '/projetos/conversor-moedas',
+    featured: true,
+    technologies: [
+      'Next.js 15',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS 4',
+      'API REST',
+      'Responsivo',
+      'Hooks Customizados',
+    ],
+  },
+  {
+    id: '7',
     title: 'Sistema de Integração de Pagamentos e ERP',
     description:
       'Solução completa para processamento de pagamentos online com múltiplas formas de pagamento e integração com ERP',
@@ -137,7 +162,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: '7',
+    id: '8',
     title: 'Painéis de Métricas e Dashboards',
     description:
       'Sistema de visualização de dados em tempo real com gráficos interativos e relatórios',
@@ -161,7 +186,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: '8',
+    id: '9',
     title: 'CLI e Ferramentas de Desenvolvimento',
     description:
       'Ferramentas de linha de comando para automação de tarefas de desenvolvimento',

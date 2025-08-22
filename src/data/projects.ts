@@ -43,7 +43,7 @@ export const projects: Project[] = [
     technologies: ['PHP', 'Laravel', 'MySQL', 'Redis', 'JavaScript', 'CSS'],
     image: '/images/projects/esh-dashboard.png', // Usando imagem existente temporariamente
     githubUrl: 'https://github.com/Laion459',
-    liveUrl: undefined,
+    liveUrl: 'https://esh.elevensoft.dev/',
     featured: true,
   },
   {
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     technologies: ['React', 'JavaScript', 'Tailwind CSS', 'HTML', 'CSS', 'SEO'],
     image: '/images/projects/eleven-soft.png', // Usando imagem existente temporariamente
     githubUrl: 'https://github.com/Laion459',
-    liveUrl: undefined,
+    liveUrl: 'https://esh.elevensoft.dev/',
     featured: true,
   },
   {

@@ -7,6 +7,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 ## 🚀 Principais Melhorias
 
 ### 1. **Paleta Expandida**
+
 - **12 variantes de botões** (antes: 4)
 - **50+ cores personalizadas** com variações de tonalidade
 - **Gradientes dinâmicos** em 3D
@@ -14,6 +15,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 - **Efeitos de brilho** interativos
 
 ### 2. **Novas Cores de Marca**
+
 - `--brand`: Ciano vibrante (#06b6d4)
 - `--rose`: Rosa expressivo (#f43f5e)
 - `--success`: Verde de sucesso (#10b981)
@@ -21,6 +23,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 - `--error`: Vermelho de erro (#ef4444)
 
 ### 3. **Gradientes Personalizados**
+
 - **Hero**: Azul → Roxo → Ciano
 - **Cards**: Neutro → Azul → Roxo
 - **Textos**: Múltiplas combinações
@@ -29,6 +32,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 ## 🎯 Como Usar
 
 ### Variantes de Botões
+
 ```tsx
 // Todas as variantes disponíveis
 <Button variant="primary">Primário</Button>
@@ -45,6 +49,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 ```
 
 ### Gradientes de Texto
+
 ```tsx
 // Classes CSS para gradientes
 <h1 className="gradient-text">Título Principal</h1>
@@ -54,6 +59,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 ```
 
 ### Gradientes de Fundo
+
 ```tsx
 // Classes CSS para fundos
 <section className="gradient-bg-hero">Hero Section</section>
@@ -62,6 +68,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 ```
 
 ### Sombras Coloridas
+
 ```tsx
 // Classes CSS para sombras
 <div className="shadow-primary">Sombra Azul</div>
@@ -71,6 +78,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 ```
 
 ### Efeitos de Brilho
+
 ```tsx
 // Classes CSS para brilhos
 <div className="hover-glow">Brilho Azul</div>
@@ -82,62 +90,55 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 ## 🌈 Paleta de Cores Completa
 
 ### Cores Primárias (Azul)
+
 ```css
---primary-50: #eff6ff   /* Muito claro */
---primary-100: #dbeafe
---primary-200: #bfdbfe
---primary-300: #93c5fd
---primary-400: #60a5fa
---primary-500: #3b82f6  /* Base */
---primary-600: #2563eb
---primary-700: #1d4ed8
---primary-800: #1e40af
---primary-900: #1e3a8a  /* Muito escuro */
+--primary-50: #eff6ff /* Muito claro */ --primary-100: #dbeafe
+  --primary-200: #bfdbfe --primary-300: #93c5fd --primary-400: #60a5fa
+  --primary-500: #3b82f6 /* Base */ --primary-600: #2563eb
+  --primary-700: #1d4ed8 --primary-800: #1e40af --primary-900: #1e3a8a
+  /* Muito escuro */;
 ```
 
 ### Cores de Destaque (Roxo)
+
 ```css
---accent-50: #faf5ff
---accent-100: #f3e8ff
---accent-200: #e9d5ff
---accent-300: #d8b4fe
---accent-400: #c084fc
---accent-500: #a855f7  /* Base */
---accent-600: #9333ea
---accent-700: #7c3aed
---accent-800: #6b21a8
---accent-900: #581c87
+--accent-50: #faf5ff --accent-100: #f3e8ff --accent-200: #e9d5ff
+  --accent-300: #d8b4fe --accent-400: #c084fc --accent-500: #a855f7 /* Base */
+  --accent-600: #9333ea --accent-700: #7c3aed --accent-800: #6b21a8
+  --accent-900: #581c87;
 ```
 
 ### Cores de Marca (Ciano)
+
 ```css
---brand-50: #ecfeff
---brand-100: #cffafe
---brand-200: #a5f3fc
---brand-300: #67e8f9
---brand-400: #22d3ee
---brand-500: #06b6d4  /* Base */
---brand-600: #0891b2
---brand-700: #0e7490
---brand-800: #155e75
---brand-900: #164e63
+--brand-50: #ecfeff --brand-100: #cffafe --brand-200: #a5f3fc
+  --brand-300: #67e8f9 --brand-400: #22d3ee --brand-500: #06b6d4 /* Base */
+  --brand-600: #0891b2 --brand-700: #0e7490 --brand-800: #155e75
+  --brand-900: #164e63;
 ```
 
 ## 🎭 Efeitos Especiais
 
 ### Animações de Cor
+
 ```css
 .animate-color-shift {
   animation: colorShift 8s ease-in-out infinite;
 }
 
 @keyframes colorShift {
-  0%, 100% { filter: hue-rotate(0deg); }
-  50% { filter: hue-rotate(180deg); }
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
 }
 ```
 
 ### Efeito Vidro (Glass)
+
 ```css
 .glass {
   background: rgba(255, 255, 255, 0.1);
@@ -152,6 +153,7 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
 ```
 
 ### Bordas com Gradiente
+
 ```css
 .gradient-border {
   position: relative;
@@ -163,9 +165,16 @@ Transformamos completamente a paleta de cores do seu portfólio, elevando-a de *
   position: absolute;
   inset: 0;
   padding: 2px;
-  background: linear-gradient(135deg, var(--primary), var(--accent), var(--brand));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--accent),
+    var(--brand)
+  );
   border-radius: inherit;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask-composite: exclude;
 }
 ```
@@ -177,6 +186,7 @@ Todas as cores e efeitos são totalmente responsivos e se adaptam automaticament
 ## 🎨 Personalização
 
 ### Criando Novas Cores
+
 ```css
 :root {
   --minha-cor: #ff6b6b;
@@ -194,15 +204,22 @@ Todas as cores e efeitos são totalmente responsivos e se adaptam automaticament
 ```
 
 ### Criando Novos Gradientes
+
 ```css
 .gradient-bg-minha-cor {
-  background: linear-gradient(135deg, var(--minha-cor-50), var(--minha-cor-100), var(--minha-cor-200));
+  background: linear-gradient(
+    135deg,
+    var(--minha-cor-50),
+    var(--minha-cor-100),
+    var(--minha-cor-200)
+  );
 }
 ```
 
 ## 🔧 Utilitários
 
 ### Arquivo de Cores
+
 ```typescript
 // src/utils/colors.ts
 import { colorPalette, gradients, shadows, glows } from '@/utils/colors';
@@ -215,6 +232,7 @@ const brandGlow = glows.brand;
 ```
 
 ### Funções Utilitárias
+
 ```typescript
 import { getColorWithOpacity, getGradientWithOpacity } from '@/utils/colors';
 
@@ -226,30 +244,33 @@ const gradientWithOpacity = getGradientWithOpacity('linear-gradient(...)', 0.8);
 ## 🎯 Exemplos de Uso
 
 ### Hero Section
+
 ```tsx
-<section className="gradient-bg-hero dark:gradient-bg-hero-dark">
-  <h1 className="gradient-text-primary">Título Principal</h1>
-  <Button variant="gradient" className="hover-glow-accent">
+<section className='gradient-bg-hero dark:gradient-bg-hero-dark'>
+  <h1 className='gradient-text-primary'>Título Principal</h1>
+  <Button variant='gradient' className='hover-glow-accent'>
     Call to Action
   </Button>
 </section>
 ```
 
 ### Card de Projeto
+
 ```tsx
-<div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-accent transition-all duration-300">
-  <h3 className="gradient-text-accent">Nome do Projeto</h3>
-  <div className="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900">
+<div className='bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-accent transition-all duration-300'>
+  <h3 className='gradient-text-accent'>Nome do Projeto</h3>
+  <div className='bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900'>
     Tecnologias
   </div>
 </div>
 ```
 
 ### Seção de Habilidades
+
 ```tsx
-<section className="gradient-bg-card dark:gradient-bg-card-dark">
-  <h2 className="gradient-text-brand">Habilidades Técnicas</h2>
-  <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 mx-auto rounded-full shadow-lg"></div>
+<section className='gradient-bg-card dark:gradient-bg-card-dark'>
+  <h2 className='gradient-text-brand'>Habilidades Técnicas</h2>
+  <div className='w-24 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 mx-auto rounded-full shadow-lg'></div>
 </section>
 ```
 
@@ -272,4 +293,4 @@ const gradientWithOpacity = getGradientWithOpacity('linear-gradient(...)', 0.8);
 
 ---
 
-**Resultado Final**: Sua paleta de cores agora é **10+/10** - profissional, moderna, expressiva e totalmente personalizada! 🎨✨ 
+**Resultado Final**: Sua paleta de cores agora é **10+/10** - profissional, moderna, expressiva e totalmente personalizada! 🎨✨

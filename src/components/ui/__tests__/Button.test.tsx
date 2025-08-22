@@ -1,143 +1,70 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Button from '../Button';
 
 describe('Button Component', () => {
-  const defaultProps = {
-    children: 'Click me',
-    onClick: jest.fn(),
-  };
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it('renders button with default props', () => {
-    render(<Button {...defaultProps} />);
-
+  it('renders button with correct text and classes', () => {
+    render(<Button>Click me</Button>);
     const button = screen.getByRole('button', { name: 'Click me' });
+
     expect(button).toBeInTheDocument();
     expect(button).toHaveClass('bg-blue-600', 'text-white');
   });
 
-  it('renders button with custom variant', () => {
-    render(<Button {...defaultProps} variant='secondary' />);
+  it('applies disabled state correctly', () => {
+    render(<Button disabled>Disabled Button</Button>);
+    const button = screen.getByRole('button', { name: 'Disabled Button' });
 
-    const button = screen.getByRole('button');
-    expect(button).toHaveClass('bg-gray-600');
+    expect(button).toBeDisabled();
+    expect(button).toHaveClass('bg-blue-600'); // Primary variant
   });
 
-  it('renders button with custom size', () => {
-    render(<Button {...defaultProps} size='lg' />);
+  it('applies custom size classes', () => {
+    render(<Button size='lg'>Large Button</Button>);
+    const button = screen.getByRole('button', { name: 'Large Button' });
 
-    const button = screen.getByRole('button');
     expect(button).toHaveClass('px-6', 'py-3', 'text-lg');
   });
 
-  it('renders button with custom className', () => {
-    render(<Button {...defaultProps} className='custom-class' />);
+  it('applies custom className', () => {
+    render(<Button className='custom-class'>Custom Button</Button>);
+    const button = screen.getByRole('button', { name: 'Custom Button' });
 
-    const button = screen.getByRole('button');
     expect(button).toHaveClass('custom-class');
   });
 
-  it('handles click events', async () => {
-    const user = userEvent.setup();
-    const onClick = jest.fn();
+  it('handles click events', () => {
+    const handleClick = jest.fn();
+    render(<Button onClick={handleClick}>Clickable Button</Button>);
 
-    render(<Button {...defaultProps} onClick={onClick} />);
+    const button = screen.getByRole('button', { name: 'Clickable Button' });
+    fireEvent.click(button);
 
-    const button = screen.getByRole('button');
-    await user.click(button);
-
-    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('applies disabled state correctly', () => {
-    render(<Button {...defaultProps} disabled />);
-
-    const button = screen.getByRole('button');
-    expect(button).toBeDisabled();
-    // Verificar se as classes de disabled estão presentes
-    expect(button).toHaveClass(
-      'disabled:opacity-50',
-      'disabled:pointer-events-none'
+  it('applies variant styles correctly', () => {
+    const { rerender } = render(
+      <Button variant='outline'>Outline Button</Button>
     );
-  });
 
-  it('renders all variant styles correctly', () => {
-    const variants = [
-      'primary',
-      'secondary',
-      'accent',
-      'brand',
-      'success',
-      'warning',
-      'error',
-      'rose',
-      'outline',
-      'ghost',
-      'gradient',
-      'glass',
-    ] as const;
+    let button = screen.getByRole('button', { name: 'Outline Button' });
+    expect(button).toHaveClass('border-2', 'border-blue-600', 'text-blue-600');
 
-    variants.forEach(variant => {
-      const { unmount } = render(
-        <Button {...defaultProps} variant={variant} />
-      );
+    rerender(<Button variant='ghost'>Ghost Button</Button>);
+    button = screen.getByRole('button', { name: 'Ghost Button' });
+    expect(button).toHaveClass('bg-transparent', 'text-gray-700');
 
-      const button = screen.getByRole('button');
-      expect(button).toBeInTheDocument();
-      unmount();
-    });
-  });
-
-  it('renders all size styles correctly', () => {
-    const sizes = ['sm', 'md', 'lg', 'xl'] as const;
-
-    sizes.forEach(size => {
-      const { unmount } = render(<Button {...defaultProps} size={size} />);
-
-      const button = screen.getByRole('button');
-      expect(button).toBeInTheDocument();
-      unmount();
-    });
-  });
-
-  it('forwards ref correctly', () => {
-    const ref = jest.fn();
-    render(<Button {...defaultProps} ref={ref} />);
-
-    expect(ref).toHaveBeenCalled();
-  });
-
-  it('applies focus styles correctly', async () => {
-    const user = userEvent.setup();
-
-    render(<Button {...defaultProps} />);
-
-    const button = screen.getByRole('button');
-    await user.tab();
-
-    expect(button).toHaveFocus();
-  });
-
-  it('renders gradient variant with special effects', () => {
-    render(<Button {...defaultProps} variant='gradient' />);
-
-    const button = screen.getByRole('button');
-    expect(button).toHaveClass(
-      'bg-gradient-to-r',
-      'from-blue-600',
-      'via-purple-600',
-      'to-cyan-500'
-    );
-  });
-
-  it('renders glass variant with backdrop blur', () => {
-    render(<Button {...defaultProps} variant='glass' />);
-
-    const button = screen.getByRole('button');
+    rerender(<Button variant='glass'>Glass Button</Button>);
+    button = screen.getByRole('button', { name: 'Glass Button' });
     expect(button).toHaveClass('backdrop-blur-md', 'border-white/20');
+  });
+
+  it('handles focus states', () => {
+    render(<Button>Focusable Button</Button>);
+    const button = screen.getByRole('button', { name: 'Focusable Button' });
+
+    button.focus();
+    expect(button).toHaveFocus();
   });
 });

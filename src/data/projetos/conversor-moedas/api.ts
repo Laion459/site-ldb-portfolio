@@ -52,8 +52,8 @@ export class CurrencyConverterService {
         amount,
         convertedAmount: Number(convertedAmount.toFixed(2)),
       };
-    } catch (error) {
-      throw error;
+    } catch {
+      throw new Error('Erro na conversão de moeda');
     }
   }
 
@@ -70,8 +70,8 @@ export class CurrencyConverterService {
       }
 
       return rate;
-    } catch (error) {
-      throw error;
+    } catch {
+      throw new Error('Erro ao obter taxa de câmbio');
     }
   }
 }

@@ -116,7 +116,7 @@ export default function ContactSection() {
               </h3>
               <div className='relative h-80 rounded-xl overflow-hidden'>
                 <iframe
-                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.1234567890123!2d-55.12345678901234!3d-27.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDA3JzM0LjQiUyA1NcKwMDcnMzQuNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890123'
+                  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5947.351934653607!2d-48.379344155459705!3d-27.445930273121252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f9bf003cdcd253:0x5554339dd76865ff!2sFlor%20De%20Lis%20sal%C3%A3o%20de%20beleza!5e1!3m2!1spt-BR!2sbr!4v1708608906833!5m2!1spt-BR!2sbr'
                   width='100%'
                   height='100%'
                   style={{ border: 0 }}

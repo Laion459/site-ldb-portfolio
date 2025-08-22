@@ -84,9 +84,9 @@ export default function ServicosPage() {
                             O que está incluído:
                           </h4>
                           <ul className='space-y-2'>
-                            {service.features.map((feature, index) => (
+                            {service.features.map(feature => (
                               <li
-                                key={index}
+                                key={feature}
                                 className='flex items-center text-gray-600'
                               >
                                 <span className='w-2 h-2 bg-salon-pink rounded-full mr-3 flex-shrink-0' />

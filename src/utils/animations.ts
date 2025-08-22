@@ -51,15 +51,15 @@ export const morphing = {
 
 export const floating3D = {
   initial: { y: 0, rotateX: 0, rotateY: 0 },
-  animate: { 
+  animate: {
     y: [-10, 10, -10],
     rotateX: [0, 5, 0],
-    rotateY: [0, -5, 0]
+    rotateY: [0, -5, 0],
   },
-  transition: { 
-    duration: 6, 
-    repeat: Infinity, 
-    ease: 'easeInOut' 
+  transition: {
+    duration: 6,
+    repeat: Infinity,
+    ease: 'easeInOut',
   },
 };
 
@@ -70,22 +70,22 @@ export const parallax = {
 };
 
 export const glowPulse = {
-  initial: { 
+  initial: {
     boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)',
-    scale: 1 
+    scale: 1,
   },
-  animate: { 
+  animate: {
     boxShadow: [
       '0 0 20px rgba(59, 130, 246, 0.3)',
       '0 0 40px rgba(59, 130, 246, 0.6)',
-      '0 0 20px rgba(59, 130, 246, 0.3)'
+      '0 0 20px rgba(59, 130, 246, 0.3)',
     ],
-    scale: [1, 1.05, 1]
+    scale: [1, 1.05, 1],
   },
-  transition: { 
-    duration: 2, 
-    repeat: Infinity, 
-    ease: 'easeInOut' 
+  transition: {
+    duration: 2,
+    repeat: Infinity,
+    ease: 'easeInOut',
   },
 };
 
@@ -104,9 +104,9 @@ export const rotateIn = {
 export const bounceIn = {
   initial: { opacity: 0, scale: 0.3, y: 100 },
   animate: { opacity: 1, scale: 1, y: 0 },
-  transition: { 
-    duration: 0.8, 
-    ease: [0.68, -0.55, 0.265, 1.55] 
+  transition: {
+    duration: 0.8,
+    ease: [0.68, -0.55, 0.265, 1.55],
   },
 };
 
@@ -120,4 +120,4 @@ export const slideInFromRight = {
   initial: { opacity: 0, x: 100 },
   animate: { opacity: 1, x: 0 },
   transition: { duration: 0.6, ease: 'easeOut' },
-}; 
+};

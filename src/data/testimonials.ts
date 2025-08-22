@@ -6,7 +6,8 @@ export const testimonials: Testimonial[] = [
     name: 'João Silva',
     role: 'CTO',
     company: 'TechCorp Solutions',
-    content: 'Leonardo é um desenvolvedor excepcional. Sua capacidade de resolver problemas complexos e implementar soluções escaláveis transformou nossa infraestrutura. Recomendo fortemente!',
+    content:
+      'Leonardo é um desenvolvedor excepcional. Sua capacidade de resolver problemas complexos e implementar soluções escaláveis transformou nossa infraestrutura. Recomendo fortemente!',
     avatar: '/images/profile/joao-silva.jpg',
   },
   {
@@ -14,7 +15,8 @@ export const testimonials: Testimonial[] = [
     name: 'Maria Santos',
     role: 'Product Manager',
     company: 'StartupXYZ',
-    content: 'Trabalhar com Leonardo foi uma experiência incrível. Ele entregou nosso MVP de pagamentos em tempo recorde, sempre focando na qualidade e segurança.',
+    content:
+      'Trabalhar com Leonardo foi uma experiência incrível. Ele entregou nosso MVP de pagamentos em tempo recorde, sempre focando na qualidade e segurança.',
     avatar: '/images/profile/maria-santos.jpg',
   },
   {
@@ -22,7 +24,8 @@ export const testimonials: Testimonial[] = [
     name: 'Carlos Oliveira',
     role: 'Tech Lead',
     company: 'Digital Agency ABC',
-    content: 'Leonardo tem uma visão técnica muito sólida. Suas implementações são sempre robustas e bem documentadas. Um profissional de primeira linha.',
+    content:
+      'Leonardo tem uma visão técnica muito sólida. Suas implementações são sempre robustas e bem documentadas. Um profissional de primeira linha.',
     avatar: '/images/profile/carlos-oliveira.jpg',
   },
   {
@@ -30,7 +33,8 @@ export const testimonials: Testimonial[] = [
     name: 'Ana Costa',
     role: 'CEO',
     company: 'E-commerce Plus',
-    content: 'Contratamos o Leonardo para reestruturar nosso sistema legado. O resultado foi impressionante: 70% de melhoria na performance e 100% de satisfação dos usuários.',
+    content:
+      'Contratamos o Leonardo para reestruturar nosso sistema legado. O resultado foi impressionante: 70% de melhoria na performance e 100% de satisfação dos usuários.',
     avatar: '/images/profile/ana-costa.jpg',
   },
-]; 
+];

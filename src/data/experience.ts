@@ -6,8 +6,18 @@ export const experience: Experience[] = [
     company: 'Eleven Soft',
     position: 'Desenvolvedor Full Stack & Product Manager',
     period: '2025 - Presente',
-    description: 'Atuação paralela como desenvolvedor Full Stack e Product Manager, liderando projetos desde concepção até implementação com visão de dono',
-    technologies: ['PHP', 'Laravel', 'React', 'JavaScript', 'PostgreSQL', 'MySQL', 'Redis', 'Docker'],
+    description:
+      'Atuação paralela como desenvolvedor Full Stack e Product Manager, liderando projetos desde concepção até implementação com visão de dono',
+    technologies: [
+      'PHP',
+      'Laravel',
+      'React',
+      'JavaScript',
+      'PostgreSQL',
+      'MySQL',
+      'Redis',
+      'Docker',
+    ],
     achievements: [
       'Desenvolvei Keyring - sistema completo de gerenciamento de licenças com Laravel e React',
       'Ajudei a criar o ESH - sistema de monitoramento e controle de acessos a datacenters robusto com dashboards e alertas em tempo real',
@@ -21,8 +31,18 @@ export const experience: Experience[] = [
     company: 'Freelance & Projetos Independentes',
     position: 'Desenvolvedor Full Stack',
     period: '2019 - Presente',
-    description: 'Desenvolvimento de soluções personalizadas para clientes, focando em qualidade, performance e experiência do usuário',
-    technologies: ['PHP', 'Laravel', 'React', 'JavaScript', 'MySQL', 'CSS', 'HTML', 'Git'],
+    description:
+      'Desenvolvimento de soluções personalizadas para clientes, focando em qualidade, performance e experiência do usuário',
+    technologies: [
+      'PHP',
+      'Laravel',
+      'React',
+      'JavaScript',
+      'MySQL',
+      'CSS',
+      'HTML',
+      'Git',
+    ],
     achievements: [
       'Desenvolvi painéis de métricas e dashboards com gráficos interativos e relatórios',
       'Criei CLI tools para automação de tarefas de desenvolvimento e deploy',
@@ -36,8 +56,18 @@ export const experience: Experience[] = [
     company: 'Formação Acadêmica & Especializações',
     position: 'Estudante de Ciência da Computação',
     period: '2019 - 2026',
-    description: 'Bacharelado em Ciência da Computação na UNIVALI com foco em desenvolvimento de software, segurança da informação e computação forense',
-    technologies: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'PHP', 'PostgreSQL', 'MySQL'],
+    description:
+      'Bacharelado em Ciência da Computação na UNIVALI com foco em desenvolvimento de software, segurança da informação e computação forense',
+    technologies: [
+      'C',
+      'C++',
+      'Java',
+      'Python',
+      'JavaScript',
+      'PHP',
+      'PostgreSQL',
+      'MySQL',
+    ],
     achievements: [
       'Bacharel em Ciências da Computação - UNIVALI (2019/2026) - 3252h',
       'Especialização em Computação Forense - UNIVALI (2020) - 32h',
@@ -52,8 +82,17 @@ export const experience: Experience[] = [
     company: 'Desenvolvimento Pessoal & Certificações',
     position: 'Aprendizado Contínuo',
     period: '2015 - Presente',
-    description: 'Compromisso com aprendizado contínuo através de cursos, conferências e desenvolvimento de projetos pessoais',
-    technologies: ['Laravel', 'React', 'Docker', 'CI/CD', 'Git', 'Notion', 'Jira'],
+    description:
+      'Compromisso com aprendizado contínuo através de cursos, conferências e desenvolvimento de projetos pessoais',
+    technologies: [
+      'Laravel',
+      'React',
+      'Docker',
+      'CI/CD',
+      'Git',
+      'Notion',
+      'Jira',
+    ],
     achievements: [
       'Participação em Empreende Brasil Conference (2024/2025) - 48h',
       'Formação Dev Meetup Startup SC (2025) - 5h',
@@ -63,4 +102,4 @@ export const experience: Experience[] = [
       'Liderança e capacidade de aprender - PUCRS (2021) - 4h',
     ],
   },
-]; 
+];

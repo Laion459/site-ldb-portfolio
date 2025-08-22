@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect } from 'react';
 
@@ -10,7 +10,7 @@ export const useCleanupExtensions = () => {
       'data-extension',
       'data-browser-extension',
       'data-colorzilla',
-      'data-color-picker'
+      'data-color-picker',
     ];
 
     // Função para limpar atributos problemáticos
@@ -29,9 +29,12 @@ export const useCleanupExtensions = () => {
     cleanupAttributes();
 
     // Configurar observer para limpar atributos que forem adicionados
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.target === document.body) {
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        if (
+          mutation.type === 'attributes' &&
+          mutation.target === document.body
+        ) {
           const attributeName = mutation.attributeName;
           if (attributeName && problematicAttributes.includes(attributeName)) {
             // Remover o atributo problemático
@@ -44,7 +47,7 @@ export const useCleanupExtensions = () => {
     // Observar mudanças no body
     observer.observe(document.body, {
       attributes: true,
-      attributeFilter: problematicAttributes
+      attributeFilter: problematicAttributes,
     });
 
     // Limpar observer quando componente for desmontado
@@ -52,4 +55,4 @@ export const useCleanupExtensions = () => {
       observer.disconnect();
     };
   }, []);
-}; 
+};

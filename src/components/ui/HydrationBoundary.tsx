@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from 'react';
 import { useCleanupExtensions } from '@/hooks/useCleanupExtensions';
@@ -8,9 +8,12 @@ interface HydrationBoundaryProps {
   fallback?: React.ReactNode;
 }
 
-export function HydrationBoundary({ children, fallback }: HydrationBoundaryProps) {
+export function HydrationBoundary({
+  children,
+  fallback,
+}: HydrationBoundaryProps) {
   const [isHydrated, setIsHydrated] = useState(false);
-  
+
   // Hook para limpar atributos de extensões
   useCleanupExtensions();
 
@@ -19,7 +22,7 @@ export function HydrationBoundary({ children, fallback }: HydrationBoundaryProps
     const timer = setTimeout(() => {
       setIsHydrated(true);
     }, 150); // Aumentado para 150ms para dar tempo das extensões
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -29,4 +32,4 @@ export function HydrationBoundary({ children, fallback }: HydrationBoundaryProps
   }
 
   return <>{children}</>;
-} 
+}

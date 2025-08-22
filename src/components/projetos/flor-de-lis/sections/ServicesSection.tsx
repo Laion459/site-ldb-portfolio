@@ -68,9 +68,9 @@ export default function ServicesSection() {
                         Inclui:
                       </h4>
                       <ul className='space-y-1'>
-                        {service.features.map((feature, index) => (
+                        {service.features.map(feature => (
                           <li
-                            key={index}
+                            key={feature}
                             className='flex items-center text-sm text-gray-600'
                           >
                             <span className='w-2 h-2 bg-salon-pink rounded-full mr-2 flex-shrink-0' />

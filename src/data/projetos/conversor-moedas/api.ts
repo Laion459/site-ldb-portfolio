@@ -23,8 +23,7 @@ export class CurrencyConverterService {
 
       const data = await response.json();
       return data;
-    } catch (error) {
-      console.error('Erro ao buscar taxas de câmbio:', error);
+    } catch {
       throw new Error(
         'Falha ao conectar com o serviço de câmbio. Tente novamente.'
       );
@@ -53,9 +52,8 @@ export class CurrencyConverterService {
         amount,
         convertedAmount: Number(convertedAmount.toFixed(2)),
       };
-    } catch (error) {
-      console.error('Erro na conversão:', error);
-      throw error;
+    } catch {
+      throw new Error('Erro na conversão de moeda');
     }
   }
 
@@ -72,9 +70,8 @@ export class CurrencyConverterService {
       }
 
       return rate;
-    } catch (error) {
-      console.error('Erro ao obter taxa de câmbio:', error);
-      throw error;
+    } catch {
+      throw new Error('Erro ao obter taxa de câmbio');
     }
   }
 }

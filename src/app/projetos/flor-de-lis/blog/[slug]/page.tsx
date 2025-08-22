@@ -8,15 +8,16 @@ import { blogPosts } from '@/data/flor-de-lis/blog';
 import { ArrowLeft, Calendar, Clock, User, Tag } from 'lucide-react';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  const post = blogPosts.find(post => post.slug === params.slug);
+  const { slug } = await params;
+  const post = blogPosts.find(post => post.slug === slug);
 
   if (!post) {
     return {
@@ -46,8 +47,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = blogPosts.find(post => post.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = blogPosts.find(post => post.slug === slug);
 
   if (!post) {
     notFound();
@@ -138,9 +140,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 Tags relacionadas
               </h3>
               <div className='flex flex-wrap gap-2'>
-                {post.tags.map((tag, index) => (
+                {post.tags.map(tag => (
                   <span
-                    key={index}
+                    key={tag}
                     className='bg-salon-lightPink text-salon-darkPink px-3 py-1 rounded-full text-sm font-medium'
                   >
                     {tag}

@@ -10,6 +10,10 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;
+  achievements?: string[];
+  role?: string;
+  company?: string;
+  period?: string;
 }
 
 export interface Skill {

@@ -58,7 +58,7 @@ const ProjectsSection = () => {
           animate={isVisible ? 'animate' : 'initial'}
           className='text-center mb-16'
         >
-          <h2 className='text-4xl md:text-5xl font-bold gradient-text-accent mb-6'>
+          <h2 className='text-4xl md:text-5xl font-bold text-[#333333] dark:text-white mb-6'>
             Projetos em Destaque
           </h2>
           <p className='text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto'>
@@ -66,7 +66,7 @@ const ProjectsSection = () => {
             de transformar ideias em sistemas funcionais, desde a concepção até
             a implementação, sempre com visão de produto e foco no usuário.
           </p>
-          <div className='w-24 h-1 bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 mx-auto rounded-full mt-6 shadow-lg' />
+          <div className='w-24 h-1 bg-gradient-to-r from-[#333333] via-[#FCCE00] to-[#FCCE00] mx-auto rounded-full mt-6 shadow-lg' />
         </motion.div>
 
         {/* Projects Grid com efeitos de energia */}
@@ -86,7 +86,7 @@ const ProjectsSection = () => {
               className='group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:shadow-accent'
               whileHover={{
                 scale: 1.02,
-                boxShadow: '0 25px 50px -12px rgba(147, 51, 234, 0.25)',
+                boxShadow: '0 25px 50px -12px rgba(252, 206, 0, 0.3)',
               }}
               onHoverStart={() => setHoveredProject(project.id)}
               onHoverEnd={() => setHoveredProject(null)}
@@ -97,7 +97,7 @@ const ProjectsSection = () => {
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0, opacity: 0 }}
-                  className='absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl blur-sm z-10'
+                  className='absolute inset-0 bg-gradient-to-r from-[#FCCE00]/20 to-[#FCCE00]/10 rounded-xl blur-sm z-10'
                 />
               )}
 
@@ -114,7 +114,7 @@ const ProjectsSection = () => {
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
-                  className='absolute top-4 left-4 w-1 h-1 bg-purple-400 rounded-full opacity-60'
+                  className='absolute top-4 left-4 w-1 h-1 bg-[#FCCE00] rounded-full opacity-60'
                 />
                 <motion.div
                   animate={{
@@ -127,7 +127,7 @@ const ProjectsSection = () => {
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
-                  className='absolute top-6 right-6 w-1 h-1 bg-pink-400 rounded-full opacity-60'
+                  className='absolute top-6 right-6 w-1 h-1 bg-[#333333] rounded-full opacity-60'
                 />
               </div>
 
@@ -190,7 +190,7 @@ const ProjectsSection = () => {
 
               {/* Project Content */}
               <div className='p-6 relative z-20'>
-                <h3 className='text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200'>
+                <h3 className='text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-[#FCCE00] dark:group-hover:text-[#FCCE00] transition-colors duration-200'>
                   {project.title}
                 </h3>
 
@@ -214,33 +214,43 @@ const ProjectsSection = () => {
                   ))}
                 </div>
 
-                {/* Action Button */}
+                {/* Action Buttons */}
                 {project.liveUrl ? (
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={project.liveUrl}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
-                  >
-                    <ExternalLink size={16} />
-                    Ver Site
-                  </motion.a>
+                  <div className='flex gap-3'>
+                    <motion.a
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={project.liveUrl}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='flex-1 bg-gradient-to-r from-[#333333] to-[#555555] text-white py-2 px-4 rounded-lg font-medium hover:from-[#222222] hover:to-[#444444] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
+                    >
+                      <ExternalLink size={16} />
+                      Ver Site
+                    </motion.a>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => openProjectModal(project)}
+                      className='flex-1 bg-[#FCCE00] hover:bg-[#E6B800] text-[#333333] py-2 px-4 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl font-semibold'
+                    >
+                      Saber Mais
+                    </motion.button>
+                  </div>
                 ) : (
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => openProjectModal(project)}
-                    className='w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 px-4 rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200 shadow-lg hover:shadow-xl'
+                    className='w-full bg-gradient-to-r from-[#333333] to-[#555555] text-white py-2 px-4 rounded-lg font-medium hover:from-[#222222] hover:to-[#444444] transition-all duration-200 shadow-lg hover:shadow-xl'
                   >
-                    Ver Detalhes
+                    Saber Mais
                   </motion.button>
                 )}
               </div>
 
               {/* Hover Effect */}
-              <div className='absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none' />
+              <div className='absolute inset-0 bg-gradient-to-br from-[#FCCE00]/10 to-[#333333]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none' />
             </motion.div>
           ))}
         </motion.div>
@@ -288,14 +298,39 @@ const ProjectsSection = () => {
                     alt={selectedProject.title}
                     width={800}
                     height={256}
-                    className='w-full h-64 object-cover rounded-lg'
+                    className='w-full h-64 object-contain rounded-lg bg-gray-50 dark:bg-gray-800'
                   />
                 </div>
 
-                {/* Project Details */}
+                {/* Project Role & Company Info */}
+                {selectedProject.role && selectedProject.company && (
+                  <div className='mb-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg border border-blue-200 dark:border-blue-700'>
+                    <div className='flex items-center gap-3'>
+                      <div className='w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold'>
+                        {selectedProject.company.charAt(0)}
+                      </div>
+                      <div>
+                        <p className='text-sm text-blue-600 dark:text-blue-400 font-medium'>
+                          {selectedProject.role}
+                        </p>
+                        <p className='text-lg font-semibold text-gray-900 dark:text-white'>
+                          {selectedProject.company}
+                        </p>
+                        {selectedProject.period && (
+                          <p className='text-sm text-gray-600 dark:text-gray-400'>
+                            {selectedProject.period}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Project Details Grid */}
                 <div className='grid md:grid-cols-2 gap-6 mb-6'>
                   <div>
-                    <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-3'>
+                    <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2'>
+                      <span className='w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full' />
                       Tecnologias Utilizadas
                     </h3>
                     <div className='flex flex-wrap gap-2'>
@@ -311,20 +346,29 @@ const ProjectsSection = () => {
                   </div>
 
                   <div>
-                    <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-3'>
-                      Tecnologias
+                    <h3 className='text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2'>
+                      <span className='w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full' />
+                      Principais Conquistas
                     </h3>
-                    <ul className='space-y-2 text-gray-600 dark:text-gray-400'>
-                      {selectedProject.technologies?.map(tech => (
-                        <li
-                          key={`${selectedProject.title}-tech-${tech}`}
-                          className='flex items-center'
-                        >
-                          <span className='w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mr-3' />
-                          {tech}
-                        </li>
-                      ))}
-                    </ul>
+                    {selectedProject.achievements ? (
+                      <ul className='space-y-2 text-gray-600 dark:text-gray-400'>
+                        {selectedProject.achievements
+                          .slice(0, 4)
+                          .map((achievement, index) => (
+                            <li
+                              key={`${selectedProject.title}-achievement-${index}`}
+                              className='flex items-start gap-2 text-sm'
+                            >
+                              <span className='w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0' />
+                              <span>{achievement}</span>
+                            </li>
+                          ))}
+                      </ul>
+                    ) : (
+                      <p className='text-gray-500 dark:text-gray-400 text-sm'>
+                        Projeto desenvolvido com foco em qualidade e performance
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -352,6 +396,12 @@ const ProjectsSection = () => {
                       <ExternalLink className='h-5 w-5' />
                       Ver Projeto
                     </a>
+                  )}
+
+                  {!selectedProject.githubUrl && !selectedProject.liveUrl && (
+                    <div className='w-full text-center py-3 text-gray-500 dark:text-gray-400 text-sm'>
+                      Projeto desenvolvido para empresa com código proprietário
+                    </div>
                   )}
                 </div>
               </div>

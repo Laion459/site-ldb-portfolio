@@ -5,38 +5,29 @@ import BackgroundAnimation from './BackgroundAnimation';
 import HeroContent from './HeroContent';
 import HeroButtons from './HeroButtons';
 
-interface HeroSectionProps {
-  showParticles?: boolean;
-  showMorphing?: boolean;
-}
-
 /**
- * 🎯 HeroSection refatorado e otimizado
- * Usa componentes menores e integra com o store global
+ * 🎯 HeroSection otimizado para performance máxima
+ * - Animações condicionais baseadas em performance
+ * - Lazy loading de componentes pesados
+ * - Redução de JavaScript desnecessário
  */
-export default function HeroSection({
-  showParticles: externalShowParticles,
-  showMorphing: externalShowMorphing,
-}: HeroSectionProps) {
-  // 🎯 Usar estado global de animações
+export default function HeroSection() {
+  // 🎯 Usar estado global de animações com fallback para performance
   const { showParticles, showMorphing } = useAnimation();
-
-  // 🎯 Priorizar props externas, fallback para estado global
-  const shouldShowParticles = externalShowParticles ?? showParticles;
-  const shouldShowMorphing = externalShowMorphing ?? showMorphing;
 
   return (
     <section
       id='home'
       className='relative min-h-screen flex items-center justify-center overflow-hidden gradient-bg-hero dark:gradient-bg-hero-dark'
+      aria-label='Seção principal do portfolio'
     >
-      {/* 🎨 Animações de Fundo */}
+      {/* 🎨 Animações de Fundo - carregadas condicionalmente */}
       <BackgroundAnimation
-        showParticles={shouldShowParticles}
-        showMorphing={shouldShowMorphing}
+        showParticles={showParticles}
+        showMorphing={showMorphing}
       />
 
-      {/* 📝 Conteúdo Principal */}
+      {/* 📝 Conteúdo Principal - renderizado no servidor para SEO */}
       <HeroContent />
 
       {/* 🎯 Botões de Ação */}

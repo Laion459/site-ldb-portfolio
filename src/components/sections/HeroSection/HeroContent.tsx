@@ -6,12 +6,12 @@ import { fadeInUp, slideInFromTop } from '@/utils/animations';
 
 /**
  * 📝 Componente para o conteúdo principal do HeroSection
- * Gerencia texto, títulos e descrições
+ * Otimizado para SEO com H1 principal e estrutura semântica
  */
 export default function HeroContent() {
   return (
     <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-      {/* 🎯 Título Principal */}
+      {/* 🎯 Título Principal - H1 único para SEO */}
       <motion.div
         variants={slideInFromTop}
         initial='initial'
@@ -23,7 +23,7 @@ export default function HeroContent() {
         </h1>
       </motion.div>
 
-      {/* 📖 Subtítulo e Descrição */}
+      {/* 📖 Subtítulo e Descrição - H2 para hierarquia SEO */}
       <motion.div
         variants={fadeInUp}
         initial='initial'
@@ -65,7 +65,7 @@ export default function HeroContent() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 1.4 }}
           >
-            PHP
+            Node.js
           </motion.span>
           .{' '}
           <motion.span
@@ -89,7 +89,7 @@ export default function HeroContent() {
         </motion.p>
       </motion.div>
 
-      {/* 🎯 Indicador de Scroll */}
+      {/* 🎯 Indicador de Scroll - acessível para SEO */}
       <motion.div
         variants={fadeInUp}
         initial='initial'
@@ -97,22 +97,25 @@ export default function HeroContent() {
         transition={{ delay: 0.4 }}
         className='flex justify-center'
       >
-        <motion.div
+        <motion.button
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className='cursor-pointer'
+          className='cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded-full p-2'
           onClick={() => {
             const element = document.querySelector('#about');
             if (element) {
               element.scrollIntoView({ behavior: 'smooth' });
             }
           }}
+          aria-label='Rolar para baixo para ver mais conteúdo'
+          title='Clique para ver mais conteúdo'
         >
           <svg
             className='h-8 w-8 text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200'
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'
+            aria-hidden='true'
           >
             <path
               strokeLinecap='round'
@@ -121,7 +124,7 @@ export default function HeroContent() {
               d='M19 14l-7 7m0 0l-7-7m7 7V3'
             />
           </svg>
-        </motion.div>
+        </motion.button>
       </motion.div>
     </div>
   );

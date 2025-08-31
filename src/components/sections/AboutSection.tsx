@@ -13,6 +13,13 @@ import {
 } from '@/utils/animations';
 import Image from 'next/image';
 
+/**
+ * 📖 AboutSection otimizado para SEO e acessibilidade
+ * - H2 principal para hierarquia de headings
+ * - H3 para subtítulos
+ * - H4 para pontos-chave
+ * - Imagens otimizadas com next/image
+ */
 const AboutSection = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
@@ -26,19 +33,23 @@ const AboutSection = () => {
     <section
       id='about'
       className='py-20 gradient-bg-card dark:gradient-bg-card-dark relative overflow-hidden'
+      aria-labelledby='about-title'
     >
       {/* Background elements com parallax */}
       <motion.div
         style={{ y: y1 }}
         className='absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-full blur-2xl'
+        aria-hidden='true'
       />
       <motion.div
         style={{ y: y2 }}
         className='absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl'
+        aria-hidden='true'
       />
       <motion.div
         style={{ y: y3 }}
         className='absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-br from-pink-400/20 to-rose-500/20 rounded-full blur-xl'
+        aria-hidden='true'
       />
 
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
@@ -49,7 +60,10 @@ const AboutSection = () => {
           animate={isVisible ? 'animate' : 'initial'}
           className='text-center mb-16'
         >
-          <h2 className='text-4xl md:text-5xl font-bold gradient-text-primary mb-6'>
+          <h2
+            id='about-title'
+            className='text-4xl md:text-5xl font-bold gradient-text-primary mb-6'
+          >
             Sobre Mim
           </h2>
           <div className='w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 mx-auto rounded-full shadow-lg' />
@@ -70,6 +84,7 @@ const AboutSection = () => {
                 initial='initial'
                 animate={isVisible ? 'animate' : 'initial'}
                 className='absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-cyan-500 rounded-full transform rotate-6 scale-110 opacity-20'
+                aria-hidden='true'
               />
 
               {/* Main photo com efeito 3D */}
@@ -89,9 +104,11 @@ const AboutSection = () => {
               >
                 <Image
                   src={SITE_CONFIG.images.profile}
-                  alt='Leonardo - Backend Engineer'
+                  alt='Leonardo D. Borges - Full Stack Developer e Product Manager'
                   fill
                   className='object-cover'
+                  priority
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 />
                 {/* Fallback placeholder */}
                 <div className='hidden w-full h-full bg-gradient-to-br from-gray-200 via-blue-200 to-purple-200 dark:from-gray-700 dark:via-blue-700 dark:to-purple-700 flex items-center justify-center text-gray-500 dark:text-gray-400 text-6xl font-bold'>
@@ -107,6 +124,8 @@ const AboutSection = () => {
                 className='absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-primary cursor-pointer'
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 transition={{ duration: 0.3 }}
+                aria-label='Ícone de foguete representando inovação'
+                role='img'
               >
                 🚀
               </motion.div>
@@ -118,6 +137,8 @@ const AboutSection = () => {
                 className='absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-accent cursor-pointer'
                 whileHover={{ scale: 1.2, rotate: -360 }}
                 transition={{ duration: 0.3, delay: 0.5 }}
+                aria-label='Ícone de raio representando velocidade'
+                role='img'
               >
                 ⚡
               </motion.div>
@@ -126,6 +147,8 @@ const AboutSection = () => {
               <motion.div
                 style={{ y: y1 }}
                 className='absolute top-1/4 -left-8 w-8 h-8 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg'
+                aria-label='Ícone de computador representando tecnologia'
+                role='img'
               >
                 💻
               </motion.div>
@@ -133,6 +156,8 @@ const AboutSection = () => {
               <motion.div
                 style={{ y: y2 }}
                 className='absolute bottom-1/4 -right-6 w-10 h-10 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg'
+                aria-label='Ícone de fogo representando paixão'
+                role='img'
               >
                 🔥
               </motion.div>
@@ -265,7 +290,8 @@ const AboutSection = () => {
               <a
                 href={SITE_CONFIG.cvUrl}
                 download
-                className='inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-accent'
+                className='inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-accent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+                aria-label='Baixar currículo em PDF'
               >
                 <Download className='mr-2 h-5 w-5' />
                 Download CV
@@ -273,7 +299,8 @@ const AboutSection = () => {
 
               <a
                 href='#contact'
-                className='inline-flex items-center justify-center px-6 py-3 border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-accent'
+                className='inline-flex items-center justify-center px-6 py-3 border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-accent focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2'
+                aria-label='Ir para seção de contato'
               >
                 <ExternalLink className='mr-2 h-5 w-5' />
                 Vamos Conversar

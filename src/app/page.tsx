@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
@@ -9,95 +8,134 @@ import ExperienceSection from '@/components/sections/ExperienceSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ContactSection from '@/components/sections/ContactSection';
-import TouchGestures from '@/components/ui/TouchGestures';
-import AdvancedLoading from '@/components/ui/AdvancedLoading';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
-import { useState, useEffect } from 'react';
+import { JsonLd } from '@/components/ui/JsonLd';
+
+// 🚀 Metadados otimizados para SEO
+export const metadata: Metadata = {
+  title: 'Leonardo - Full Stack Developer | APIs Escaláveis e Seguras',
+  description:
+    'Portfolio profissional de Leonardo, desenvolvedor Full Stack especializado em criar APIs, aplicações web e sites escaláveis, seguras e de alta performance.',
+  keywords: [
+    'Full Stack Developer',
+    'Backend Engineer',
+    'Node.js Developer',
+    'Laravel Developer',
+    'React Developer',
+    'Next.js Developer',
+    'API Development',
+    'PostgreSQL',
+    'Microservices',
+    'Web Development',
+    'Software Engineer',
+    'Brazil Developer',
+    'Remote Developer',
+  ],
+  openGraph: {
+    title: 'Leonardo - Full Stack Developer | APIs Escaláveis e Seguras',
+    description:
+      'Portfolio profissional de Leonardo, desenvolvedor Full Stack especializado em criar APIs, aplicações web e sites escaláveis, seguras e de alta performance.',
+    url: 'https://leonardo-portfolio.com',
+    siteName: 'Leonardo Portfolio',
+    images: [
+      {
+        url: '/images/profile/leonardo.JPG',
+        width: 1200,
+        height: 630,
+        alt: 'Leonardo - Full Stack Developer Portfolio',
+      },
+    ],
+    locale: 'pt_BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Leonardo - Full Stack Developer | APIs Escaláveis e Seguras',
+    description:
+      'Portfolio profissional de Leonardo, desenvolvedor Full Stack especializado em criar APIs, aplicações web e sites escaláveis, seguras e de alta performance.',
+    images: ['/images/profile/leonardo.JPG'],
+  },
+  alternates: {
+    canonical: '/',
+  },
+};
+
+// 🚀 Dados estruturados para a página principal
+const homePageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Leonardo Portfolio - Página Inicial',
+  description: 'Portfolio profissional de Leonardo, desenvolvedor Full Stack',
+  url: 'https://leonardo-portfolio.com',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Leonardo',
+    jobTitle: 'Full Stack Developer',
+    description:
+      'Desenvolvedor Full Stack especializado em criar APIs, aplicações web e sites escaláveis, seguras e de alta performance.',
+    knowsAbout: [
+      'Node.js',
+      'Laravel',
+      'React',
+      'Next.js',
+      'PostgreSQL',
+      'API Development',
+      'Microservices',
+      'Full Stack Development',
+    ],
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Início',
+        item: 'https://leonardo-portfolio.com',
+      },
+    ],
+  },
+};
+
+// 🚀 Configuração para SSG (Static Site Generation)
+export const revalidate = 86400; // Revalidar a cada 24 horas
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showParticles, setShowParticles] = useState(false);
-  const [showMorphing, setShowMorphing] = useState(false);
-
-  useEffect(() => {
-    // Simular carregamento inicial
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      // Ativar sistemas avançados após carregamento
-      setTimeout(() => setShowParticles(true), 500);
-      setTimeout(() => setShowMorphing(true), 1000);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <ThemeProvider>
-      <main className='min-h-screen overflow-x-hidden relative'>
-        {/* Navbar com glassmorphism avançado */}
-        <Navbar />
+    <>
+      {/* 🏷️ Dados estruturados JSON-LD */}
+      <JsonLd data={homePageJsonLd} />
 
-        {/* Loading Avançado */}
-        <AdvancedLoading
-          isLoading={isLoading}
-          skeleton={
-            <div className='min-h-screen flex items-center justify-center'>
-              <div className='text-center space-y-6'>
-                <div className='w-24 h-24 mx-auto'>
-                  <div className='w-full h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse' />
-                </div>
-                <div className='space-y-3'>
-                  <div className='w-48 h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse' />
-                  <div className='w-64 h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse' />
-                </div>
-              </div>
-            </div>
-          }
-        >
-          {/* Hero Section com Touch Gestures */}
-          <TouchGestures
-            onSwipe={direction => {
-              // Navegar para seções baseado no swipe
-              if (direction === 'down') {
-                document
-                  .getElementById('about')
-                  ?.scrollIntoView({ behavior: 'smooth' });
-              } else if (direction === 'up') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
-            onDoubleTap={() => {
-              // Ação especial no double tap
-            }}
-          >
-            <HeroSection
-              showParticles={showParticles}
-              showMorphing={showMorphing}
-            />
-          </TouchGestures>
+      <ThemeProvider>
+        <main className='min-h-screen overflow-x-hidden relative'>
+          {/* 🧭 Navegação principal */}
+          <Navbar />
 
-          {/* About Section */}
+          {/* 🎯 Seção Hero - H1 principal para SEO */}
+          <HeroSection />
+
+          {/* 📖 Seção Sobre - H2 para SEO */}
           <AboutSection />
 
-          {/* Skills Section */}
+          {/* 🛠️ Seção Habilidades - H2 para SEO */}
           <SkillsSection />
 
-          {/* Experience Section */}
+          {/* 💼 Seção Experiência - H2 para SEO */}
           <ExperienceSection />
 
-          {/* Projects Section */}
+          {/* 🚀 Seção Projetos - H2 para SEO */}
           <ProjectsSection />
 
-          {/* Testimonials Section */}
+          {/* 💬 Seção Depoimentos - H2 para SEO */}
           <TestimonialsSection />
 
-          {/* Contact Section */}
+          {/* 📞 Seção Contato - H2 para SEO */}
           <ContactSection />
-        </AdvancedLoading>
 
-        {/* Footer com ícones SVG reais */}
-        <Footer />
-      </main>
-    </ThemeProvider>
+          {/* 🦶 Rodapé com informações de contato */}
+          <Footer />
+        </main>
+      </ThemeProvider>
+    </>
   );
 }
